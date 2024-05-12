@@ -1,0 +1,10 @@
+title: Devi Parikh
+email: parikh@gatech.edu
+description: Devi Parikh's Homepage
+baseurl: "" # the subpath of your site, e.g. /blog
+url: "https://www.cc.gatech.edu/~parikh/" # the base hostname & protocol for your site
+
+# Build settings
+markdown: kramdown
+include: ['_pages']
+ga_id: UA-119138789-1
