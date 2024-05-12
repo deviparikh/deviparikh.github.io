@@ -2,7 +2,7 @@
 layout: project
 urltitle:  "Devi Parikh - Home"
 title: "Devi Parikh - Home"
-categories: Devi Parikh, Meta AI, FAIR, Georgia Tech, AI, Artificial Intelligence, Computer Vision, Natural Language Processing, Visual Intelligence Lab
+categories: Devi Parikh, GenAI, Meta AI, FAIR, Georgia Tech, AI, Artificial Intelligence, Computer Vision, Natural Language Processing, Visual Intelligence Lab
 permalink: ./
 favicon: static/img/devi/devi.png
 ---
@@ -15,12 +15,13 @@ favicon: static/img/devi/devi.png
     </a>
   </div>
   <div class="col-sm-5">
-    Research Director
+    Previously: Senior Director
     <br>
     <a href="https://research.fb.com/category/facebook-ai-research-fair/">
-    Fundamental AI Research (FAIR), Meta</a>
+    Generative AI, Meta
+    </a>
     <br>
-    Associate Professor
+    Associate Professor (on leave since 2021)
     <br>
     <a href="https://www.ic.gatech.edu/"> School of Interactive Computing </a>
     <br>
@@ -45,9 +46,10 @@ favicon: static/img/devi/devi.png
     Research interests
   <ul>
     <li>Artificial Intelligence</li>
-    <!-- <li>Computer Vision</li> -->
+    <li>Multimodal AI</li>
     <li>Vision and Language</li>
     <li>AI for Creativity</li>
+    <li>Generative AI</li>
     <!-- <li>Commonsense Reasoning</li> -->
     <li>Human-AI Collaboration</li>
   </ul>
@@ -58,6 +60,13 @@ favicon: static/img/devi/devi.png
 <!-- %%%%%%%%%%%%%%%%%%% NEWS %%%%%%%%%%%%%%%%%%% -->
 <!-- <a class="anchor" name="/news"></a> -->
 ## News
+- 2024: After 7.5 years, I left Meta. Stay tuned for what's next!
+- 2023: Introduced [Emu][emu-announcement], [Emu Edit][emu-edit-website], [Emu Video][emu-video-website], and [Emu Video Edit][emu-video-edit-website]!
+- 2023: I moved to the new Generative AI org at Meta!
+- 2023: [Make-A-Video3D][make-a-video3d-website]. Text-to-4D dynamic scene generation.
+- 2022: [Make-A-Video][make-a-video-website]. First of its kind text-to-video generation.
+- 2022: [AudioGen][audiogen-website]. First of its kind text-to-audio generation.
+- 2022: Make-A-Scene. [Greater creative control for AI image generation][make-a-scene-blogpost].
 - 2020: Introducing [Humans of AI: Stories, Not Stats][humanstoriesai]! A series where I interview AI researchers to get to know them better as people.
 - 2020: Introducing [AI Paygrades][aipaygrades]! Statistics of industry job offers in AI. Goal is to reduce information asymmetry so candidates can make informed decisions. Submit your information and spread the word!
 - 2019: I was added to GASP Gallery's list of artists! It lets you create your own generative art in styles of several artists.
@@ -185,6 +194,14 @@ I've spent several months at:
 </div>
 <hr>
 -->
+[emu-announcement]: https://about.fb.com/news/2023/09/introducing-ai-powered-assistants-characters-and-creative-tools/
+[emu-edit-website]: https://emu-edit.metademolab.com/
+[emu-video-website]: https://emu-video.metademolab.com/
+[emu-video-edit-website]: https://fdd-video-edit.github.io/
+[audiogen-website]: https://felixkreuk.github.io/audiogen/
+[make-a-video3d-website]: https://make-a-video3d.github.io/
+[make-a-video-website]: https://makeavideo.studio/
+[make-a-scene-blogpost]: https://ai.facebook.com/blog/greater-creative-control-for-ai-image-generation/
 [humanstoriesai]: http://humanstories.ai
 [aipaygrades]: http://aipaygrad.es
 [gasp]: https://www.gasp.gallery/
