@@ -34,8 +34,8 @@ favicon: static/img/deviparikh.png
     <!--<a href="https://twitter.com/deviparikh?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-screen-name="false" data-show-count="false">Follow @deviparikh</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
     <br>
     <!-- <a href = "{{ site.baseurl }}./DeviParikh_bio.txt"> Bio </a>, -->
-    <a href = "{{ site.baseurl }}./bio.html"> Bio </a>,
-    <a href = "{{ site.baseurl }}./Parikh_CV.pdf"> CV </a> 
+    <!-- <a href = "{{ site.baseurl }}./bio.html"> Bio </a>, -->
+    <!-- <a href = "{{ site.baseurl }}./Parikh_CV.pdf"> CV </a>  -->
     <!-- <a href = "{{ site.baseurl }}./teaching.html"> Teaching </a>, -->
     <!-- <a href = "{{ site.baseurl }}./press.html"> Press </a>,  -->
         <!-- <a href = "https://medium.com/@deviparikh/calendar-in-stead-of-to-do-lists-9ada86a512dd"> Time management</a> -->
@@ -62,7 +62,7 @@ favicon: static/img/deviparikh.png
 <!-- %%%%%%%%%%%%%%%%%%% NEWS %%%%%%%%%%%%%%%%%%% -->
 <!-- <a class="anchor" name="/news"></a> -->
 ## News
-- 2024: After 7.5 years, I left my role as a Senior Director in GenAI at Meta. Stay tuned for what's next!
+- 2024: I left my role as a Senior Director in GenAI at Meta. Stay tuned for what's next!
 - 2023: Introduced [Emu][emu-announcement], [Emu Edit][emu-edit-website], [Emu Video][emu-video-website], and [Emu Video Edit][emu-video-edit-website]!
 - 2023: I moved to the new Generative AI org at Meta!
 - 2023: [Make-A-Video3D][make-a-video3d-website]. Text-to-4D dynamic scene generation.
