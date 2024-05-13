@@ -9,40 +9,24 @@ favicon: static/img/deviparikh.png
 <!-- %%%%%%%%%%%%%%%%%%% OVERVIEW %%%%%%%%%%%%%%%%%%% -->
 <div class="row" style="margin-top:30px;">
   <div class="col-sm-3">
-    <a href="https://www.cc.gatech.edu/~parikh/">
+    <a href="http://deviparikh.com">
       <img class="my-pic" src="static/img/deviparikh.png">
     </a>
   </div>
   <div class="col-sm-5">
-    <!-- Previously: Senior Director
-    <br>
-    <a href="https://research.fb.com/category/facebook-ai-research-fair/">
-    Generative AI, Meta
-    </a>
-    <br> -->
     (On leave since 2021)
     <br>
     Associate Professor
-    <!-- <br> -->
-    <!-- <a href="https://www.ic.gatech.edu/"> School of Interactive Computing </a> -->
     <br>
     <a href="http://www.gatech.edu/"> Georgia Tech </a>
     <br>
-    <!-- Email:  -->
-    <a href="mailto:parikh@gatech.edu"> parikh@gatech.edu </a>
-    <!-- Office: Coda S1165B -->
-    <!--<a href="https://twitter.com/deviparikh?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-screen-name="false" data-show-count="false">Follow @deviparikh</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
+    <a href="mailto:deviparikh.dp@gmail.com"> deviparikh.dp@gmail.com </a>
     <br>
-    <!-- <a href = "{{ site.baseurl }}./DeviParikh_bio.txt"> Bio </a>, -->
-    <!-- <a href = "{{ site.baseurl }}./bio.html"> Bio </a>, -->
-    <!-- <a href = "{{ site.baseurl }}./Parikh_CV.pdf"> CV </a>  -->
-    <!-- <a href = "{{ site.baseurl }}./teaching.html"> Teaching </a>, -->
-    <!-- <a href = "{{ site.baseurl }}./press.html"> Press </a>,  -->
-        <!-- <a href = "https://medium.com/@deviparikh/calendar-in-stead-of-to-do-lists-9ada86a512dd"> Time management</a> -->
-    <!-- <a href = "https://medium.com/@deviparikh/checking-email-to-inbox-zero-e00d478cdd4b"> maintaining inbox zero</a> -->
-    <!-- <br> -->
-    <!-- <a href = "{{ site.baseurl }}./note_to_prospective_students.txt"> Interested in joining my lab? Read this.</a> -->
-    <!-- <a href = "{{ site.baseurl }}./note.html"> For prospective students</a> -->
+    <a href = "{{ site.baseurl }}./bio.html"> Bio </a>,
+    <a href = "{{ site.baseurl }}./static/Parikh_CV.pdf"> CV </a>, 
+    <a href = "{{ site.baseurl }}./previous_life.html"> Previous life </a>
+    
+
   </div>
   <!-- <div class="col-sm-4"> -->
     <!-- Research interests -->
@@ -274,7 +258,6 @@ I've spent several months at:
 [rowan]: https://www.rowan.edu
 [rowan-ece]: https://academics.rowan.edu/engineering/programs/electricalcomputer
 [polikar]: http://users.rowan.edu/~polikar/
-
 [ri]: http://www.ri.cmu.edu/
 [cmu-index]: http://www.cmu.edu/index.shtml
 [cmu-edu]: http://www.cs.cmu.edu/%7Ehebert/

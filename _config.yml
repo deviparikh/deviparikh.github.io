@@ -1,8 +1,7 @@
 title: Devi Parikh
-email: parikh@gatech.edu
 description: Devi Parikh's Homepage
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "https://www.cc.gatech.edu/~parikh/" # the base hostname & protocol for your site
+url: "http://deviparikh.com" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
