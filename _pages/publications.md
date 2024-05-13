@@ -2,9 +2,8 @@
 layout: pub
 urltitle: "Devi Parikh - Publications"
 title: "Devi Parikh - Publications"
-categories: Devi Parikh, Facebook AI Research, Georgia Tech, AI, Artificial Intelligence, Computer Vision, Natural Language Processing
 permalink: /publications
-favicon: static/img/devi/devi.png
+favicon: static/img/deviparikh.png
 ---
 
 # Publications
@@ -14,16 +13,199 @@ favicon: static/img/devi/devi.png
 {::options parse_block_html="true" /}
 
 <div class="year-links">
-[[2022]][2022][[2021]][2021][[2020]][2020][[2019]][2019][[2018]][5][[2017]][6][[2016]][7][[2015]][8][[2014]][9][[2013]][10][[2012]][11][[2011]][12][[2010]][2010][[2009]][13][[2008]][14][[2007]][15][[2006]][16][[2005]][17][[2004]][18][[2002]][19]
+[[2024]][2024][[2023]][2023][[2022]][2022][[2021]][2021][[2020]][2020][[2019]][2019][[2018]][5][[2017]][6][[2016]][7][[2015]][8][[2014]][9][[2013]][10][[2012]][11][[2011]][12][[2010]][2010][[2009]][13][[2008]][14][[2007]][15][[2006]][16][[2005]][17][[2004]][18][[2002]][19]
 </div>
 
 {::options parse_block_html="false" /}
+
 
 ##### Latest arXiv Manuscripts
 {:.mt-2 .mb-2}
 
 {::options parse_block_html="true" /}
 
+
+
+
+<div class="row vertical-align">
+<div class="col-sm-5">
+<img alt="topics" src="{{ site.baseurl }}static/img/pub/emu-video-edit.gif">
+</div>
+<div class="col-sm-7">
+
+Uriel Singer\*, Amit Zohar\*, Yuval Kirstain, Shelly Sheynin, Adam Polyak, Devi Parikh, Yaniv Taigman
+
+\* equal contribution
+
+[Video Editing via Factorized Diffusion Distillation (a.k.a, Emu Video Edit (EVE))][emu-video-edit]
+
+arXiv:2403.09334 2024
+
+[[project page][emu-video-edit-project]]
+
+<span class="md-grey">AI + Creativity</span>
+
+</div>
+</div><hr>
+
+<div class="row vertical-align">
+<div class="col-sm-5">
+<img alt="topics" src="{{ site.baseurl }}static/img/pub/emu-video.gif">
+</div>
+<div class="col-sm-7">
+
+Rohit Girdhar\*^, Mannat Singh\*^, Andrew Brown\*, Quentin Duval\*, Samaneh Azadi\*, Sai Saketh Rambhatla, Akbar Shah, Xi Yin, Devi Parikh, Ishan Misra
+
+\* equal first authors
+^ equal technical contributions
+
+[Emu Video: Factorizing Text-to-Video Generation by Explicit Image Conditioning][emu-video]
+
+arXiv:2311.10709, 2023
+
+[[project page][emu-video-project]]
+
+<span class="md-grey">AI + Creativity</span>
+
+</div>
+</div><hr>
+
+<div class="row vertical-align">
+<div class="col-sm-5">
+<img alt="topics" src="{{ site.baseurl }}static/img/pub/emus.gif">
+</div>
+<div class="col-sm-7">
+
+Xiaoliang Dai\*, Ji Hou\*, Chih-Yao Ma\*, Sam Tsai\*, Jialiang Wang\*, Rui Wang\*, Peizhao Zhang\*, Simon Vandenhende, Xiaofang Wang, Abhimanyu Dubey, Matthew Yu, Abhishek Kadian, Filip Radenovic, Dhruv Mahajan, Kunpeng Li, Yue Zhao, Vladan Petrovic, Mitesh Kumar Singh, Simran Motwani, Yi Wen, Yiwen Song, Roshan Sumbaly^, Vignesh Ramanathan^, Zijian He^, Peter Vajda^, Devi Parikh^
+
+\* equal contribution, alphabetical order,
+^ equal last authors
+
+[Emu: Enhancing Image Generation Models Using Photogenic Needles in a Haystack][emu]
+
+arXiv:2309.15807, 2023
+
+<span class="md-grey">AI + Creativity</span>
+
+</div>
+</div><hr>
+
+
+{::options parse_block_html="false" /}
+
+##### 2024 [[back to top][btt]]
+{:.mt-2 .mb-2}
+
+{::options parse_block_html="true" /}
+
+<div class="row vertical-align">
+<div class="col-sm-5">
+<img alt="topics" src="{{ site.baseurl }}static/img/pub/emu-edit.gif">
+</div>
+<div class="col-sm-7">
+
+Shelly Sheynin\*, Adam Polyak\*, Uriel Singer\*, Yuval Kirstain\*, Amit Zohar\*, Oron Ashual, Devi Parikh, Yaniv Taigman
+
+\* equal contribution
+
+[Emu Edit: Precise Image Editing via Recognition and Generation Tasks][emu-edit]
+
+IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2024
+
+[[project page][emu-edit-project]]
+
+<span class="md-grey">AI + Creativity</span>
+
+</div>
+</div><hr>
+
+{::options parse_block_html="false" /}
+
+
+##### 2023 [[back to top][btt]]
+{:.mt-2 .mb-2}
+
+{::options parse_block_html="true" /}
+
+<div class="row vertical-align">
+<div class="col-sm-5">
+<img alt="topics" src="{{ site.baseurl }}static/img/pub/moving-avatars.gif">
+</div>
+<div class="col-sm-7">
+
+Samaneh Azadi, Akbar Shah, Thomas Hayes,  Devi Parikh, Sonal Gupta
+
+[Make-An-Animation: Large-Scale Text-conditional 3D Human Motion Generation][moving-avatars]
+
+International Conference on Computer Vision (ICCV), 2023
+
+[[project page][moving-avatars-project]]
+
+<span class="md-grey">AI + Creativity</span>
+
+</div>
+</div><hr>
+
+<div class="row vertical-align">
+<div class="col-sm-5">
+<img alt="topics" src="{{ site.baseurl }}static/img/pub/avatars.png">
+</div>
+<div class="col-sm-7">
+
+Samaneh Azadi\*, Thomas Hayes\*, Akbar Shah, Guan Pang, Devi Parikh, Sonal Gupta
+
+\* equal contribution
+
+[Text-Conditional Contextualized Avatars For Zero-Shot Personalization][avatars]
+
+arXiv:2304.07410, 2023
+
+<span class="md-grey">AI + Creativity</span>
+
+</div>
+</div><hr>
+
+
+
+<div class="row vertical-align">
+<div class="col-sm-5">
+<img alt="topics" src="{{ site.baseurl }}static/img/pub/makeavideo3d.gif">
+</div>
+<div class="col-sm-7">
+
+Uriel Singer\*, Shelly Sheynin\*, Adam Polyak\*, Oron Ashual, Iurii Makarov, Filippos Kokkinos, Naman Goyal, Andrea Vedaldi, Devi Parikh, Justin Johnson, Yaniv Taigman
+
+\* equal contribution
+
+[Text-To-4D Dynamic Scene Generation][makeavideo3d]
+
+International Conference on Machine Learning (ICML), 2023
+
+[[project page][makeavideo3d-project]]
+
+<span class="md-grey">AI + Creativity</span>
+
+</div>
+</div><hr>
+
+<div class="row vertical-align">
+<div class="col-sm-5">
+<img alt="topics" src="{{ site.baseurl }}static/img/pub/spatext.png">
+</div>
+<div class="col-sm-7">
+
+Omri Avrahami, Thomas Hayes, Oran Gafni, Sonal Gupta, Yaniv Taigman, Devi Parikh, Dani Lischinski, Ohad Fried, Xi Yin
+
+[SpaText: Spatio-Textual Representation for Controllable Image Generation][spatext]
+
+IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2023
+
+[[project page][spatext-project]]
+
+<span class="md-grey">AI + Creativity</span>
+
+</div>
+</div><hr>
 
 <div class="row vertical-align">
 <div class="col-sm-5">
@@ -37,7 +219,7 @@ Uriel Singer\*, Adam Polyak\*, Thomas Hayes\*, Xi Yin\*, Jie An, Songyang Zhang,
 
 [Make-A-Video: Text-to-Video Generation without Text-Video Data][makeavideo]
 
-arXiv:2209.14792, 2022
+International Conference on Learning Representations (ICLR), 2023
 
 [[project page][makeavideo-project]]
 
@@ -56,7 +238,7 @@ Felix Kreuk, Gabriel Synnaeve, Adam Polyak, Uriel Singer, Alexandre Défossez1, 
 
 [AudioGen: Textually Guided Audio Generation][audiogen]
 
-2022
+International Conference on Learning Representations (ICLR), 2023
 
 [[project page][audiogen-project]]
 
@@ -64,7 +246,6 @@ Felix Kreuk, Gabriel Synnaeve, Adam Polyak, Uriel Singer, Alexandre Défossez1, 
 
 </div>
 </div><hr>
-
 
 {::options parse_block_html="false" /}
 
@@ -3351,6 +3532,8 @@ Proceedings of Industrial and Hazardous Waste Conference, 2002
 [2]: publications_topic
 [3]: publications
 [latest]: #latest-arxiv-manuscripts-back-to-top
+[2024]: #2024-back-to-top
+[2023]: #2023-back-to-top
 [2022]: #2022-back-to-top
 [2021]: #2021-back-to-top
 [2020]: #2020-back-to-top
@@ -3371,6 +3554,20 @@ Proceedings of Industrial and Hazardous Waste Conference, 2002
 [17]: #2005-back-to-top
 [18]: #2004-back-to-top
 [19]: #2002-back-to-top
+[emu-video-edit]: https://arxiv.org/abs/2403.09334
+[emu-video-edit-project]: https://fdd-video-edit.github.io/
+[emu-edit]: https://arxiv.org/abs/2311.10089
+[emu-video]: https://arxiv.org/abs/2311.10709
+[emu-edit-project]: https://emu-edit.metademolab.com/
+[emu-video-project]: https://emu-video.metademolab.com/
+[emu]: https://arxiv.org/abs/2309.15807
+[moving-avatars]: https://arxiv.org/abs/2305.09662
+[moving-avatars-project]: https://azadis.github.io/make-an-animation/
+[avatars]: https://arxiv.org/abs/2304.07410
+[makeavideo3d]: https://arxiv.org/abs/2301.11280
+[makeavideo3d-project]: https://make-a-video3d.github.io/
+[spatext]: https://arxiv.org/abs/2211.14305
+[spatext-project]: https://omriavrahami.com/spatext/
 [audiogen]: https://arxiv.org/abs/2209.15352
 [audiogen-project]: https://felixkreuk.github.io/text2audio_arxiv_samples/
 [makeavideo-project]: https://makeavideo.studio/

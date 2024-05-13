@@ -2,65 +2,67 @@
 layout: project
 urltitle:  "Devi Parikh - Home"
 title: "Devi Parikh - Home"
-categories: Devi Parikh, GenAI, Meta AI, FAIR, Georgia Tech, AI, Artificial Intelligence, Computer Vision, Natural Language Processing, Visual Intelligence Lab
 permalink: ./
-favicon: static/img/devi/devi.png
+favicon: static/img/deviparikh.png
 ---
 
 <!-- %%%%%%%%%%%%%%%%%%% OVERVIEW %%%%%%%%%%%%%%%%%%% -->
 <div class="row" style="margin-top:30px;">
   <div class="col-sm-3">
     <a href="https://www.cc.gatech.edu/~parikh/">
-      <img class="my-pic" src="static/img/devi/deviparikh.jpg">
+      <img class="my-pic" src="static/img/deviparikh.png">
     </a>
   </div>
   <div class="col-sm-5">
-    Previously: Senior Director
+    <!-- Previously: Senior Director
     <br>
     <a href="https://research.fb.com/category/facebook-ai-research-fair/">
     Generative AI, Meta
     </a>
+    <br> -->
+    (On leave since 2021)
     <br>
-    Associate Professor (on leave since 2021)
-    <br>
-    <a href="https://www.ic.gatech.edu/"> School of Interactive Computing </a>
+    Associate Professor
+    <!-- <br> -->
+    <!-- <a href="https://www.ic.gatech.edu/"> School of Interactive Computing </a> -->
     <br>
     <a href="http://www.gatech.edu/"> Georgia Tech </a>
     <br>
-    Email: <a href="mailto:parikh@gatech.edu"> parikh@gatech.edu </a>
-    Office: Coda S1165B
+    <!-- Email:  -->
+    <a href="mailto:parikh@gatech.edu"> parikh@gatech.edu </a>
+    <!-- Office: Coda S1165B -->
     <!--<a href="https://twitter.com/deviparikh?ref_src=twsrc%5Etfw" class="twitter-follow-button" data-show-screen-name="false" data-show-count="false">Follow @deviparikh</a><script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>-->
     <br>
     <!-- <a href = "{{ site.baseurl }}./DeviParikh_bio.txt"> Bio </a>, -->
     <a href = "{{ site.baseurl }}./bio.html"> Bio </a>,
-    <a href = "{{ site.baseurl }}./Parikh_CV.pdf"> CV </a>, 
-    <a href = "{{ site.baseurl }}./teaching.html"> Teaching </a>,
-    <a href = "{{ site.baseurl }}./press.html"> Press </a>, 
-        <a href = "https://medium.com/@deviparikh/calendar-in-stead-of-to-do-lists-9ada86a512dd"> Time management</a>
+    <a href = "{{ site.baseurl }}./Parikh_CV.pdf"> CV </a> 
+    <!-- <a href = "{{ site.baseurl }}./teaching.html"> Teaching </a>, -->
+    <!-- <a href = "{{ site.baseurl }}./press.html"> Press </a>,  -->
+        <!-- <a href = "https://medium.com/@deviparikh/calendar-in-stead-of-to-do-lists-9ada86a512dd"> Time management</a> -->
     <!-- <a href = "https://medium.com/@deviparikh/checking-email-to-inbox-zero-e00d478cdd4b"> maintaining inbox zero</a> -->
-    <br>
+    <!-- <br> -->
     <!-- <a href = "{{ site.baseurl }}./note_to_prospective_students.txt"> Interested in joining my lab? Read this.</a> -->
-    <a href = "{{ site.baseurl }}./note.html"> For prospective students</a>
+    <!-- <a href = "{{ site.baseurl }}./note.html"> For prospective students</a> -->
   </div>
-  <div class="col-sm-4">
-    Research interests
-  <ul>
-    <li>Artificial Intelligence</li>
-    <li>Multimodal AI</li>
-    <li>Vision and Language</li>
-    <li>AI for Creativity</li>
-    <li>Generative AI</li>
+  <!-- <div class="col-sm-4"> -->
+    <!-- Research interests -->
+  <!-- <ul> -->
+    <!-- <li>Artificial Intelligence</li> -->
+    <!-- <li>Multimodal AI</li> -->
+    <!-- <li>Vision and Language</li> -->
+    <!-- <li>AI for Creativity</li> -->
+    <!-- <li>Generative AI</li> -->
     <!-- <li>Commonsense Reasoning</li> -->
-    <li>Human-AI Collaboration</li>
-  </ul>
-</div>
+    <!-- <li>Human-AI Collaboration</li> -->
+  <!-- </ul> -->
+<!-- </div> -->
 </div>
 <hr>
 
 <!-- %%%%%%%%%%%%%%%%%%% NEWS %%%%%%%%%%%%%%%%%%% -->
 <!-- <a class="anchor" name="/news"></a> -->
 ## News
-- 2024: After 7.5 years, I left Meta. Stay tuned for what's next!
+- 2024: After 7.5 years, I left my role as a Senior Director in GenAI at Meta. Stay tuned for what's next!
 - 2023: Introduced [Emu][emu-announcement], [Emu Edit][emu-edit-website], [Emu Video][emu-video-website], and [Emu Video Edit][emu-video-edit-website]!
 - 2023: I moved to the new Generative AI org at Meta!
 - 2023: [Make-A-Video3D][make-a-video3d-website]. Text-to-4D dynamic scene generation.
