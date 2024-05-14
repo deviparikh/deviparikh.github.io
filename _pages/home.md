@@ -23,10 +23,9 @@ favicon: static/img/deviparikh.png
     <a href="mailto:deviparikh.dp@gmail.com"> deviparikh.dp@gmail.com </a>
     <br>
     <a href = "{{ site.baseurl }}./bio.html"> Bio </a>,
-    <a href = "{{ site.baseurl }}./static/Parikh_CV.pdf"> CV </a>, 
+    <a href = "{{ site.baseurl }}./Parikh_CV.pdf"> CV </a>, 
     <a href = "{{ site.baseurl }}./previous_life.html"> Previous life </a>
     
-
   </div>
   <!-- <div class="col-sm-4"> -->
     <!-- Research interests -->
