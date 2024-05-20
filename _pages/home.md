@@ -20,7 +20,9 @@ favicon: static/img/deviparikh.png
     <br>
     <a href="http://www.gatech.edu/"> Georgia Tech </a>
     <br>
+    <br>
     <a href="mailto:deviparikh.dp@gmail.com"> deviparikh.dp@gmail.com </a>
+    <br>
     <br>
     <a href = "{{ site.baseurl }}./bio.html"> Bio </a>,
     <a href = "{{ site.baseurl }}./Parikh_CV.pdf"> CV </a>, 
