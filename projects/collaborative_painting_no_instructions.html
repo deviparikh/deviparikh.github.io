@@ -1,0 +1,566 @@
+<html>
+  <head>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+    <script src='//cdnjs.cloudflare.com/ajax/libs/json3/3.3.2/json3.min.js'></script>
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css" rel="stylesheet">
+    <script type="text/javascript">
+
+    var max_stroke_length = 5000;
+    var line_darkness = 0.6
+
+
+    var color1 = '#d7320f';
+    var color2 = '#e97219';
+    var color3 = '#dbc43b';
+    var color4 = '#49a64c';
+    var color5 = '#0B8989';
+    var color6 = '#8F7092';
+    var color7 = '#3F6083';
+    var color8 = '#a55523';
+    var color9 = '#343434';
+    var color10 = '#ffffff';
+
+    var thick1 = 10;
+    var thick2 = 7;
+    var thick3 = 4;
+    var thick4 = 2;
+
+    var canvas_bg, canvas_fg, ctx_bg, ctx_fg, flag = false,
+        prevX = 0,
+        currX = 0,
+        prevY = 0,
+        currY = 0;
+
+    var strokes = new Array ( ), num_strokes = 0, mouse_down = false;
+
+    var stroke_color = color9;
+    var stroke_thickness = thick2;
+
+    var total_stroke_length = 0.0;
+    var start_new_stroke = 0;
+
+    function init() {
+        canvas_fg = document.getElementById('drawing_canvas');
+        ctx_fg = canvas_fg.getContext("2d");
+
+        canvas_bg = document.createElement('canvas');
+        canvas_bg.width = 400;
+        canvas_bg.height = 400;
+        ctx_bg = canvas_bg.getContext('2d');
+
+        w = canvas_fg.width;
+        h = canvas_fg.height;
+
+        canvas_fg.addEventListener("mousemove", function (e) {
+            findxy('move', e)
+        }, false);
+        canvas_fg.addEventListener("mousedown", function (e) {
+            findxy('down', e)
+        }, false);
+        canvas_fg.addEventListener("mouseup", function (e) {
+            findxy('up', e)
+        }, false);
+        canvas_fg.addEventListener("mouseout", function (e) {
+            findxy('out', e)
+        }, false);
+
+        draw_palette()
+
+    }
+
+    function draw_palette() {
+      draw_color(document.getElementById('color_1'), color1)
+      draw_color(document.getElementById('color_2'), color2)
+      draw_color(document.getElementById('color_3'), color3)
+      draw_color(document.getElementById('color_4'), color4)
+      draw_color(document.getElementById('color_5'), color5)
+      draw_color(document.getElementById('color_6'), color6)
+      draw_color(document.getElementById('color_7'), color7)
+      draw_color(document.getElementById('color_8'), color8)
+      draw_color(document.getElementById('color_9'), color9)
+      draw_color(document.getElementById('color_10'), color10)
+      draw_thickness(document.getElementById('thick_1'), thick1)
+      draw_thickness(document.getElementById('thick_2'), thick2)
+      draw_thickness(document.getElementById('thick_3'), thick3)
+      draw_thickness(document.getElementById('thick_4'), thick4)
+      draw_undo(document.getElementById('undo'))
+
+      //canvas = document.getElementById('palette_bg');
+      //if (canvas.getContext) {
+      //  var ctx = canvas.getContext('2d');
+      //  ctx.fillStyle = '#b0b0b0';
+      //  ctx.fillRect(0, 0, canvas.width, canvas.height);
+      //  ctx.beginPath();
+      //  ctx.font = "16px Verdana";
+      //  ctx.fillStyle = "black";
+      //  ctx.fillText("Color", 15, 25);
+      //  ctx.closePath();
+      //}
+    }
+
+    function draw_undo(canvas, color) {
+      if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#b0b0b0';
+        ctx.strokeStyle = '#000000';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        ctx.strokeRect(0, 0, canvas.width, canvas.height);
+        var X = canvas.width / 2;
+        var Y = canvas.height / 2;
+        var R = canvas.height / 2 - 10;
+        ctx.beginPath();
+        ctx.arc(X, Y, R, -1.0 * Math.PI, 0.5 * Math.PI, false);
+        ctx.lineWidth = 2;
+        ctx.strokeStyle = "black";
+        ctx.stroke();
+        ctx.closePath();
+        ctx.beginPath();
+        ctx.moveTo(X - R - 4, Y - 4);
+        ctx.lineTo(X - R, Y);
+        ctx.lineTo(X - R + 5, Y - 3);
+        ctx.lineWidth = 3;
+        ctx.strokeStyle = "black";
+        ctx.stroke();
+        ctx.closePath();
+      }
+    }
+
+    function draw_color(canvas, color) {
+      if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#e0e0e0';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        var X = canvas.width / 2;
+        var Y = canvas.height / 2;
+        var R = canvas.width / 2 - 3;
+        ctx.beginPath();
+        ctx.arc(X, Y, R-2, 0, 2 * Math.PI, false);
+        ctx.fillStyle = color;
+        ctx.fill();
+        ctx_fg.closePath();
+
+        if(stroke_color == color) {
+          ctx.beginPath();
+          ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = "black";
+          ctx.stroke();
+          ctx_fg.closePath();
+          ctx.beginPath();
+          ctx.arc(X, Y, R-1, 0, 2 * Math.PI, false);
+          ctx.lineWidth = 1;
+          ctx.strokeStyle = "white";
+          ctx.stroke();
+          ctx_fg.closePath();
+        }
+      }
+    }
+
+    function draw_thickness(canvas, thickness) {
+      if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#e0e0e0';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+        var X = canvas.width / 2;
+        var Y = canvas.height / 2;
+        var R = thickness;
+        ctx.beginPath();
+        ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
+        ctx.fillStyle = "black";
+        ctx.fill();
+        ctx_fg.closePath();
+
+        if(stroke_thickness == thickness) {
+          ctx.beginPath();
+          ctx.arc(X, Y, R+2, 0, 2 * Math.PI, false);
+          ctx.lineWidth = 2;
+          ctx.strokeStyle = "black";
+          ctx.stroke();
+          ctx_fg.closePath();
+          ctx.beginPath();
+          ctx.arc(X, Y, R+1, 0, 2 * Math.PI, false);
+          ctx.lineWidth = 1;
+          ctx.strokeStyle = "white";
+          ctx.stroke();
+          ctx_fg.closePath();
+        }
+      }
+    }
+
+
+    function color(obj) {
+        switch (obj.id) {
+            case "color_1":
+                stroke_color = color1;
+                break;
+            case "color_2":
+                stroke_color = color2;
+                break;
+            case "color_3":
+                stroke_color = color3;
+                break;
+            case "color_4":
+                stroke_color = color4;
+                break;
+            case "color_5":
+                stroke_color = color5;
+                break;
+            case "color_6":
+                stroke_color = color6;
+                break;
+            case "color_7":
+                stroke_color = color7;
+                break;
+            case "color_8":
+                stroke_color = color8;
+                break;
+            case "color_9":
+                stroke_color = color9;
+                break;
+            case "color_10":
+                stroke_color = color10;
+                break;
+        }
+        draw_palette()
+    }
+
+    function thickness(obj) {
+        switch (obj.id) {
+            case "thick_1":
+                stroke_thickness = thick1;
+                break;
+            case "thick_2":
+                stroke_thickness = thick2;
+                break;
+            case "thick_3":
+                stroke_thickness = thick3;
+                break;
+            case "thick_4":
+                stroke_thickness = thick4;
+                break;
+        }
+        draw_palette()
+    }
+
+    function draw_stoke_limiter() {
+      canvas = document.getElementById('stroke_limit');
+      if (canvas.getContext) {
+        var ctx = canvas.getContext('2d');
+        ctx.fillStyle = '#f0f0f0';
+        ctx.fillRect(0, 0, canvas.width, canvas.height);
+
+        total_stroke_length = 0.0;
+        for(i=start_new_stroke;i<num_strokes;i++) {
+          for(j=0;j<strokes[i].length;j++) {
+            var dx = strokes[i][j][0] - strokes[i][j][2];
+            var dy = strokes[i][j][1] - strokes[i][j][3];
+            total_stroke_length = total_stroke_length + Math.sqrt((dx*dx + dy*dy)*strokes[i][j][5]);
+          }
+        }
+
+        ctx.beginPath();
+        ctx.fillStyle = '#c01010';
+        delta = 1.0 - Math.min(1.0, total_stroke_length/max_stroke_length);
+        ctx.fillRect(0, canvas.height * delta, canvas.width, (1.0 - delta) * canvas.height);
+        ctx.closePath();
+
+        ctx.beginPath();
+        ctx.fillStyle = '#302020';
+        ctx.fillRect(0, canvas.height * delta, canvas.width, 3);
+        ctx.closePath();
+      }
+    }
+
+    function draw_stroke(single_stroke, ctx) {
+      angle = -Math.atan2((single_stroke[0][0] - single_stroke[0][2]), (single_stroke[0][1] - single_stroke[0][3]));
+
+      x0 = 0;
+      y0 = 0;
+      x1 = 0;
+      y1 = 0;
+      opacity = 1.0;
+      line_width = single_stroke[0][5];
+      //angle = 0.0;
+
+      for(k=0;k<12;k++) {
+        x0 = (k % 4);
+        y0 = Math.floor(k/4);
+        x0 = x0 / 1.5;
+        y0 = y0 / 1.5;
+        x0 = x0 - 1.0;
+        y0 = y0 - 1.0;
+
+        x0 = x0 * line_width*0.5;
+        y0 = y0 * line_width*0.25;
+
+        x1 = Math.cos(angle)*x0 - Math.sin(angle)*y0;
+        y1 = Math.sin(angle)*x0 + Math.cos(angle)*y0;
+
+        x0 = x1;
+        y0 = y1;
+
+        opacity = (((k+1)*single_stroke[0][0]*13 + (k+3)*single_stroke[0][1]*3) % 10) / 10.0;
+        opacity = Math.max(0.5, opacity);
+
+        ctx.beginPath();
+        for(j=0;j<single_stroke.length;j++) {
+          ctx.moveTo(single_stroke[j][0] + x0, single_stroke[j][1] + y0);
+          ctx.lineTo(single_stroke[j][2] + x0, single_stroke[j][3] + y0);
+        }
+
+        ctx.strokeStyle = single_stroke[0][4];
+        ctx.lineWidth = line_width/3;
+        ctx.globalAlpha = opacity*line_darkness;
+        ctx.stroke();
+        ctx.globalAlpha = 1.0;
+        ctx.closePath();
+      }
+    }
+
+
+    function draw() {
+        ctx_fg.beginPath();
+        ctx_fg.clearRect(0, 0, w, h);
+        ctx_fg.drawImage(canvas_bg, 0, 0);
+        ctx_fg.closePath();
+
+        //ctx_fg.font = "10px Arial";
+        //ctx_fg.fillText(mx, 10, 50);
+        //ctx_fg.fillText(my, 10, 70);
+        //ctx_fg.fillText(mouse_down, 10, 70);
+        //ctx_fg.fillText(num_strokes, 10, 90);
+        draw_stroke(strokes[num_strokes - 1], ctx_fg);
+        draw_stoke_limiter();
+    }
+
+    function draw_background() {
+        ctx_bg.beginPath();
+        ctx_bg.fillStyle = '#ffffff';
+        ctx_bg.fillRect(0, 0, w, h);
+        ctx_bg.closePath();
+
+        for(i=0;i<num_strokes;i++) {
+          draw_stroke(strokes[i], ctx_bg)
+        }
+
+        ctx_fg.beginPath();
+        ctx_fg.clearRect(0, 0, w, h);
+        ctx_fg.drawImage(canvas_bg, 0, 0);
+        ctx_fg.closePath();
+        draw_stoke_limiter();
+    }
+
+    function erase() {
+        var m = confirm("Want to clear");
+        if (m) {
+            ctx.clearRect(0, 0, w, h);
+            document.getElementById("canvasimg").style.display = "none";
+        }
+    }
+
+    function save() {
+        document.getElementById("canvasimg").style.border = "2px solid";
+        var dataURL = canvas.toDataURL();
+        document.getElementById("canvasimg").src = dataURL;
+        document.getElementById("canvasimg").style.display = "inline";
+    }
+
+    function undo() {
+      if(num_strokes > 0) {
+        num_strokes = num_strokes - 1;
+        draw_background();
+      }
+    }
+
+    function findxy(res, e) {
+        var offsets = canvas_fg.getBoundingClientRect();
+        var mouseX = e.clientX - offsets.left;
+        var mouseY = e.clientY - offsets.top;
+        if (res == 'down' && total_stroke_length < max_stroke_length) {
+            prevX = mouseX;
+            prevY = mouseY;
+            currX = prevX;
+            currY = prevY;
+
+            mouse_down = true;
+            if(num_strokes == 0) {
+              num_strokes = num_strokes + 1;
+              strokes[num_strokes - 1] = new Array ();
+            }
+            else {
+              if(strokes[num_strokes - 1].length != 0) {
+                num_strokes = num_strokes + 1;
+                strokes[num_strokes - 1] = new Array ();
+              }
+            }
+            draw();
+        }
+
+        if (res == 'up') {
+            mouse_down = false;
+            draw_background();
+        }
+
+        if (res == "out") {
+            if(mouse_down == true) {
+              mouse_down = false;
+              //num_strokes = num_strokes - 1;
+              draw_background();
+            }
+        }
+
+        if (res == 'move' && total_stroke_length < max_stroke_length) {
+            if (mouse_down) {
+                posX = mouseX;
+                posY = mouseY;
+
+                distance = Math.sqrt((posX - currX)*(posX - currX) + (posY - currY)*(posY - currY));
+
+                if(distance > 2.0) {
+                  prevX = currX;
+                  prevY = currY;
+                  currX = 0.5*currX + 0.5*(mouseX);
+                  currY = 0.5*currY + 0.5*(mouseY);
+                  stroke_segment = [prevX, prevY, currX, currY, stroke_color, stroke_thickness];
+                  strokes[num_strokes - 1].push(stroke_segment);
+                  draw();
+                }
+            }
+        }
+    }
+    </script>
+  </head>
+  <body onload="init()">
+
+              <div id="global_position" style="position:absolute;top:40px;left:40px;">
+        <canvas id="drawing_canvas" width="400px" height="400px" style="position:absolute;top:40px;left:0px;border:2px solid;"></canvas>
+
+        <div id="palette_position" style="position:absolute;top:450px;left:0px;">
+          <canvas id="palette_bg" style="position:absolute;top:0px;left:0px;width:400px;height:110px;background:#e0e0e0;"></canvas>
+          <canvas id="color_1" width="40px" height="40px" style="position:absolute;top:20px;left:10px;" onclick="color(this)"></canvas>
+          <canvas id="color_2" width="40px" height="40px" style="position:absolute;top:20px;left:50px;" onclick="color(this)"></canvas>
+          <canvas id="color_3" width="40px" height="40px" style="position:absolute;top:20px;left:90px;" onclick="color(this)"></canvas>
+          <canvas id="color_4" width="40px" height="40px" style="position:absolute;top:20px;left:130px;" onclick="color(this)"></canvas>
+          <canvas id="color_5" width="40px" height="40px" style="position:absolute;top:20px;left:170px;" onclick="color(this)"></canvas>
+          <canvas id="color_6" width="40px" height="40px" style="position:absolute;top:60px;left:10px;" onclick="color(this)"></canvas>
+          <canvas id="color_7" width="40px" height="40px" style="position:absolute;top:60px;left:50px;" onclick="color(this)"></canvas>
+          <canvas id="color_8" width="40px" height="40px" style="position:absolute;top:60px;left:90px;" onclick="color(this)"></canvas>
+          <canvas id="color_9" width="40px" height="40px" style="position:absolute;top:60px;left:130px;" onclick="color(this)"></canvas>
+          <canvas id="color_10" width="40px" height="40px" style="position:absolute;top:60px;left:170px;" onclick="color(this)"></canvas>
+          <canvas id="thick_1" width="30px" height="30px" style="position:absolute;top:20px;left:270px;" onclick="thickness(this)"></canvas>
+          <canvas id="thick_2" width="30px" height="30px" style="position:absolute;top:20px;left:300px;" onclick="thickness(this)"></canvas>
+          <canvas id="thick_3" width="30px" height="30px" style="position:absolute;top:20px;left:330px;" onclick="thickness(this)"></canvas>
+          <canvas id="thick_4" width="30px" height="30px" style="position:absolute;top:20px;left:360px;" onclick="thickness(this)"></canvas>
+          <canvas id="undo" width="60px" height="40px" style="position:absolute;top:60px;left:300px;" onclick="undo()"></canvas>
+          <div style="position:absolute;top:5px;left:15px;font-family:verdana;font-size:10pt">Color</div>
+          <div style="position:absolute;top:5px;left:270px;font-family:verdana;font-size:10pt">Thickness</div>
+        </div>
+
+        <div id="stroke_limit_position" style="position:absolute;top:40px;left:410px;">
+          <canvas id="stroke_limit" width="20px" height="200px" style="position:absolute;top:38px;left:10px;border:2px solid;"></canvas>
+          <div style="position:absolute;top:0px;left:0px;font-family:verdana;font-size:10pt">Stroke</div>
+          <div style="position:absolute;top:15px;left:4px;font-family:verdana;font-size:10pt">Limit</div>
+        </div>
+
+        <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;"></img></div>
+
+        <!-- Devi added these instructions -->
+        <!-- <div id="instructions" style="position:absolute;top:40px;left:600px;">
+        
+      <h2>Let's collectively create a <font color="red">beautiful, detailed, coherent</font> painting!</h2>
+      <br>
+      The canvas on the left might be blank, or it might have a partial painting on it. Your task is to add <font color="red">numerous strokes</font> to it to guide it towards a beautiful, detailed, coherent painting! Others after you will add more strokes to it. 
+      <br><br>
+
+      Of course, it may not be easy to create a beautiful painting on your own with a limited interface like this one. But with many of us contributing to it, maybe we can create something more impressive than what any of us would have created individually!
+      <br><br>
+
+      <font color="red">Updated instructions!</font>  
+      <br> (1) <font color="red"> No nudity, offensive or triggering content</font> please.
+      <br> (2) Please <font color="red"> do not add text/words</font> to the painting.
+      <br> (3) Some paintings might be quite incomplete and need you to contribute large pieces. Others might be fairly complete at a coarse level, and need you to <font color="red"> add details or textures</font>. Some pieces might be made entirely from details or textures without any large structures. Use your best judgment to <font color="red">decide what each painting needs</font>. Remember to not make the painting incoherent or aesthetically unpleasant!
+      <br> (4) Please <font color="red">do not add scribbles</font> to a painting. Recall that the goal is to create a beautiful, coherent piece of art.
+      <br> (5) Please do not contribute to more than one blank canvas across HITs. 
+      <br> (6) If you have contributed to a painting before, please return the HIT and do not contribute to it again. You are welcome to contribute to a different painting instead.      
+     
+    </div>
+
+    <div id="comment_title" style="position:absolute;top:620px;left:40px;"><p>Comments are welcome!</p> </div>
+    <div style="position:absolute;top:660px;left:40px;"><textarea id="comment" rows="3" cols="40"></textarea><div> -->
+
+
+<!--     <div class='container'>
+      <h1>Name an example of a category</h1>
+      <label for='#text-answer'>
+        Give an example of a type of <span class='category'></span>:
+      </label>
+      <input type='text' id='text-answer' disabled/>
+    </div> -->
+
+    <!-- {% include "hit_templates/simpleamt.html" %} -->
+
+    <script>
+      $(function() {
+        // Define default input to be used when developing this HIT.
+        // var DEFAULT_INPUT = { category: 'dog' };
+
+        function main() {
+          // Read input to the HIT. In development the default input will be
+          // used, and in deployment actual input will be used.
+          // var input = simpleamt.getInput(DEFAULT_INPUT);
+
+          // Use the input to set up the UI.
+          // $('span.category').text(input.category);
+
+          // If the HIT is not in preview mode, then we need to enable the UI
+          // and set up the logic for submitting.
+          if (!simpleamt.isPreview()) {
+            enable_ui();
+
+            // You need to call this in every HIT; if you forget then you will
+            // get an error message when you try and submit the HIT.
+            simpleamt.setupSubmit();
+
+            // Set up a click handler for the submit button.
+            // Typically this will validate user output and either submit the
+            // HIT if the data is good or show an error message to the user if
+            // the data is bad. If this click handler returns false then the
+            // HIT will not be submitted.
+            // WARNING: If the click handler throws an exception
+            // then by default the HIT will be submitted; this is a fertile
+            // source of bugs.
+            $('#submit-btn').click(function() {
+              // Construct an object containing the output of this assignment.
+              var output = {
+                strokes
+                // category: input.category,
+                // example: $('#text-answer').val(),
+              };
+
+              // // Validate the output
+              // if (output.example.length < 3) {
+              //   alert('Your answer is not long enough');
+              //   return false;
+              // } else {
+                simpleamt.setOutput(output);
+              // }
+            })
+          }
+        }
+
+
+        // FIGURE THIS OUT. HOW TO DISABLE DRAWING ON OUR INTERFACE IF IN PREVIEW MODE.
+        function enable_ui() {
+          // Enable the UI specific to our HIT.
+          // $('#text-answer').prop('disabled', false);
+
+          // Enable the submit button. You must do this in every HIT.
+          $('#submit-btn').prop('disabled', false);
+        }
+
+        main();
+
+      });
+    </script>
+  </body>
+</html>
