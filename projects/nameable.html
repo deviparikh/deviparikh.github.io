@@ -1,0 +1,659 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:w="urn:schemas-microsoft-com:office:word"
+ xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+ xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+ xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=windows-1252">
+  <meta name="ProgId" content="Word.Document">
+  <meta name="Generator" content="Microsoft Word 12">
+  <meta name="Originator" content="Microsoft Word 12">
+  <title>Nameable Attributes</title>
+</head>
+<body link="blue" lang="EN-US" vlink="purple">
+<o:smarttagtype
+ namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="place"><o:smarttagtype
+ namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="City">
+<o:smarttagtype
+ namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceName"><o:smarttagtype
+ namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceType"></o:smarttagtype></o:smarttagtype></o:smarttagtype></o:smarttagtype>
+<div style="" class="WordSection1">
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><b style=""><span
+ style="font-size: 18pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><b style=""><span
+ style="font-size: 18pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Interactively
+Building a Discriminative Vocabulary of Nameable Attributes <o:p></o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><b style=""><span
+ style="font-size: 18pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a
+ href="./">Devi
+Parikh</a>&nbsp;and&nbsp;<a href="http://www.cs.utexas.edu/%7Egrauman/">Kristen
+<span class="SpellE">Grauman</span></a></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a
+ href="http://www.cs.utexas.edu/%7Egrauman/"><span class="SpellE"></span></a><span
+ class="SpellE"></span></span><br>
+<span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><br>
+<img style="width: 400px; height: 264px;" alt=""
+ src="nameable/nameable.png"></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span>&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"> [<a href="https://chicksx.com/blog/building-vocabulary-nameable">In Spanish</a>] 
+ [<a href="https://studycrumb.com/translations/stvorennya-rozriznyuvalnogo-slovnika-imenovanih-atributiv">In Ukrainian</a> by <a href="https://studycrumb.com/">StudyCrumb essay writers</a>]
+ [<a href="https://studybounty.com/translations/a-megnevezheto-tulajdonsagok-megkulonbozteto-szokincsenek-interaktiv-felepitese">In Hungarian</a> by <a href="https://studybounty.com/">StudyBounty</a>]
+ <!-- by <a href="">GrabMyEssay</a> -->
+</span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></p>
+
+ 
+
+
+<p class="MsoNormal" style="margin-right: 1in;"><b style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;&nbsp;&nbsp;</o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span
+ style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Abstract<o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><small><small><small><small><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></small></small></small></small><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Human-nameable
+visual attributes offer many advantages when used as mid-level features
+for object recognition, but existing techniques to gather relevant
+attributes can be inefficient (costing substantial effort or expertise)
+and/or insufficient (descriptive properties need not be
+discriminative). We introduce an approach to define a vocabulary of
+attributes that is both human understandable and discriminative. The
+system takes object/scene-labeled images as input, and returns as
+output a set of attributes elicited from human annotators that
+distinguish the categories of interest. To ensure a compact vocabulary
+and efficient use of annotators&rsquo; effort, we 1) show how to
+actively augment the vocabulary such that new attributes resolve
+inter-class confusions, and 2) propose a novel "nameability" manifold
+that prioritizes candidate attributes by their likelihood of being
+associated with a nameable property. We demonstrate the approach with
+multiple datasets, and show its clear advantages over baselines that
+lack a nameability model or rely on a list of expert-provided
+attributes.&nbsp;</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style=""></span></span><b
+ style=""><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style=""></span><o:p></o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><b style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><b style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;&nbsp;</o:p></span></b></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div style="text-align: center;" class="MsoNormal" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: left;"><b
+ style=""><span
+ style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Motivation<o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div style="text-align: center;" class="MsoNormal" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">To
+be most
+useful, attributes should be</span><span style=""><span
+ style="font-weight: bold;"></span></span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style=""><span
+ style="font-weight: bold;"></span></span></span>
+&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style=""><span
+ style="font-size: 11pt; font-weight: bold;">Discriminative</span><span
+ style="font-size: 11pt;">: so that they can be
+learnt reliably&nbsp;in the available feature-space, and can
+effectively classify the
+categories<span style="text-decoration: underline;"></span></span></span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style="">&nbsp;<span
+ style="text-decoration: underline;"></span></span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style=""><span
+ style="font-size: 11pt; text-decoration: underline;">and</span></span></span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style=""><span
+ style="font-weight: bold;"></span></span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style=""><span
+ style="font-weight: bold;">&nbsp;</span></span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style=""><span
+ style="font-size: 11pt; font-weight: bold;">Nameable:</span>
+<span style="font-size: 11pt;">so
+that they can be used
+for zero-shot learning, describing previously unseen instances or
+unsual aspects of images, etc.</span></span></span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style=""><br>
+</span></span></p>
+<ul style="margin: 0in 1in; text-align: justify;">
+</ul>
+<p class="MsoListParagraphCxSpLast" style="margin: 0in 1in;">&nbsp;</p>
+<p class="MsoListParagraphCxSpLast" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style=""></span></span>
+&nbsp;</p>
+<table style="margin: 0in 1in; text-align: center; width: 668px;"
+ border="1" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="width: 250px;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt;">Existing
+Approaches</span></span></td>
+      <td style="white-space: nowrap; width: 100px;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt;">Discriminative</span></span></td>
+      <td style="width: 100px;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt;">Nameable</span></span></td>
+    </tr>
+    <tr>
+      <td style="width: 250px;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt;">Hand-generated
+list</span></span></td>
+      <td style="color: rgb(204, 0, 0); width: 100px;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt;">Not necessarily</span></span></td>
+      <td style="color: rgb(0, 153, 0); width: 100px;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt;">Yes</span></span></td>
+    </tr>
+    <tr>
+      <td style="width: 250px;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt;">Mining the
+web</span></span></td>
+      <td style="width: 100px;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;; color: rgb(204, 0, 0);"><span
+ style="font-size: 11pt;">Not necessarily</span></span></td>
+      <td style="color: rgb(0, 153, 0); width: 100px;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt;">Yes</span></span></td>
+    </tr>
+    <tr>
+      <td style="width: 250px;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt;">Automatic
+splits of categories</span></span></td>
+      <td style="color: rgb(0, 153, 0); width: 100px;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="">Yes</span></span></td>
+      <td style="width: 100px;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;; color: rgb(204, 0, 0);"><span
+ style="font-size: 11pt;">No</span></span></td>
+    </tr>
+    <tr>
+      <td style="font-weight: bold; width: 250px;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt;">Proposed</span></span></td>
+      <td
+ style="color: rgb(0, 153, 0); font-weight: bold; width: 100px;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt;">Yes</span></span></td>
+      <td style="width: 100px;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;; color: rgb(0, 153, 0); font-weight: bold;"><span
+ style="font-size: 11pt;">Yes</span></span></td>
+    </tr>
+  </tbody>
+</table>
+<p class="MsoListParagraphCxSpLast" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style=""></span></span></p>
+<p class="MsoListParagraphCxSpLast" style="margin: 0in 1in;">&nbsp;<span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><b style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></b></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span
+ style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Proposal<o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>We
+propose&nbsp;an
+interactive approach&nbsp;that prompts a&nbsp;human-in-the-loop
+to
+provide names for attribute hypotheses it discovers. The system takes
+as input a set of training images with their associated category
+labels, as well as one or more visual feature spaces (Gist, color,
+etc.), and returns as output a set of attribute models that together
+can distinguish the categories of interest.</o:p></span>&nbsp;</p>
+<div style="text-align: justify;"></div>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;">&nbsp;<b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">To
+visualize a candidate
+attribute for which the system seeks a name, a human is shown images
+sampled along the direction normal to some separating hyperplane in the
+feature space. Since many hypotheses will not correspond to something
+humans can visually identify and succinctly describe, a naive attribute
+discovery process &mdash; one that simply cycles through
+discriminative
+splits and asks the annotator to either name or reject them &mdash;
+is
+impractical.&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Instead,
+we design the
+approach to actively minimize the amount of meaningless inquiries
+presented to an annotator, so that human effort is mostly spent
+assigning meaning to divisions in feature space that actually have it,
+as opposed to discarding un-interpretable splits.&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">We
+accomplish this with
+two key ideas: at each iteration, our approach:</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+1)
+focuses on attribute
+hypotheses that complement the classification power of existing
+attributes collected thus far, and&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">2)
+predicts the
+nameability of each discriminative hypothesis and prioritizes those
+likely to be nameable. For this, we explore whether there exists some
+manifold structure in the space of nameable hyperplane separators.</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp;&nbsp;&nbsp;&nbsp;<span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><img
+ style="width: 386px; height: 280px;" alt="" src="nameable/approach.png"></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span
+ style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Approach<o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">There
+are
+three main
+challenges to be addressed in our proposed interactive
+approach:&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><span
+ style="font-size: 11pt; text-decoration: underline;">Discovering
+attribute hypotheses:</span><span style="font-size: 11pt;">
+We actively discover hyperplanes in the visual feature-space that
+separate&nbsp;a subset of classes that are currently&nbsp;most
+confused.&nbsp;We use
+iterative max-margin clustering to discover such a split.</span></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp;<span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"></p>
+<div style="text-align: center;"><img
+ style="width: 529px; height: 146px;" alt=""
+ src="nameable/active_selection.png"><br>
+&nbsp;</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;; text-decoration: underline;"><o:p>Predicting
+the nameability of a hypothesis</o:p></span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="text-decoration: underline;">:</span><span
+ style="font-size: 11pt;"> At each iteration, we build
+a nameability
+manifold
+using &nbsp;a mixture of probabilistic principal component
+analysis to fit&nbsp;</span></span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt;">the responses of
+the user collected so far</span></span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt;">.
+The manifold is learnt in the space of hyperplane parameters. As seen
+below, the manifold can effectively predict the nameability of a novel
+discriminative hyperplane.</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span>&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;">&nbsp;<img
+ style="width: 403px; height: 163px;" alt="" src="nameable/manifold.png"></p>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp;<span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><span
+ style="font-size: 11pt; text-decoration: underline;">Visualizing
+an
+attribute:</span></o:p>&nbsp;<span style="font-size: 11pt;">
+In
+order to present a visualization of a hyperplane to the user, we sample
+images from the dataset such that their distance orthogonal to the
+hyperplane varies, but any variations along the hyperplane are
+minimized. The user is then asked to name a visual property that is
+varying in the images from left to right. This name, along with the
+hyperplane parameters, forms our newly discovered attribute.</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;<img
+ style="width: 362px; height: 141px;" alt=""
+ src="nameable/visualization.png"></span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></b></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span
+ style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Evaluation<o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>We
+evaluate our
+approach on two datasets of 8 categories each: Outdoor Scene
+Recognition (OSR) and a subset of the Animals with Attributes (AWA)
+dataset. For both datasets, we use gist and color features.&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>In
+order to
+automatically evaluate our proposed approach, we collect nameability
+annotations of all discrimininative hyperplanes (247) in both
+feature-spaces of both datasets. We show a visualization of each of the
+hyperplanes to 20 Amazon Mechanical Turk subjects, and ask them to
+indicate how obvious of a change is visible in the images (on a scale
+of 1-4), and what the changing property is. Example responses are shown
+below:</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">"Black"</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><img
+ style="width: 361px; height: 82px;" alt="" src="nameable/black.png"></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;">&nbsp;<span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>"Spotted"</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><img
+ style="width: 361px; height: 82px;" alt="" src="nameable/spotted.png"></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>Unnameable</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><img
+ style="width: 361px; height: 81px;" alt=""
+ src="nameable/unnameable.png"></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>"Green"</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><img
+ style="width: 361px; height: 82px;" alt="" src="nameable/green.png"></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>"Congested"</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><img
+ style="width: 361px; height: 82px;" alt="" src="nameable/congested.png"></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">We
+consider a hyperplane
+to be nameable if the average 'obviousness' score received is above 3.
+This pool of annotated hyperplanes can now be used to conduct automatic
+experiments, while still mimicing a real user in the loop. </span><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><b style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span
+ style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Results<o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="text-decoration: underline;">Discriminative-only
+baseline:</span>&nbsp;As
+compared to
+a baseline that presents the discriminative hyperplanes to the user
+without nameability modeling (see below), we find that our approach
+discovers more named attributes with the same user effort, also leading
+to better recognition performance.&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;
+<img style="width: 797px; height: 253px;" alt=""
+ src="nameable/disc_only.png"><br>
+</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="text-decoration: underline;">Descriptive-only
+baseline:</span> </span><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">On
+the
+other hand, as
+compared to purely descriptive attributes, our approach finds more
+discriminiative attributes, also leading to improved recognition
+performance (see below).</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><img
+ style="width: 440px; height: 116px;" alt=""
+ src="nameable/desc_only.png"></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="text-decoration: underline;">Automatically
+generated
+descriptions:</span> </span><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>Our
+discovered
+attributes can be used to describe previously seen and previously
+unseen (eg. zerba) images as seen below.</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp;<span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><img
+ style="width: 350px; height: 345px;" alt=""
+ src="nameable/descriptions.png"></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Publications
+<o:p></o:p></span></b></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a href="./">D. Parikh</a>
+and <a href="http://www.cs.utexas.edu/%7Egrauman/">K. Grauman</a></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><a
+ href="./Publications/ParikhGrauman_CVPR2011_nameable.pdf"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Interactively
+Building a
+Discriminiative Vocabulary of Nameable Attributes</span></a></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">IEEE
+Conference on
+Computer Vision and Pattern Recognition (CVPR), 2011</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">[<a
+ href="./Publications/nameable_supp.pdf">supplementary
+material</a>] [<a
+ href="Publications/ParikhGrauman_CVPR2011_nameable_poster.pdf">poster</a>]
+[<a href="Publications/slides/ParikhGrauman_CVPR2011_nameable.pptx">slides</a>]</span><b><span
+ style="font-size: 12pt; font-family: Arial;"></span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><b><span
+ style="font-size: 12pt; font-family: Arial;">&nbsp;</span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a href="./">D. Parikh</a>
+and <a href="http://www.cs.utexas.edu/%7Egrauman/">K. Grauman</a></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><font face="Arial"><a
+ href="Publications/ParikhGrauman_FGVC_CVPR2011_nameable.pdf">Interactive
+Discovery of Task-Specific Nameable Attributes</a></font>&nbsp;<font
+ face="Arial">(Abstract)</font></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><font face="Arial"><a
+ href="http://www.fgvc.org/">First Workshop on
+Fine-Grained Visual
+Categorization (FGVC)</a></font></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><font face="Arial">held
+in
+conjunction with&nbsp;IEEE Conference
+on Computer
+Vision and Pattern Recognition (CVPR), 20</font><font face="Arial">11</font><span
+ style="font-size: 12pt; font-family: Arial;"><b>
+(Best
+Poster Award)</b></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-size: 12pt; font-family: Arial;">[<a
+ href="Publications/ParikhGrauman_CVPR2011_nameable_poster.pdf">poster</a>]</span><span
+ style="font-family: Arial;"></span></p>
+<p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+&nbsp;
+<p class="MsoNormal" style="margin: 0in 1in;"></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;">[Thanks
+to <a href="https://webspace.utexas.edu/yl3663/%7Eylee/">Yong
+Jae Lee</a>
+for the webpage template]</p>
+</div>
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=1299599; var sc_invisible=1; var sc_partition=63; var sc_click_stat=1; var sc_security="3d8147d8"; </script>
+<script type="text/javascript"
+ src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript> <div
+class="statcounter"><a title="free web stats"
+href="http://www.statcounter.com/" target="_blank"><img
+class="statcounter"
+src="http://c.statcounter.com/1299599/0/3d8147d8/1/"
+alt="free web stats" ></a></div></noscript>
+<!-- End of StatCounter Code -->
+<p></p>
+</body>
+</html>

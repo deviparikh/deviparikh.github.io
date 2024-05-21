@@ -1,0 +1,527 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml"
+ xmlns:o="urn:schemas-microsoft-com:office:office"
+ xmlns:w="urn:schemas-microsoft-com:office:word"
+ xmlns:m="http://schemas.microsoft.com/office/2004/12/omml"
+ xmlns:st1="urn:schemas-microsoft-com:office:smarttags"
+ xmlns="http://www.w3.org/TR/REC-html40">
+<head>
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=windows-1252">
+  <meta name="ProgId" content="Word.Document">
+  <meta name="Generator" content="Microsoft Word 12">
+  <meta name="Originator" content="Microsoft Word 12">
+  <title>Debugging Person Detection</title>
+</head>
+<body link="blue" lang="EN-US" vlink="purple">
+<o:smarttagtype
+ namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="place"><o:smarttagtype
+ namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="City">
+<o:smarttagtype
+ namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceName"><o:smarttagtype
+ namespaceuri="urn:schemas-microsoft-com:office:smarttags"
+ name="PlaceType"></o:smarttagtype></o:smarttagtype></o:smarttagtype></o:smarttagtype>
+<div style="" class="WordSection1">
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><b style=""><span
+ style="font-size: 18pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><b style=""><span
+ style="font-size: 18pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Finding
+the Weakest Link in Person Detectors&nbsp;<o:p></o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><b style=""><span
+ style="font-size: 18pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a
+ href="./">Devi
+Parikh</a>&nbsp;and&nbsp;<a
+ href="http://research.microsoft.com/en-us/people/larryz/">Larry
+Zitnick<span class="SpellE"></span></a></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a
+ href="http://www.cs.utexas.edu/%7Egrauman/"><span class="SpellE"></span></a><span
+ class="SpellE"></span></span><br>
+<span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><br>
+<img style="width: 795px; height: 172px;" alt=""
+ src="person_detection/visualization.png"><br>
+</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span>&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"
+ align="center"><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">[<a
+ href="#download">Part Patch Dataset</a>]
+[<a href="#browse">part
+detection visualizations</a>] [<a href="#paper">paper</a>]&nbsp;[<span
+ style="text-decoration: underline;"></span><a
+ href="Publications/slides/ParikhZitnick_CVPR2011_weakest_link.pptx">slides</a></span><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">] 
+
+ <br>
+ [<a
+ href="https://www.playerauctions.com/csr/finding-the-weakest-link-in-person-detectors/">In Chinese by Falk Albert</a>]
+ [<a href="https://fixgerald.com/blog/vyyavlennya-lyudyny">In Ukranian</a> by <a href="https://fixgerald.com/">Fixgerald</a>]
+[<a href="https://www.learnalanguageforfun.com/jak-znalezc-najslabsze-ogniwo-procesu-rozpoznawania-ludzi">In Polish</a> by <a href="https://www.topwritersreview.com/">TopWritersReview</a>]
+[<a href="https://www.learnalanguageforfun.com/trouvons-le-maillon-le-plus-faible-des-detecteurs-de-personnes/">In French</a> by <a href="https://www.grabmyessay.com/">GrabMyEssay</a>]
+[<a href="https://pngspot.com/detection">In Russian</a> by <a href="https://pngspot.com/">Babur Muradov</a>]
+[<a href="https://chicksgold.com/blogs/finding-weakest-link-detectors">In Spanish</a> by Chicks Gold</a>]
+[<a href="https://studycrumb.com/translations/nalagodzhennya-lyudinoyu">In Ukrainian</a> by <a href="https://studycrumb.com/">Essay Writing Service StudyCrumb</a>]
+[<a href="https://studybounty.com/translations/lidske-ladeni">In Czech</a> by <a href="https://studybounty.com/">Studybounty.com</a>]
+</span></p>
+<p class="MsoNormal" style="margin-right: 1in;"><b style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></b>
+&nbsp; </p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span
+ style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Abstract<o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><small><small><small><small><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></small></small></small></small><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Detecting
+people remains a popular and challenging problem in computer
+vision.&nbsp; In this paper, we analyze parts-based models for
+person
+detection to determine which components of their pipeline could benefit
+the most if improved.&nbsp; We accomplish this task by studying
+numerous detectors formed from combinations of components performed by
+human subjects and machines.&nbsp; The parts-based model we study
+can
+be roughly broken into four components: feature detection, part
+detection, spatial part scoring and contextual reasoning including
+non-maximal suppression. Our experiments conclude that part detection
+is the weakest link for challenging person detection
+datasets.&nbsp;
+Non-maximal suppression and context can also significantly boost
+performance.&nbsp; However, the use of human or machine spatial
+models
+does not significantly or consistently affect detection
+accuracy.&nbsp;</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></span>
+</p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div style="text-align: center;" class="MsoNormal" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: left;"><b
+ style=""><span
+ style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Motivation<o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div style="text-align: center;" class="MsoNormal" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Person
+detection is an important, but open and challenging problem in computer
+vision. Recently,
+person detectors have made significant progress using part-based
+models.
+Researchers have explored various feature representations of images,
+different appearance models for parts, sophisticated spatial modeling
+of
+the object configurations, as well as expressive non-maximal
+suppression
+and context models. Each of these approaches propose a complex set of
+interdependent components to provide final detection results.&nbsp;
+While the additional complexity of the approaches have led to increased
+performance, understanding the role of each component in the final
+detection accuracy is difficult.</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;">&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;">&nbsp;<b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></b></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span
+ style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Proposal<o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>We
+propose a thorough analysis of parts-based models to gain insight into
+which components of the pipeline could benefit the most if
+improved.&nbsp; We accomplish this task by using human subjects to
+perform the individual components previously performed by the machine
+algorithm.&nbsp;For instance, instead of using a machine classifier
+such as a latent SVM trained on HoG descriptors to detect object parts,
+we use human subjects to label whether a small image patch contains a
+human's head, foot, torso, etc. Illustrations of the various tasks
+performed by human subjects is shown below:</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp;&nbsp;&nbsp;&nbsp;<span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><img
+ style="width: 500px; height: 636px;" alt=""
+ src="person_detection/tasks.png"><br>
+</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span
+ style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Experiments
+and Results<o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">We
+evaluate the detection accuracy of various detectors (see below)
+composed of
+various combinations of the components performed by human subjects
+or machine implementations.</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><img
+ style="width: 427px; height: 286px;" alt=""
+ src="person_detection/detectors.png"></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Comparisons
+between various subsets of these detectors allow us to tease apart the
+influence
+of each of the components in the parts-based person detection
+pipeline. While we encourage you to take a look at the detailed
+comparisons in the <a
+ href="./Publications/ParikhZitnick_CVPR2011_weakest_link.pdf">paper</a>,
+a summary of the results obtained </span><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">on
+the
+PASCAL 2007 and INRIA datasets &nbsp;</span><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">can
+be
+seen below. We find that part detection is the weakest link in
+part-based person detection. Non-maximal suppression also influences
+the
+performance in a non-trivial way.&nbsp;</span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">However,
+the use of human or machine spatial models
+does not significantly&nbsp;affect detection accuracy.&nbsp;</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><img
+ style="width: 500px; height: 219px;" alt=""
+ src="person_detection/summary_results.png"></span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt;"></span>&nbsp;<br>
+</span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;&nbsp;</o:p></span></b></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span
+ style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a
+ name="download"></a>Part
+Patch Dataset<o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Among
+the
+large amounts of human data we collected as part of our experiments, we
+believe the following might be of interest to the community.&nbsp;</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">We
+had&nbsp;</span></span><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>human
+subjects classify overlapping image patches into one of
+eight categories: head, torso, arm, hand, leg, foot,
+other-part-of-person,
+not-a-person. The patches were extracted
+from&nbsp;50 INRIA and 100 PASCAL (2007) images, and were displayed
+in
+isolation at random so that no contextual information from the image
+was available to the subjects. We extract patches
+from the original high-resolution as well&nbsp;as a low-resolution
+version of the images.&nbsp;Before extracting the patches,
+the&nbsp;high and low resolution images were transformed into one
+of
+the following representations:&nbsp;</o:p></span><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">color
+(regular), grayscale and normalized gradient. This resulted in a total
+of&nbsp;45,316 x 6 = 271,896 patches. 10 human subjects classified
+every patch into one of
+the 8 categories on Amazon's Mechanical Turk.&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">A&nbsp;</span><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+snapshot of the data can be seen below, which shows example patches
+classified by most subjects as head, torso, leg and none.</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp;</p>
+<div style="text-align: center;"><img
+ style="width: 600px; height: 229px;" alt=""
+ src="person_detection/pascal_parts.png"><br>
+&nbsp;<br>
+&nbsp;&nbsp;</div>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Similarly,
+we also had 10 human subjects classify overlapping image sub-windows
+(total of 6,218 x 6 = 37,308 windows) as containing a
+person or not (similar to 'root' detection). As with parts, the
+sub-windows were extracted from high and low resolution color,
+grayscale and normalized gradient images.&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span>
+&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">We
+provide this
+part
+(patch) and root (window) classification data as the Part Patch dataset.</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-weight: bold;">** Download ** </span></span><a
+ href="./person_detection/PartPatch.zip"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Part
+Patch Dataset</span></a><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+</span><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">[89.3
+MB]</span><br>
+&nbsp; <span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></b>
+&nbsp;</p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span
+ style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a
+ name="browse"></a>Visualizations<o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>A
+subset of our human studies required human subjects to detect people
+using a pre-computed set of parts. The parts may be detected by other
+humans, or by a machine. In order to ensure that no prior information
+other than the detected parts is used by human subjects, we created
+visualizations that display the part detections, but no other
+information in the image. An example visualization can be seen
+below.&nbsp;</o:p></span></p>
+<br>
+<div style="text-align: justify;"></div>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span>&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><img
+ style="width: 444px; height: 301px;" alt=""
+ src="person_detection/example_vis.png"></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span
+ style="font-weight: bold;">** Browse ** </span>Visualizations
+of some images using the human and machine detected parts can be viewed
+here: <a href="person_detection/examples_from_INRIA_50.png">INRIA_50</a>&nbsp;
+<a href="person_detection/examples_from_PASCAL2007_100.png">PASCAL2007_100</a>.
+The first six columns display human detected parts (on highres regular,
+grayscale, normalized gradient, lowres regular, grayscale and
+normalized gradient images), and the last column shows machine detected
+parts on high resolution images using the detectors of <a
+ href="http://people.cs.uchicago.edu/%7Epff/latent/">Felzenszwalb
+et
+al. 2010</a>. </span><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">For
+human detected parts, the colors correspond to the different parts
+of a
+person (red: head, green: torso, blue: arm, yellow: hand, magenta: leg,
+cyan: feet, white: root (person), black: none). Each patch is
+displayed with a color corresponding to the category that received the
+most votes across the 10 subjects. The intensity of the color
+corresponds to the number of subjects that selected the class. For
+machine detected parts,&nbsp;the six colors are arbitrarily
+assigned to
+six
+parts, and the
+intensity of the color corresponds to the score of the part detection.</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span><br>
+</p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a name="paper"></a>Publication
+<o:p></o:p></span></b></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a href="./">D. Parikh</a>
+and <a href="http://research.microsoft.com/en-us/people/larryz/">C.
+L.
+Zitnick</a></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><a
+ href="./Publications/ParikhZitnick_CVPR2011_weakest_link.pdf"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Finding
+the Weakest Link
+in Person Detectors</span></a></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">IEEE
+Conference on
+Computer Vision and Pattern Recognition (CVPR), 2011</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">[<a
+ href="Publications/ParikhZitnick_CVPR2011_weakest_link_poster.pdf">poster</a>]
+[<a href="Publications/slides/ParikhZitnick_CVPR2011_weakest_link.pptx">slides</a>]</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp; <span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span
+ style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;
+&nbsp;</o:p></span><br>
+</p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Support <o:p></o:p></span></b></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b
+ style=""><span
+ style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+</span>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">This
+material is based
+upon work supported in part&nbsp;by the National Science Foundation
+under Grant No. 1115719. </span><span
+ style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Any
+opinions, findings,
+and conclusions or recommendations expressed in this material are those
+of the author(s) and do not necessarily reflect the views of the
+National Science Foundation.&nbsp;</span></p>
+&nbsp;
+<p class="MsoNormal" style="margin: 0in 1in;"></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;">[Thanks
+to <a href="https://webspace.utexas.edu/yl3663/%7Eylee/">Yong
+Jae Lee</a>
+for the webpage template]</p>
+</div>
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=1299599; var sc_invisible=1; var sc_partition=63; var sc_click_stat=1; var sc_security="3d8147d8"; </script>
+<script type="text/javascript"
+ src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript> <div
+class="statcounter"><a title="free web stats"
+href="http://www.statcounter.com/" target="_blank"><img
+class="statcounter"
+src="http://c.statcounter.com/1299599/0/3d8147d8/1/"
+alt="free web stats" ></a></div></noscript>
+<!-- End of StatCounter Code -->
+<p></p>
+</body>
+</html>

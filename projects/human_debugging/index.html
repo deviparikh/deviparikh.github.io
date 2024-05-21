@@ -1,0 +1,391 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns:st1="urn:schemas-microsoft-com:office:smarttags" xmlns="http://www.w3.org/TR/REC-html40"><head>
+
+
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+  <meta name="ProgId" content="Word.Document">
+  <meta name="Generator" content="Microsoft Word 12">
+  <meta name="Originator" content="Microsoft Word 12"><title>human_debugging</title></head><body lang="EN-US" link="blue" vlink="purple">
+<o:smarttagtype namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="place"><o:smarttagtype namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="City">
+<o:smarttagtype namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="PlaceName"><o:smarttagtype namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="PlaceType"></o:smarttagtype></o:smarttagtype></o:smarttagtype></o:smarttagtype>
+<div style="" class="WordSection1">
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><b style=""><span style="font-size: 18pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><b style=""><span style="font-size: 18pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Human-Debugging:</span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><b style=""><span style="font-size: 18pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Debugging
+Machine Visual Recognition via Humans in the Loop</span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><font face="Arial"><span style="font-weight: bold;">&nbsp;
+&nbsp; <br>
+(NSF IIS 1115719, 1341772)</span></font></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center">&nbsp; &nbsp;<font face="Arial"><span style="font-weight: bold;"></span></font></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><font face="Arial"><span style="font-weight: bold;">PI:
+<a href="../">Devi Parikh</a></span></font></p>
+<br>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center">&nbsp;
+&nbsp;&nbsp; &nbsp;<span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><br>
+<img style="width: 500px; height: 83px;" alt="" src="hum-deb.png"><br>
+</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span>
+&nbsp;&nbsp;</p>
+<p class="MsoNormal" style="margin-right: 1in;"><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><br>
+<b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Abstract<o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><small><small><small><small><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></small></small></small></small><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">The
+problem of visual recognition is fundamental towards the goal of
+automatic image understanding. While a large number of efforts have
+been made in the computer vision community, machine performance at
+these tasks remains significantly inferior to human ability. <br>
+<br>
+The overarching goal of this project is to leverage the best known
+visual recognition system - the human visual recognition system. This
+project employs a "Human Debugging" paradigm to replace various
+components of a machine vision pipeline with human subjects, and
+examines the resultant effect on recognition performance. Meaningful
+comparisons provide valuable insights and pinpoint aspects of the
+machine vision pipeline that are performance bottlenecks and require
+future research efforts. Specifically, the project considers the
+problems of image classification and object detection, and explores the
+roles of local and global information, as well part-detection, spatial
+modeling and contextual reasoning (including non-maximal suppression)
+for these problems respectively. <br>
+<br>
+This project touches on a wide range of problems in visual recognition
+including object recognition, scene recognition and object detection.
+This novel paradigm of identifying weak links in computational models
+via humans in the loop is also applicable to other vision problems, as
+well as other sub-fields in AI. By sharing all collected data and
+results, and through organized conferences and workshops, this project
+will initiate and fuel a dialogue with the research community about
+leveraging humans to advance computer vision. More broadly, this work
+encourages the involvement of young women and undergraduate students in
+computer science research.</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></b>
+&nbsp;</p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a name="data"></a><span style="color: rgb(51, 51, 51);">Datasets</span><o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<span style="font-size: 12pt; font-family: Arial;"></span><a href="../contour.html#data"><span style="font-size: 12pt; font-family: Arial;"></span></a><br>
+<p class="MsoNormal" style="margin: 0in 1in;"><a href="../person_detection.html#download"><span style="font-size: 12pt; font-family: Arial;"></span></a><a href="../contour.html#data"><span style="font-size: 12pt; font-family: Arial;">Patches Dataset</span></a></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><a href="../contour.html#data"><span style="font-size: 12pt; font-family: Arial;"><br>
+</span></a></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><a href="../contour.html#data"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a href="contour/contour_README.txt"><img style="border: 0px solid ; width: 500px; height: 69px;" alt="" src="segmentation.png"></a></span></a></p>
+<br>
+<p class="MsoNormal" style="margin: 0in 1in;"><br>
+</p>
+<p class="MsoNormal" style="margin: 0in 1in;"><br>
+<a href="../contour.html#data"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></a></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-size: 12pt; font-family: Arial;"><a href="../person_detection.html#download">Part Patch Dataset</a></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-size: 12pt; font-family: Arial;"><a href="../person_detection.html#download"><br>
+</a></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><img style="width: 500px; height: 252px;" alt="" src="pascal_parts.png"></o:p></span></p>
+<br>
+<p class="MsoNormal" style="margin: 0in 1in;"><br>
+</p>
+<p class="MsoNormal" style="margin: 0in 1in;"><br>
+<span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;"><a href="../attribute_feedback/">Relative
+Face
+Attributes Dataset</a> (29
+attributes, 60 categories)</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;"><br>
+</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><img style="width: 349px; height: 277px;" alt="" src="../relative_attributes/relative_motivation.png"><br>
+<span style="font-size: 12pt; font-family: Arial;"></span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></p>
+
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span> &nbsp;
+&nbsp;</p><br>
+<p class="MsoNormal" style="margin: 0in 1in;"></p>
+<p class="MsoNormal" style="margin: 0in 1in;"></p>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp; &nbsp;</p>
+<span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a name="paper"></a><span style="color: rgb(51, 51, 51);">Publications (partially supported by
+NSF)</span>
+<o:p></o:p></span></b></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp; &nbsp;</p>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="text-align: center;"><img style="width: 350px; height: 126px;" alt="" src="../static/img/pub/edges.png"></td>
+      <td><font face="Arial"><a href="https://sites.google.com/site/aboutaayushb/">A. Bansal</a>, <a href="http://chenlab.ece.cornell.edu/people/adarsh/">A. Kowdle</a>, D.
+Parikh, <a href="http://chenlab.ece.cornell.edu/people/Andy/">A. C.
+Gallagher</a> and <a href="http://research.microsoft.com/en-us/people/larryz/">C. L. Zitnick</a></font>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><a href="../Publications/Bansal_edges_3dRR_ICCV_2013.pdf"><font face="Arial">Which Edges Matter?</font></a></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial"><span style="font-style: italic;">Workshop on 3D
+Representation and Recognition (3dRR) </span><br style="font-style: italic;">
+      <span style="font-style: italic;">International Conference on
+Computer Vision (ICCV), </span>2013<span style="font-style: italic;">.</span>
+      </font></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;"><img style="width: 350px; height: 319px;" alt="" src="../static/img/pub/debug_crf.png"><br>
+      </td>
+      <td>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12pt; font-family: Arial;"><a href="http://www.cs.ucla.edu/%7Eroozbehm/">R. Mottaghi</a>, <a href="http://ttic.uchicago.edu/%7Efidler/">S. Fidler</a>, <a href="http://ttic.uchicago.edu/%7Eyaojian/">J. Yao</a>, <a href="http://ttic.uchicago.edu/%7Erurtasun/">R. Urtasun</a> and D.
+Parikh</span></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12pt; font-family: Arial;"><a href="../Publications/Mottaghi_CVPR_2013_debug_crf.pdf">Analyzing
+Semantic Segmentation Using Hybrid Human-Machine CRFs</a></span><a href="Publications/ParkashParikh_ECCV_2012_attributes_feedback.pdf"><span style="font-size: 12pt; font-family: Arial;"></span></a></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial"><i>IEEE Conference on Computer
+Vision and Pattern Recognition (CVPR),</i>
+20</font><font face="Arial">13</font></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial">[<a href="../Publications/Mottaghi_CVPR_2013_debug_crf_poster.pptx">poster</a>]</font></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;"><img style="width: 350px; height: 48px;" alt="" src="../static/img/pub/segmentation.png"></td>
+      <td>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;">&nbsp;&nbsp;&nbsp;</p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><b><span style="font-size: 12pt; font-family: Arial;"></span></b><span style="font-size: 12pt; font-family: Arial;"><a href="http://research.microsoft.com/en-us/people/larryz/">C. L.
+Zitnick</a> a</span><span style="font-size: 12pt; font-family: Arial;">nd</span><span style="font-size: 12pt; font-family: Arial;"> </span><span style="font-size: 12pt; font-family: Arial;">D</span><span style="font-size: 12pt; font-family: Arial;">. Parikh</span><span style="font-size: 12pt; font-family: Arial;"></span><span style="font-size: 12pt; font-family: Arial;"></span><span style="font-size: 12pt; font-family: Arial;"></span> </p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font><font face="Arial"><span id="ctl00_cph_paperSummary_gvPaperSummary_ctl02_PaperTitleLabel" style="font-size: 12pt;"></span></font></font><a href="../Publications/ZitnickParikh_CVPR_2012_contour.pdf"><font face="Arial">The
+Role of Image Understanding in Contour Detection</font></a><a href="Publications/ParikhZitnickChen_PAMI_2011_app_context.pdf"><font><font face="Arial"><span id="ctl00_cph_paperSummary_gvPaperSummary_ctl02_PaperTitleLabel" style="font-size: 12pt;"></span></font></font></a> </p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial"> </font><font face="Arial"><i>IEEE
+Conference on Computer Vision and Pattern Recognition (CVPR),</i>
+20</font><font face="Arial">12</font></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial">[<a href="../contour.html"><span style="text-decoration: underline;">project page</span></a>] [<a href="../contour.html#data">data</a>] </font><font face="Arial">[<a href="../Publications/ZitnickParikh_CVPR_2012_contour_poster.pdf">poster</a>]
+      </font></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial">&nbsp;</font></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;">&nbsp;<br>
+&nbsp;<br>
+      <img style="width: 350px; height: 335px;" alt="" src="../static/img/pub/pami_2011.png"><br>
+&nbsp;<br>
+&nbsp;</td>
+      <td><b><span style="font-size: 12pt; font-family: Arial;"></span></b>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12pt; font-family: Arial;"></span><span style="font-size: 12pt; font-family: Arial;">D. Parikh</span><span style="font-size: 12pt; font-family: Arial;">, <a href="http://research.microsoft.com/en-us/people/larryz/">C. L. Zitnick</a>
+and <a href="http://www.ece.cornell.edu/ece/people/profile.cfm?netid=tc345">T.
+Chen</a></span><span style="font-size: 12pt; font-family: Arial;"></span></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><a href="../Publications/ParikhZitnickChen_PAMI_2011_app_context.pdf"><font><font face="Arial"><span id="ctl00_cph_paperSummary_gvPaperSummary_ctl02_PaperTitleLabel" style="font-size: 12pt;"></span></font></font></a><a href="../Publications/ParikhZitnickChen_PAMI_2011_app_context.pdf"><font><font face="Arial"><span id="ctl00_cph_paperSummary_gvPaperSummary_ctl02_PaperTitleLabel" style="font-size: 12pt;"></span></font></font></a><a href="../Publications/ParikhZitnickChen_PAMI_2011_app_context.pdf"><font><font face="Arial">E</font></font><span style="font-family: Arial;">xploring
+Tiny Images: The Roles of
+Appearance and
+Contextual Information for Machine and Human Object Recognitio</span><font><font face="Arial"><span id="ctl00_cph_paperSummary_gvPaperSummary_ctl02_PaperTitleLabel" style="font-size: 12pt;">n</span></font></font></a> </p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial"> </font><font><font face="Arial"><span id="ctl00_cph_paperSummary_gvPaperSummary_ctl02_PaperTitleLabel" style="font-size: 12pt;"></span></font></font><font face="Arial"><i>Pattern
+Analysis and Machine Intelligence (PAMI),</i>
+2012 (to appear)</font></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;"><img style="width: 350px; height: 58px;" alt="" src="../static/img/pub/hum-deb.png"></td>
+      <td>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12pt; font-family: Arial;">D.
+Parikh</span><span style="font-family: Arial;"> and</span><span style="font-size: 12pt; font-family: Arial;">&nbsp;<a href="http://research.microsoft.com/en-us/people/larryz/">C. L. Zitnick</a></span></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><a href="../Publications/ParikhZitnick_CSS_NIPS2011_human_debugging.pdf"><font><font face="Arial"><span id="ctl00_cph_paperSummary_gvPaperSummary_ctl02_PaperTitleLabel" style="font-size: 12pt;">Human-Debugging of Machines</span></font></font></a>
+      </p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;">
+      <a href="http://www.cs.umass.edu/%7Ewallach/workshops/nips2011css/"><font face="Arial"> <i>Second
+Workshop on Computational Social Science and
+the Wisdom of Crowds</i></font></a></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial"><i>Neural
+Information Processing Systems (NIPS),</i>
+20</font><font face="Arial">11</font></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center; width: 600px;">&nbsp;<br>
+      <img style="width: 350px; height: 277px;" alt="" src="../static/img/pub/puzzled.png"><br>
+&nbsp;<br>
+      </td>
+      <td style="width: 912px;"><font face="Arial">D. Parikh</font><i><font face="Arial"><span style="font-weight: bold;"></span></font></i><span style="font-family: Arial;"><br>
+      <a href="../Publications/Parikh_ICCV2011_puzzled.pdf">Recognizing
+Jumbled Images:&nbsp;The Role of Local and Global Information in
+Image
+Classification</a></span><font face="Arial"><span style="text-decoration: underline;"><br>
+      </span></font> <font face="Arial"> <span id="ctl00_cph_paperSummary_gvPaperSummary_ctl03_PaperTitleLabel" style="font-size: 12pt;"> </span></font>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial"><i>International
+Conference on Computer
+Vision&nbsp;(ICCV)</i>, 20</font><font face="Arial">11</font></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial">[<a href="../Publications/Parikh_ICCV2011_jumbled_poster.pdf">poster</a>]</font><font face="Arial">&nbsp;</font><font face="Arial">[<a href="../Publications/slides/Parikh_ICCV2011_jumbled_images.pptx">slides</a>]</font></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;"><img style="width: 350px; height: 161px;" alt="" src="../static/img/pub/void.png"></td>
+      <td><span style="font-family: Arial;"><a href="http://chenlab.ece.cornell.edu/people/congcong/">C.
+Li</a>, D. Parikh
+and&nbsp;</span><font face="Arial"><a href="http://www.ece.cornell.edu/ece/people/profile.cfm?netid=tc345" rel="self">T.
+Chen</a></font><span style="font-size: 12pt; font-family: Arial;"></span>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial"><a href="../Publications/LiParikhChen_ICCV2011_unlabeled.pdf">Extracting
+Adaptive
+Contextual Cues from Unlabeled Regions</a></font></p>
+      <font face="Arial"> <span id="ctl00_cph_paperSummary_gvPaperSummary_ctl03_PaperTitleLabel" style="font-size: 12pt;"> </span></font>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial"><i>International
+Conference on Computer
+Vision&nbsp;(ICCV),</i> 20</font><font face="Arial">11</font></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial">[<a href="http://chenlab.ece.cornell.edu/projects/AdaptiveContext/">project
+page</a>]</font></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;"><img style="width: 350px; height: 187px;" alt="" src="../static/img/pub/clipart.png"></td>
+      <td><span style="font-size: 12pt; font-family: Arial;"><a href="http://research.microsoft.com/en-us/people/larryz/">C. L. Zitnick</a>
+a</span><span style="font-size: 12pt; font-family: Arial;">nd</span><span style="font-size: 12pt; font-family: Arial;"> </span><span style="font-size: 12pt; font-family: Arial;">D</span><span style="font-size: 12pt; font-family: Arial;">. Parikh</span><span style="font-size: 12pt; font-family: Arial;"></span>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12pt; font-family: Arial;"></span><span style="font-size: 12pt; font-family: Arial;"></span><span style="font-size: 12pt; font-family: Arial;"><a href="../Publications/ZitnickParikh_CVPR_2013_clipart.pdf">Bringing
+Semantics Into Focus Using Visual Abstraction</a></span></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial"><i>IEEE Conference on Computer
+Vision and Pattern Recognition (CVPR),</i>
+20</font><font face="Arial">13</font><span style="font-size: 12pt; font-family: Arial;"><span style="font-style: italic;"></span>&nbsp;<span style="font-weight: bold;">(Oral)</span></span></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12pt; font-family: Arial;">[<a href="http://research.microsoft.com/en-us/um/people/larryz/clipart/abstract_scenes.html">project
+page and data</a>] </span><span style="font-size: 12pt; font-family: Arial;">[talk (video)] </span><span style="font-size: 12pt; font-family: Arial;">[slides] [poster]</span></p>
+      </td>
+    </tr>
+    <tr>
+      <td style="text-align: center;"><img style="width: 350px; height: 236px;" alt="" src="../static/img/pub/attributes_for_feedback.png"></td>
+      <td>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><a href="http://www.umiacs.umd.edu/%7Earijit/"><span style="font-size: 12pt; font-family: Arial;">A. Biswas</span><b><span style="font-size: 12pt; font-family: Arial;"></span></b></a><span style="font-size: 12pt; font-family: Arial;"> and D.
+Parikh</span></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><span style="font-size: 12pt; font-family: Arial;"></span><a href="../Publications/BiswasParikh_CVPR_2013_active_attributes_feedback.pdf"><span style="font-size: 12pt; font-family: Arial;">Simultaneous Active
+Learning of Classifiers &amp; Attributes via Relative Feedback</span></a></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial"><i>IEEE Conference on Computer
+Vision and Pattern Recognition (CVPR),</i>
+20</font><font face="Arial">13</font></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial">[<a href="../Publications/BiswasParikh_CVPR_2013_active_attributes_feedback_poster.pdf">poster</a>]</font></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial">&nbsp;</font></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial">[<a href="../attribute_feedback/">project
+page and data</a>] [<a href="../demos.htm#classifier_feedback_demo">demo</a>]</font></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;">&nbsp;
+&nbsp;</p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial"><a href="../demos.htm#classifier_feedback_demo">Demo</a>
+at</font><font face="Arial"><span style="font-style: italic;"> </span></font><font face="Arial"><i>IEEE
+Conference on Computer Vision and Pattern Recognition (CVPR),</i>
+20</font><font face="Arial">13 by</font></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial">N. Agrawal, A. Biswas, A. Kovashka, K. Grauman and D.
+Parikh.</font></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;">&nbsp;
+</p>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp;<span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span>&nbsp;<span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a name="paper"></a><span style="color: rgb(51, 51, 51);">Related Publications (prior to NSF
+support)</span>
+<o:p></o:p></span></b></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"></p>
+<table style="text-align: left; width: 100%;" border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="text-align: center; width: 600px;">&nbsp;<br>
+&nbsp;<br>
+      <img style="width: 350px; height: 76px;" alt="" src="../static/img/pub/weakest_link_det.png"><br>
+&nbsp;<br>
+&nbsp;</td>
+      <td style="width: 912px;"><span style="font-size: 12pt; font-family: Arial;">D.
+Parikh</span><span style="font-family: Arial;"> and</span><span style="font-size: 12pt; font-family: Arial;"> <a href="http://research.microsoft.com/en-us/people/larryz/">C. L. Zitnick</a><br>
+      </span><font><a href="../Publications/ParikhZitnick_CVPR2011_weakest_link.pdf"><font face="Arial"><span id="ctl00_cph_paperSummary_gvPaperSummary_ctl02_PaperTitleLabel" style="font-size: 12pt;">Finding the Weakest Link in
+Person Detectors</span></font></a><br>
+      </font><font face="Arial"><i>IEEE
+Conference on Computer Vision and
+Pattern Recognition (CVPR)</i>, 2011<i><br>
+      </i>[<a href="../person_detection.html">project
+page</a>]</font><font face="Arial"> [<a href="../person_detection.html#download">data</a>]
+[<a href="../Publications/ParikhZitnick_CVPR2011_weakest_link_poster.pdf">poster</a>]&nbsp;</font><font face="Arial">[<a href="../Publications/slides/ParikhZitnick_CVPR2011_weakest_link.pptx">slides</a>]</font></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; width: 600px;"><img alt="" src="../static/img/pub/FAD_CVPR2010.jpg" style="border: 0px solid ; width: 350px; height: 260px;"></td>
+      <td style="width: 912px;"><span style="font-size: 12pt; font-family: Arial;">D. Parikh</span><span style="font-family: Arial;"> and</span><span style="font-size: 12pt; font-family: Arial;">&nbsp;<a href="http://research.microsoft.com/en-us/people/larryz/">C. L. Zitnick</a></span>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"><font face="Arial" size="3"><a href="../Publications/ParikhZitnick_CVPR2010_FAD.pdf">The
+Role of Features, Algorithms and Data in Visual Recognition</a></font></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;">
+      <font face="Arial"> <i>IEEE
+Conference on Computer Vision and
+Pattern Recognition (CVPR)</i>, 2010</font></p>
+      <p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;">
+      <font face="Arial">[<a href="../Publications/Presentations/ParikhZitnick_CVPR2010_FAD_poster.pdf">poster</a>]</font><font face="Arial">&nbsp;</font><font face="Arial">[<a href="../Publications/slides/ParikhZitnick_CVPR2010_FAD.pptx">slides</a>]</font></p>
+      </td>
+    </tr>
+  </tbody>
+</table>
+<p style="line-height: 150%; margin-top: 0pt; margin-bottom: 0pt;"></p>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp; &nbsp;</p>
+<span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a name="paper"></a><span style="color: rgb(51, 51, 51);">Graduate Students Supported</span>
+<o:p></o:p></span></b></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<br>
+<p class="MsoNormal" style="margin: 0in 1in;"><a href="http://www.cs.ucla.edu/%7Eroozbehm/"><span style="font-size: 12pt; font-family: Arial;">Roozbeh Mottaghi</span></a></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-size: 12pt; font-family: Arial;"><a href="http://www.umiacs.umd.edu/%7Earijit/">Arijit Biswas</a><br>
+</span>
+</p>
+<span style="font-size: 12pt; font-family: Arial;"></span>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp; &nbsp;</p>
+<span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a name="paper"></a><span style="color: rgb(51, 51, 51);">Undergraduate Students Supported</span>
+<o:p></o:p></span></b></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp;&nbsp; <br>
+</p><span style="font-size: 12pt; font-family: Arial;"></span>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-size: 12pt; font-family: Arial;">Yash Seth</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-size: 12pt; font-family: Arial;">Naman Agrawal</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-size: 12pt; font-family: Arial;">Jiuling Wang</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-size: 12pt; font-family: Arial;"><a href="https://sites.google.com/site/aboutaayushb/">Aayush Bansal</a><br>
+</span>
+</p>
+
+<span style="font-size: 12pt; font-family: Arial;"></span> <span style="font-size: 12pt; font-family: Arial;"></span><span style="font-size: 12pt; font-family: Arial;"><a href="https://sites.google.com/site/aboutaayushb/"></a></span><span style="font-family: Arial;"></span>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><br>
+</p>
+</div>
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=1299599; var sc_invisible=1; var sc_partition=63; var sc_click_stat=1; var sc_security="3d8147d8"; </script>
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script>
+<noscript> <div class="statcounter"><a title="free web stats" href="http://www.statcounter.com/" target="_blank"><img class="statcounter" src="http://c.statcounter.com/1299599/0/3d8147d8/1/" alt="free web stats"></a></div></noscript>
+<!-- End of StatCounter Code -->
+<p></p>
+
+</body></html>

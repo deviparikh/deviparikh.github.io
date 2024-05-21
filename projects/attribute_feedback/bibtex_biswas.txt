@@ -1,0 +1,6 @@
+@InProceedings{BiswasCVPR2013,
+	title = "Simultaneous Active Learning of Classifiers \& Attributes via Relative Feedback",
+	author = "Arijit Biswas and Devi Parikh",
+	booktitle = {IEEE Conference on Computer Vision and Pattern Recognition (CVPR)},
+	year      = {2013}
+}

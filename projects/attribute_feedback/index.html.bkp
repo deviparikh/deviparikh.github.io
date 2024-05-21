@@ -1,0 +1,165 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" xml:lang="en" lang="en">
+<head>
+  <link rel="StyleSheet" href="style.css" type="text/css" media="all" />
+  <meta http-equiv="Content-Type"
+ content="text/html; charset=ISO-8859-1" />
+  <title>Attributes for Classifier Feedback</title>
+</head>
+<body>
+<div id="primarycontent">
+<h1 align="center">Attributes
+for Classifier Feedback</h1>
+<img src="images/main_image_1.png" />
+<table class="results">
+  <tbody>
+    <tr>
+    </tr>
+  </tbody>
+</table>
+<h2>People</h2>
+<ul id="people">
+  <li><a href="http://www.umiacs.umd.edu/%7Earijit/"><font
+ color="#ffff00"><span style="text-decoration: underline;">Arijit
+Biswas</span> </font></a></li>
+  <li><a href="https://sites.google.com/site/aparkash2012/"><font /></a><font><font><font><font><a
+ href="https://sites.google.com/site/aparkash2012/"><font
+ color="#ffff00"><span style="text-decoration: underline;">Amar Parkash</span></font></a></font></font></font></font></li>
+  <font> <font> <font> <li><a
+ href="http://filebox.ece.vt.edu/%7Eparikh/"><font /></a><font><font><font><font><a
+ href="http://filebox.ece.vt.edu/%7Eparikh/"><font color="#ffff00"><span
+ style="text-decoration: underline;">Devi Parikh</span></font></a></font></font></font></font></li>
+  <font> <font> </font> </font></font>
+  </font></font>
+</ul>
+<h2><font><font><font><font><font><font>Abstract</font></font></font></font></font></font></h2>
+<p>
+<font><font><font><font><font><font>Active learning provides useful
+tools to reduce
+annotation
+costs
+without compromising classifier performance. However it traditionally
+views the supervisor simply as a labeling machine. We propose a new
+interactive learning paradigm that allows the supervisor to
+additionally convey useful domain knowledge using attributes. The
+learner first conveys its belief about an actively chosen image e.g. "I
+think this is a forest, what do you think?". If the learner is wrong,
+the supervisor provides an explanation e.g. "No, this is too open to be
+a forest". With access to a pre-trained set of relative attribute
+predictors, the learner fetches all unlabeled images more open than the
+query image, and uses them as negative examples of forests to update
+its classifier. This rich human-machine communication leads to better
+classification performance. </font></font></font></font></font></font></p>
+<font><font><font><font><font><font>We also propose three enhancements
+to this
+basic framework.
+First, we
+incorporate a weighting scheme that instead of making a hard decision
+reasons about the likelihood of an image being a negative example.
+Second, we do away with pre-trained attributes and instead learn the
+attribute models on the fly, alleviating overhead and restrictions of a
+pre-determined attribute vocabulary. Finally, we propose an active
+learning framework that accounts for not just the label- but also the
+attributes-based feedback while selecting the next query image. We
+demonstrate significant improvement in classification accuracy on faces
+and shoes. We also collect and make available the largest relative
+attributes dataset containing 29 attributes of faces from 60
+categories.
+</font></font></font></font></font></font>
+<h2><font><font><font><font><font><font>Papers</font></font></font></font></font></font></h2>
+<font><font><font><font><font><font>Amar Parkash, Devi Parikh. <br />
+Attributes for Classifier Feedback. <br />
+In European Conference on Computer Vision (ECCV),
+2012 (Oral). <br />
+<font><font><a
+ href="../Publications/ParkashParikh_ECCV_2012_attributes_feedback.pdf"><font
+ color="#ffff00"><span style="text-decoration: underline;">PDF</span></font></a></font><font><font
+ color="#ffff00"><span style="text-decoration: underline;" /></font></font><font><font><font
+ color="#ffff00">&nbsp;</font></font></font><font><font><font><a
+ href="bibtex_parkash.txt"><font color="#ffff00"><span
+ style="text-decoration: underline;">bibtex</span></font></a></font></font><a
+ href="http://www.umiacs.umd.edu/%7Earijit/projects/bibtex_1.html">
+<br />
+<br />
+</a>Arijit Biswas, Devi Parikh. <br />
+Simultaneous Active Learning of Classifiers
+&amp; Attributes via Relative Feedback. <br />
+In IEEE Conference on Computer Vision and Pattern Recognition (CVPR),
+2013. <a
+ href="http://www.umiacs.umd.edu/%7Earijit/projects/bibtex_1.html"><font><br />
+</font></a><font><a
+ href="../Publications/BiswasParikh_CVPR_2013_active_attributes_feedback.pdf"><font
+ color="#ffff00"><span style="text-decoration: underline;">PDF</span></font></a></font><font><font
+ color="#ffff00"><span style="text-decoration: underline;" /></font></font><font><font><font
+ color="#ffff00">&nbsp;</font></font></font><font><font><a
+ href="bibtex_biswas.txt"><font color="#ffff00"><span
+ style="text-decoration: underline;">bibtex</span></font></a></font></font><a
+ href="http://www.umiacs.umd.edu/%7Earijit/projects/bibtex_2.html">
+</a></font></font></font></font></font></font></font></font>
+<h2><font><font><font><font><font><font><font><font>Presentations</font></font></font></font></font></font></font></font></h2>
+<font><font><font><font><font><font><font><font>ECCV 2012 Oral
+presentation: <a
+ href="http://www.umiacs.umd.edu/%7Earijit/projects/bibtex_2.html"><br />
+</a><font><font><a
+ href="../Publications/attributes_for_classifier_feedback.pptx"><font
+ color="#ffff00"><span style="text-decoration: underline;">Slides</span></font></a></font><font><font
+ color="#ffff00"><span style="text-decoration: underline;" /></font></font><font><font><font
+ color="#ffff00">&nbsp;</font></font></font><font><font><a
+ href="http://videolectures.net/eccv2012_parikh_attributes/"><font
+ color="#ffff00"><span style="text-decoration: underline;">Talk (video)</span></font></a><br />
+<br />
+CVPR 2013 Poster presentation:<br />
+</font></font></font></font></font></font></font></font></font><font><font><font><font><font><font><font><font><a
+ href="../Publications/BiswasParikh_CVPR_2013_active_attributes_feedback_poster.pdf"><font
+ color="#ffff00"><span style="text-decoration: underline;">Poster</span></font></a></font></font></font></font></font></font></font></font>
+</font></font>
+<h2><font><font><font><font><font><font><font><font><font>Data Set</font></font></font></font></font></font></font></font></font></h2>
+<font><font><font><font><font><font><font><font><font>We have collected
+a relative
+attributes dataset
+for 60 face categories
+and 29 attributes (subset of&nbsp;<font><font><a
+ href="http://www.cs.columbia.edu/CAVE/databases/pubfig/"><font
+ color="#ffff00"><span style="text-decoration: underline;">PubFig</span></font></a></font></font>)
+using Amazon Mechanical Turk. For each pair of categories we show
+example images to 10 users on Amazon Mechanical Turk and ask them which
+category
+has a stronger presence of each attribute. We then trained relative
+attribute predictors for these 29 images. The dataset including the
+annotations, trained attribute predictors, and outputs of the
+predictors on 1800 images can be
+downloaded here:&nbsp; <font><font><font><a
+ href="Relative_Face_Attributes_Dataset.zip"><font color="#ffff00"><span
+ style="text-decoration: underline;">Relative Face Attributes Dataset</span></font></a></font></font></font>.<br />
+<br />
+If you use this dataset please cite: <font><font><a
+ href="bibtex_biswas.txt"><font color="#ffff00"><span
+ style="text-decoration: underline;">bibtex</span></font></a><br />
+</font></font></font></font></font></font></font></font></font>
+</font></font>
+<h2><font><font><font><font><font><font><font><font><font>Demo</font></font></font></font></font></font></font></font></font></h2>
+<font><font>We presented a demo of this work at CVPR 2013. It can be
+found&nbsp;<font><font><font><font><font><font><font><font><font><font><a
+ href="../demos.htm#classifier_feedback_demo"><font color="#ffff00"><span
+ style="text-decoration: underline;">here</span></font></a></font></font></font></font></font></font></font></font></font></font>.
+<br />
+&nbsp; <br />
+</font></font>
+<p class="footer"><font><font><font><font><font><font><font><font><font><a
+ href="http://www.umiacs.umd.edu/%7Earijit/projects/bibtex_2.html">Comments,
+questions
+to&nbsp;<font /></a><font><font><font><a
+ href="http://www.umiacs.umd.edu/%7Earijit/"><font color="#ffff00"><span
+ style="text-decoration: underline;">Arijit
+Biswas</span></font></a></font><a
+ href="http://www.umiacs.umd.edu/%7Earijit/" /></font><a
+ href="http://www.umiacs.umd.edu/%7Earijit/" /></font><a
+ href="http://www.umiacs.umd.edu/%7Earijit/" /></font><a
+ href="http://www.umiacs.umd.edu/%7Earijit/" /></font><a
+ href="http://www.umiacs.umd.edu/%7Earijit/" /></font><a
+ href="http://www.umiacs.umd.edu/%7Earijit/" /></font><a
+ href="http://www.umiacs.umd.edu/%7Earijit/" /></font><a
+ href="http://www.umiacs.umd.edu/%7Earijit/" /></font></font></font></font></p>
+</div>
+</body>
+</html>

@@ -1,0 +1,6 @@
+@InProceedings{ParkashECCV2012,
+	title = "Attributes for Classifier Feedback",
+	author = "Amar Parkash and Devi Parikh",
+	booktitle = {European Conference on Computer Vision (ECCV)},
+	year      = {2012}
+}

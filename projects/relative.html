@@ -1,0 +1,712 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" xmlns:w="urn:schemas-microsoft-com:office:word" xmlns:m="http://schemas.microsoft.com/office/2004/12/omml" xmlns:st1="urn:schemas-microsoft-com:office:smarttags" xmlns="http://www.w3.org/TR/REC-html40"><head>
+
+
+
+
+
+  
+  <meta http-equiv="Content-Type" content="text/html; charset=windows-1252">
+
+  
+  <meta name="ProgId" content="Word.Document">
+
+  
+  <meta name="Generator" content="Microsoft Word 12">
+
+  
+  <meta name="Originator" content="Microsoft Word 12"><title>Relative Attributes</title></head><body lang="EN-US" link="blue" vlink="purple">
+<o:smarttagtype namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="place"><o:smarttagtype namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="City">
+<o:smarttagtype namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="PlaceName"><o:smarttagtype namespaceuri="urn:schemas-microsoft-com:office:smarttags" name="PlaceType"></o:smarttagtype></o:smarttagtype></o:smarttagtype></o:smarttagtype>
+<div class="WordSection1">
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><b style=""><span style="font-size: 18pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><b style=""><span style="font-size: 18pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Relative
+Attributes</span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><font face="Arial"><span style="font-weight: bold;">&nbsp;
+</span></font></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><big><font face="Arial"><span style="font-weight: bold;">Marr
+Prize (Best Paper Award) Winner, ICCV 2011</span></font></big><b style=""><span style="font-size: 18pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<o:p></o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><b style=""><span style="font-size: 18pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a href="./">Devi
+Parikh</a>&nbsp;and&nbsp;<a href="http://www.cs.utexas.edu/%7Egrauman/">Kristen
+<span class="SpellE">Grauman</span></a></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><br>
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"> </p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center">&nbsp;&nbsp;</p>
+<p style="margin: 0in 1in; text-align: center; font-family: Arial;" align="center">"Who
+in the rainbow can draw the line where the violet tint ends and the
+orange tint begins? Distinctly we see the difference of the colors, but
+where exactly does the one first blendingly enter into the other? So
+with sanity and insanity."<br>
+&nbsp;<br>
+-- Herman Melville, Billy Budd&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center">&nbsp;
+&nbsp; &nbsp;<span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><br>
+<img style="width: 349px; height: 277px;" alt="" src="./relative_attributes/relative_motivation.png"><br>
+</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span>&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">[<a href="#paper">paper</a>]
+&nbsp; &nbsp;[<a href="#data">data</a>]
+&nbsp; &nbsp; </span><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">[<a href="relative.html#code">code</a>]
+&nbsp; &nbsp; [<a href="relative.html#demos">demos</a>] &nbsp; &nbsp;</span><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">[<a href="./relative_attributes/relative_attributes.ppt">slides</a>]</span><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+&nbsp; &nbsp; [<a href="http://iccv2011.org/oral_videos/day_2/2-3-1.m4v">talk
+(video)</a>] &nbsp; &nbsp; [<a href="Publications/ParikhGrauman_ICCV2011_relative_poster.pdf">poster</a>]&nbsp;&nbsp;
+[<a href="relative.html#translations">translations</a>]<br>
+</span></p>
+<p class="MsoNormal" style="margin-right: 1in;"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;&nbsp;&nbsp;</o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Abstract<o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><small><small><small><small><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></small></small></small></small><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Human-nameable
+visual "attributes" can benefit various recognition
+tasks.&nbsp;However, existing techniques restrict these properties
+to categorical labels (for example, a person is 'smiling' or not, a
+scene is 'dry' or not), and thus fail to capture more general semantic
+relationships.&nbsp;We propose to model <span style="font-style: italic;">relative</span>
+attributes.&nbsp; Given training data stating how object/scene
+categories relate according to different attributes, we learn a ranking
+function per attribute.&nbsp;The learned ranking functions predict
+the relative strength of each property in novel images.&nbsp;We
+then build a generative model over the joint space of attribute ranking
+outputs, and propose a novel form of zero-shot learning in which the
+supervisor <span style="font-style: italic;">relates</span>
+the unseen object category to previously seen objects via attributes
+(for example, 'bears are furrier than giraffes').&nbsp; We further
+show how the proposed relative attributes enable richer textual
+descriptions for new images, which in practice are more precise for
+human interpretation.&nbsp; We demonstrate the approach on datasets
+of faces and natural scenes, and show its clear advantages over
+traditional binary attribute prediction for these new tasks.&nbsp;</span><br>
+<span style=""></span></span><b style=""><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style=""></span><o:p></o:p></span></b>
+&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></b></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;&nbsp;</o:p></span></b></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div style="text-align: center;" class="MsoNormal" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: left;"><b style=""><span style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Motivation<o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div style="text-align: center;" class="MsoNormal" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Binary
+attributes are restrictive and can be unnatural. In the above examples,
+while one can
+characterize the image on the top-left and top-right as natural and
+man-made
+respectively, what would you describe the image in the top-center as?
+The
+only meaningful way to characterize it is with respect to the other
+images: it is less natural than the image on the left, but more so than
+the image on the right.&nbsp; </span><span style=""><span style="font-weight: bold;"></span></span></span></p>
+<ul style="margin: 0in 1in; text-align: justify;">
+</ul>
+<p class="MsoListParagraphCxSpLast" style="margin: 0in 1in;">&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;" align="center"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style=""></span></span>
+&nbsp;<b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></b></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Proposal<o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>In
+this work, we propose to model relative attributes. As opposed to
+predicting the presence of an attribute, a relative attribute indicates
+the strength of an attribute in an image with respect to other images.
+In addition to being more natural, relative attributes offer a
+richer mode of communication, thus allowing access to more detailed
+human supervision (and so potentially higher recognition accuracy), as
+well as the ability to generate more informative descriptions of novel
+images.&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>We
+devise an approach that learns a <span style="font-style: italic;">ranking
+function</span>
+for each attribute, given relative similarity constraints on pairs of
+examples (or more generally a partial ordering on some examples). The
+learned ranking function can estimate a real-valued rank&nbsp;for
+images indicating the relative strength of the attribute presence in
+them.&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>We
+introduce novel forms of zero-shot learning and image description that
+exploit the relative attribute predictions.</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span>
+&nbsp; </p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;&nbsp;</span></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Approach<o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><span style="font-size: 11pt; text-decoration: underline;">Learning
+relative attributes:</span><span style="font-size: 11pt;"> Each
+relative attribute is
+learnt via a learning to rank formulation, given comparative
+supervision, as shown below:</span></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp;<span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<div style="text-align: center;"><img style="width: 476px; height: 231px;" alt="" src="./relative_attributes/learning_to_rank.png"><br>
+&nbsp;&nbsp;</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span>
+&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>Distinction
+between learning a wide-margin ranking function (right) that enforces
+the desired ordering on training points (1-6), and a wide-margin binary
+classi&#64257;er (left) that only separates the two classes (+ and -), and
+does not necessarily preserve a desired ordering on the points is shown
+below:</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;">&nbsp;
+<span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;
+</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><img style="width: 359px; height: 179px;" alt="" src="./relative_attributes/classifier_vs_ranking_fn.png"><br>
+</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;
+</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;; text-decoration: underline;"><o:p>
+</o:p></span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;; text-decoration: underline;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;; text-decoration: underline;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;; text-decoration: underline;"><o:p>Novel
+zero-shot learning</o:p></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style="text-decoration: underline;">:</span><span style="font-size: 11pt;"> We study the following
+set-up&nbsp;</span></span></p>
+<ul style="margin-left: 80px;">
+  <li><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style="font-size: 11pt;">N
+total categories: <span style="color: rgb(51, 51, 255); font-weight: bold;">S
+seen</span> categories (associated
+images are available) + <span style="color: rgb(255, 153, 0); font-weight: bold;">U
+unseen</span> categories (no images
+are available for these categories)</span></span></li>
+  <li><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style="font-size: 11pt;"><span style="color: rgb(51, 51, 255); font-weight: bold;">S
+seen</span> categories are described
+relative to each other via attributes (not all pairs of categories need
+to be related
+for all attributes)</span></span></li>
+  <li><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style="font-size: 11pt;"><span style="color: rgb(255, 153, 0); font-weight: bold;">U
+unseen</span> categorires are
+described relative to (a subset of) seen categories in terms of (a
+subset of) attributes.</span></span></li>
+</ul>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style="font-size: 11pt;">We first train a set of
+relative attributes using the supervision provided on the <span style="color: rgb(51, 51, 255); font-weight: bold;">seen</span>
+categories. These attributes can also be pre-trained from external
+data. We then build a generative model (Gaussian) for each <span style="color: rgb(51, 51, 255); font-weight: bold;">seen</span>
+category using the responses of the relative attributes to the images
+from the <span style="color: rgb(51, 51, 255); font-weight: bold;">seen</span>
+categories. We then infer the parameters of the generative models of <span style="color: rgb(255, 153, 0); font-weight: bold;">unseen</span>
+categories by utilizing their relative descriptions with respect to <span style="color: rgb(51, 51, 255); font-weight: bold;">seen</span>
+categories. A visualization of the simple approach we employ for this
+is shown below:&nbsp;</span></span></p>
+<span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style="font-size: 11pt;"></span></span>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><br>
+&nbsp;<img style="width: 348px; height: 418px;" alt="" src="./relative_attributes/zero-shot.png"><br>
+</p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;">&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;">&nbsp;<br>
+</p>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp;<span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style="font-size: 11pt;">A test image is assigned to
+the category with the maximum likelihood.</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style="font-size: 11pt;">&nbsp; &nbsp;</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><span style="font-size: 11pt; text-decoration: underline;">Automatically
+generating relative textual descriptions of images:</span></o:p>&nbsp;<span style="font-size: 11pt;">Given an image I to be
+described, we evaluate all learnt ranking functions on I. For each
+attribute, we identify two reference images lying on either side of I,
+and are not too far from or too close to I. Image I is then described
+relative to these two reference images, as shown below:</span><br>
+&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;<img style="width: 349px; height: 312px;" alt="" src="./relative_attributes/img_description.png"></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style="font-size: 11pt;">As seen above, in addition
+to describing an image relative to other images, our approach can also
+describe an image relative to other categories, resulting in a purely
+textual description. Clearly, the relative descriptions are more
+precise and informative than the conventional binary description.</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span style="font-size: 11pt;">&nbsp; </span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></b></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Experiments
+and Results<o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">We
+conduct experiments on two datasets:&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;">(1) <span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a href="http://people.csail.mit.edu/torralba/code/spatialenvelope/">Outdoor
+Scene Recognition</a> (OSR)
+containing 2688 images from 8 categories:
+coast&nbsp;C, forest&nbsp;F, highway&nbsp;H,
+inside-city&nbsp;I,
+mountain&nbsp;M,
+open-country&nbsp;O, street&nbsp;S and
+tall-building&nbsp;T. We use
+gist
+features to represent the images.</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">(2)
+A
+subset of the <a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/">Public
+Figures Face Database</a> (PubFig)
+containing 772 images from 8
+categories: Alex
+Rodriguez&nbsp;A, Clive Owen&nbsp;C, Hugh Laurie&nbsp;H,
+Jared
+Leto&nbsp;J, Miley
+Cyrus&nbsp;M, Scarlett Johansson&nbsp;S, Viggo
+Mortensen&nbsp;V and Zac
+Efron&nbsp;Z.&nbsp;We use concatenated gist and and color
+features to
+represent the images.</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;">&nbsp;<span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">The
+list of attributes used for each dataset, along with the binary and
+relative attribute annotations are shown below:</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;
+&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><img style="width: 399px; height: 307px;" alt="" src="./relative_attributes/att_table.png"><br>
+</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify; text-decoration: underline;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>Zero-shot
+learning:</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>We
+compare our proposed approach to two baselines. The first is
+Score-based Relative Attributes (SRA). This baseline is the same as our
+approach, except it uses the scores of a binary classifier (binary
+attributes)
+instead of the scores of a ranking function. This baseline helps
+evaluate the need for a ranking function to best model relative
+attributes. Our second baseline is the Direct Attribute Prediction
+(DAP) model introduced by Lampert et al. in CVPR 2009. This baseline
+helps evaluate the benefits of relative treatment of attributes as
+opposed to categorical. We evaluate
+these approaches for varying numbers of unseen categories, varying
+amounts of data used to train the attributes, varying number of
+attribtues used to describe the unseen categories, and varying levels
+of 'looseness' in the description of unseen categories. Details of the
+experimental set-up can be found in our paper. Results are shown below:</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;<img style="width: 998px; height: 115px;" alt="" src="./relative_attributes/zero_shot_results.png"><br>
+</span></p>
+<br>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify; text-decoration: underline;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>Auto-generated
+image descriptions:</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>In
+order to evaluate the quality of our relative image descriptions to the
+binary counterparts, we conducted a human study. We generated a
+description of an image using our approach, as well as the baseline
+binary attributes. We presented the subjects with this description,
+along with three images. One of the three images was the
+image being described. The task of the subjects was to rank the three
+images based on which one they thought was most likely to be the one
+being described. The more precise the description, the better the
+chances subjects have of identifying the correct image. &nbsp;An
+illustration of a task presented to subjects is shown below:</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><img style="width: 398px; height: 437px;" alt="" src="./relative_attributes/human_study.png"><br>
+</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;">&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;">&nbsp;<span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>The
+results of the study are shown below. We see that subjects can identify
+the correct image more accurately using our proposed relative
+attributes, as compared to the binary attributes.</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;
+</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: justify;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p><img style="width: 198px; height: 213px;" alt="" src="./relative_attributes/human_study_results.png"><br>
+</o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;">&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;">&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;">&nbsp;<span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Example
+binary descriptions of images as well as descriptions relative to
+categories are shown below:</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;
+&nbsp; &nbsp; &nbsp;&nbsp;</span></p>
+<table style="text-align: left; margin-left: 85px; width: 888px;" border="0" cellpadding="2" cellspacing="2">
+  <tbody>
+    <tr>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 138px; font-weight: bold;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Image</span></td>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 181px; font-weight: bold;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Binary
+descriptions</span></td>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 453px; font-weight: bold;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Relative
+descriptions</span></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 138px;"><img style="width: 114px; height: 114px;" alt="" src="./relative_attributes/im1.png"></td>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 181px;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">not
+natural<br>
+not open<br>
+perspective</span></td>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 453px;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">more
+natural than tallbuilding, less natural than forest<br>
+more open than tallbuilding, less open than coast<br>
+more perspective than tallbuilding<br>
+      </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 138px;"><img style="width: 114px; height: 115px;" alt="" src="./relative_attributes/im2.png"></td>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 181px;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">not
+natural<br>
+not open<br>
+perspective<br>
+      </span></td>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 453px;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">more
+natural than insidecity, less natural than highway<br>
+more open than street, less open than coast<br>
+more perspective than highway, less perspective than insidecity<br>
+      </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 138px;"><img style="width: 114px; height: 114px;" alt="" src="./relative_attributes/im3.png"></td>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 181px;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">natural<br>
+open<br>
+perspective</span></td>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 453px;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">more
+natural than tallbuilding, less natural than mountain<br>
+more open than mountain<br>
+less perspective than opencountry<br>
+      </span></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 138px;"><img style="width: 114px; height: 115px;" alt="" src="./relative_attributes/im4.png"></td>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 181px;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">White<br>
+not Smiling<br>
+VisibleForehead</span></td>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 453px;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">more
+White than <a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/explore/Alex_Rodriguez.jpg">AlexRodriguez</a><br>
+more Smiling than <a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/explore/Jared_Leto.jpg">JaredLeto</a>,
+less Smiling than <a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/explore/Zac_Efron.jpg">ZacEfron</a><br>
+more VisibleForehead than&nbsp;</span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/explore/Jared_Leto.jpg">JaredLeto</a></span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">,
+less VisibleForehead than <a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/explore/Miley_Cyrus.jpg">MileyCyrus</a></span></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 138px;"><img style="width: 114px; height: 114px;" alt="" src="./relative_attributes/im5.png"></td>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 181px;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">White<br>
+not Smiling<br>
+not VisibleForehead</span></td>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 453px;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">more
+White than</span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"> <a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/explore/Alex_Rodriguez.jpg">AlexRodriguez</a></span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">,
+less White than&nbsp;</span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/explore/Miley_Cyrus.jpg">MileyCyrus</a></span><br>
+      <span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">less
+Smiling than <a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/explore/Hugh_Laurie.jpg">HughLaurie</a><br>
+more VisibleForehead than&nbsp;</span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/explore/Zac_Efron.jpg">ZacEfron</a></span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">,
+less VisibleForehead than&nbsp;</span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/explore/Miley_Cyrus.jpg">MileyCyrus</a></span></td>
+    </tr>
+    <tr>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 138px;"><img style="width: 114px; height: 114px;" alt="" src="./relative_attributes/im6.png"></td>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 181px;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">not
+Young<br>
+BushyEyebrows<br>
+RoundFace</span></td>
+      <td style="text-align: center; background-color: rgb(255, 255, 255); width: 453px;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">more
+Young than <a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/explore/Clive_Owen.jpg">CliveOwen</a>,
+less Young than <a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/explore/Scarlett_Johansson.jpg">ScarlettJohansson</a><br>
+more BushyEyebrows than&nbsp;</span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/explore/Zac_Efron.jpg">ZacEfron</a></span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">,
+less BushyEyebrows than</span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"> <a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/explore/Alex_Rodriguez.jpg">AlexRodriguez</a></span><br>
+      <span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">more
+RoundFace than&nbsp;</span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/explore/Clive_Owen.jpg">CliveOwen</a></span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">,
+less RoundFace than&nbsp;</span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/explore/Zac_Efron.jpg">ZacEfron</a></span></td>
+    </tr>
+  </tbody>
+</table>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span>
+</p>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp;<span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span></b>&nbsp;</p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a name="data"></a><span style="color: rgb(51, 51, 51);">Data</span><o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;">We provide t</span><span style="font-family: Arial;">he learnt relative
+attributes and their
+predictions</span><span style="font-family: Arial;"> for the
+two datasets used in our paper:&nbsp;<a href="http://people.csail.mit.edu/torralba/code/spatialenvelope/">Outdoor
+Scene Recognition</a> (OSR) and a
+subset of the
+<a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/">Public
+Figures Face Database</a>
+(PubFig).&nbsp;</span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a href="./relative_attributes/relative_attributes_README.txt">README</a></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a href="./relative_attributes/relative_attributes_v2.zip">Download (v2)</a></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span>
+&nbsp; </p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;"><a href="https://filebox.ece.vt.edu/%7Eparikh/attribute_feedback/">Relative
+Face Attributes Dataset</a>. It contains annotations for 29 relative
+attributes on 60 categories from the&nbsp;</span><span style="font-family: Arial;"><a href="http://www.cs.columbia.edu/CAVE/databases/pubfig/">Public
+Figures Face Database</a>
+(PubFig).&nbsp;</span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp;&nbsp;</o:p></span></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a name="code"></a><span style="color: rgb(51, 51, 51);">Code</span><o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;">We
+modified&nbsp;Olivier Chappelle's
+RankSVM implementation to train relative attributes with similarity
+constraints. Our modified code can be found <a href="./relative_attributes/ranksvm_with_sim.m">here</a>.</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp;<span style="font-family: Arial;"></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;">If you use our code,
+please cite the
+following paper:</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;">D. Parikh and K. Grauman</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;">Relative Attributes</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;">International Conference
+on Computer
+Vision (ICCV), 2011.</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p>&nbsp; &nbsp;</o:p></span>
+</p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span style="color: rgb(51, 51, 51); font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a name="demos"></a><span style="color: rgb(51, 51, 51);">Demos</span><o:p></o:p></span></b></p>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;">Demos of various applications of relative
+attributes can be found <a href="./demos.htm">here</a>. A description
+of these applications can be found in the papers <a href="#paper">here</a>.</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p> &nbsp; </span></p>
+<span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a name="paper"></a><span style="color: rgb(51, 51, 51);">Publications</span>
+<o:p></o:p></span></b></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a href="./">D. Parikh</a>
+and <a href="http://www.cs.utexas.edu/%7Egrauman/">K. Grauman</a></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><a href="./Publications/ParikhGrauman_ICCV2011_relative.pdf"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">Relative
+Attributes</span></a></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">International
+Conference on Computer Vision (ICCV), 2011. <span style="font-weight: bold;">(Oral)</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><font face="Arial"><span style="font-weight: bold;">Marr Prize (Best Paper
+Award) Winner</span></font></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><font face="Arial">[<a href="./relative_attributes/relative_attributes.ppt">slides</a>]
+</font><font face="Arial">[<a href="http://iccv2011.org/oral_videos/day_2/2-3-1.m4v">talk
+(video)</a>]
+[<a href="Publications/ParikhGrauman_ICCV2011_relative_poster.pdf">poster</a>]
+[<a href="http://godel.ece.vt.edu/descriptor/">relative descriptions
+demo</a>]</font></p>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp;</p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;">Following are our other
+papers that use
+relative attributes:&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;">&nbsp;<span style="font-family: Arial;"></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;"><a href="http://www.umiacs.umd.edu/%7Earijit/">A. Biswas</a> and D. Parikh</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><a href="./Publications/BiswasParikh_CVPR_2013_active_attributes_feedback.pdf"><span style="font-family: Arial;">Simultaneous Active
+Learning of Classifiers &amp; Attributes via Relative Feedback</span></a></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;">IEEE
+Conference on Computer Vision
+and Pattern Recognition (CVPR), 2013</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><font face="Arial">[<a href="attribute_feedback/attribute_feedback.html">project page and data</a>]</font><span style="font-family: Arial;">&nbsp;[poster] [<a href="http://godel.ece.vt.edu/classifier/feedback.php">demo</a>]</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;"><a href="https://sites.google.com/site/aparkash2012/"><br>
+</a></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;"><a href="https://sites.google.com/site/aparkash2012/">A.
+Parkash</a> and
+D. Parikh<a href="Publications/ParkashParikh_ECCV_2012_attributes_feedback.pdf"><br>
+</a></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;"><a href="Publications/ParkashParikh_ECCV_2012_attributes_feedback.pdf">Attributes
+for Classifier Feedback</a><br>
+</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;">European Conference on Computer Vision
+(ECCV), 2012 <span style="font-weight: bold;">(Oral)</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;"><span style="font-weight: bold;"></span></span><span style="font-size: 12pt; font-family: Arial;"><span style="font-weight: bold;"></span></span><font face="Arial">[<a href="Publications/attributes_for_classifier_feedback.pptx">slides</a>]
+[<a href="http://videolectures.net/eccv2012_parikh_attributes/">talk
+(video)</a>]&nbsp;</font><font face="Arial">[<a href="attribute_feedback/attribute_feedback.html">project page and data</a>]
+[<a href="http://godel.ece.vt.edu/classifier/feedback.php">demo</a>]</font></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;"><br>
+</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;"></span><span style="font-size: 12pt; font-family: Arial;"><a href="http://www.cs.utexas.edu/%7Eadriana/">A.
+Kovashka</a>,</span><b style="font-family: Arial;"><span style="font-size: 12pt;"> </span></b><span style="font-family: Arial;"><span style="font-size: 12pt;">D</span></span><span style="font-family: Arial;"><span style="font-size: 12pt;">. Parikh</span></span><span style="font-size: 12pt; font-family: Arial;">
+and&nbsp;</span><a style="font-family: Arial;"><span style="font-size: 12pt;"></span></a><a style="font-family: Arial;" href="http://www.cs.utexas.edu/%7Egrauman/">K. Grauman</a><br>
+<font><font face="Arial"><span id="ctl00_cph_paperSummary_gvPaperSummary_ctl02_PaperTitleLabel" style="font-size: 12pt;"></span></font></font><font><font face="Arial"><span id="ctl00_cph_paperSummary_gvPaperSummary_ctl02_PaperTitleLabel" style="font-size: 12pt;"></span></font></font><a href="Publications/KovashkaParikhGrauman_CVPR_2012_whittle_search.pdf"><font face="Arial">WhittleSearch:
+Image Search with Relative Attribute Feedback</font></a><br>
+<span style="font-family: Arial;">IEEE
+Conference on Computer Vision
+and Pattern Recognition (CVPR), 2012<br>
+[</span><font face="Arial"><a href="http://vision.cs.utexas.edu/whittlesearch/">project
+page</a>]&nbsp;</font><font face="Arial">[<a href="Publications/KovashkaParikhGrauman_CVPR_2012_whittle_search_poster.pdf">poster</a>]
+[<a href="http://godel.ece.vt.edu/whittle/">demo</a>]</font></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;">&nbsp;</span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-size: 12pt; font-family: Arial;">D</span><span style="font-size: 12pt; font-family: Arial;">. Parikh</span><b><span style="font-size: 12pt; font-family: Arial;">,&nbsp;</span></b><a href="http://www.cs.utexas.edu/%7Eadriana/"><span style="font-size: 12pt; font-family: Arial;">A</span></a><span style="font-size: 12pt; font-family: Arial;"><a href="http://www.cs.utexas.edu/%7Eadriana/">. Kovashka</a>,</span><b><span style="font-size: 12pt; font-family: Arial;"> </span></b><a href="https://sites.google.com/site/aparkash2012/"><span style="font-size: 12pt; font-family: Arial;">A.
+Parkash</span></a><b><span style="font-size: 12pt; font-family: Arial;"></span></b><span style="font-size: 12pt; font-family: Arial;"> and <a href="http://www.cs.utexas.edu/%7Egrauman/">K. Grauman</a></span><br>
+<font><font face="Arial"><span id="ctl00_cph_paperSummary_gvPaperSummary_ctl02_PaperTitleLabel" style="font-size: 12pt;"></span></font></font><font><font face="Arial"><a href="Publications/ParikhKovashkaParkashGrauman_AAAI_2012_relative_attributes.pdf">Relative
+Attributes for Enhanced Human-Machine Communication</a></font></font><span style="font-family: Arial;">&nbsp;(Invited paper)<br>
+AAAI Conference on Artificial Intelligence (AAAI), 2012 <span style="font-weight: bold;">(Oral)</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><br>
+<span style="font-family: Arial;"><span style="font-weight: bold;"></span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: Arial;"></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p> &nbsp; </span></p>
+<span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"></span><span style="font-size: 11pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><o:p></o:p></span>
+<div style="margin-left: 1in; margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><b style=""><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a name="translations"></a><span style="color: rgb(51, 51, 51);">Translations</span>
+<o:p></o:p></span></b></p>
+<div style="margin-left: 1in;">
+<div style="margin-right: 1in;">
+<div class="MsoNormal" style="text-align: center;" align="center"><b style=""><span style="font-size: 14pt; font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">
+<hr align="center" size="2" width="100%"></span></b></div>
+</div>
+</div>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE">Several
+translations of this page are available. The content is generated by
+independent sources, and has not been verified by us. Consult at your
+own discretion. <br>
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"></span></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://i-love-png.com/atr_relative-rom.html">Romanian</a> by <a href="https://i-love-png.com/">science team</a>.<span style="text-decoration: underline;"><br>
+</span></span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><span style="text-decoration: underline;"></span><a href="http://sciologness.com/relativna-atributy/">Slovakian</a> </span></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"></span></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE">by <a href="http://sciologness.com/">Sciologness
+Team</a>.<br>
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="http://worldartsme.com/archives/147">Russian</a>&nbsp;</span></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"></span></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE">by
+Alexander Nikiforov.<br>
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://www.chameleonjohn.com/translations/relative-Indonesian">Indonesian</a></span></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"> </span></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE">by <a href="http://chameleonjohn.com/">ChameleonJohn.com</a>.</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://odealo.com/page/atrybuty-wzgledne">Polish</a>
+</span></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE">by Grzegorz Adamski.</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"></span></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"></span></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><a href="http://www.cs.utexas.edu/%7Egrauman/"><span class="SpellE"></span></a></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://studycrumb.com/translations/relativni-atributy/">Czech</a> by <a href="https://studycrumb.com">StudyCrumb.</a>
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://studybounty.com/translations/vidnosni-atributi">Ukrainian</a> by <a href=" https://studybounty.com">StudyBounty</a>.<br>
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://www.homeyou.com/%7Eedu/atributos-relativos">Portuguese</a>
+</span></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE">by</span></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE">
+Artur Weber.</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"> <a href="https://writemypaper4me.org/translations/suhtelised-atribuudid">Estonian</a>
+by</span></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"> <a href="https://writemypaper4me.org/">Write My Paper For Me</a><br>
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://worldliterate.com/translations/relative.html">French</a>
+</span></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE">by</span></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE">
+Avice Robitaille.<br>
+</span></span></p>
+<!-- <p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://hindiresources.wordpress.com/2017/12/18/%E0%A4%B8%E0%A4%BE%E0%A4%AA%E0%A5%87%E0%A4%95%E0%A5%8D%E0%A4%B7-%E0%A4%97%E0%A5%81%E0%A4%A3/">Hindi</a>
+by <a href="https://dealsdaddy.co.uk/">Dealsdaddy</a>.</span></span></p> -->
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://essayhilfe.de/translation/#Relative-Attributes:DE">German</a>
+by Philip Egger.<br>
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://prothesiswriter.com/translations/relatieve-attributen">Dutch</a> by <a href="https://prothesiswriter.com/">ProThesisWriter</a><br>
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://admission-writer.com/translations/relativ-tulajdonsagok">Hungarian</a> by <a href="https://admission-writer.com/">Admission Writer</a><br>
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://www.bydiscountcodes.co.uk/translations/relative-attributes/">Punjabi</a>
+by Bydiscountcodes Team.<br>
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="http://edutranslator.com/para-nalnyja-atrybuty/">Belarusian</a>
+by <a href="https://ukessay.com/our-mission">UKessay</a>.<br>
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://www.couponobox.com/blog/cac-thuoc-tinh-tuong-doi/">Vietnamese</a>
+by CouponBox.<br>
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://edu-helper.org/p31/">Georgian</a> by
+Mary Davidson.</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://realms.estate/relative-attributes/">Urdu</a>
+by <a href="https://realms.estate">RealMS</a>.</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://docs.google.com/document/d/1POCxwycdlXUOG-AWodwHJFvSRnqqw1BHiaL7gCFDVss/preview">Italian</a> by <a href="https://carinmydna.com/">CarinmyDNA</a>.</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://www.eldorado.gg/translations/santykiniai-pozymiai">Lithuanian</a> by Team Eldorado.</span></span></p>
+	<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://skyclinic.ua/translation/relativie-atributi/">Latvian</a> by <a href="https://skyclinic.ua/">SkyClinic</a>.
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://pl.casinority.com/bagil/">Turkish</a> by <a href="https://casinority.com/">Casinority</a>.<br>
+<a href="https://sites.google.com/view/translationss/home">Slovenian</a> by <a href="https://www.sportnestave.net/">sportnestave.net</a>.
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://cdarh.org/gujarati/relative-attributes/">Gujarati</a> by Ravi Sahni.
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://mobilemall.pk/blog/relative-html/">Urdu</a> by Samuel Badree.
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://wpblogx.com/relative-attributes/">Tamil</a> by <a href="https://www.wpblogx.com/">WPBlogX</a>.
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://techvoly.com/relative-attributes/">Telugu</a> by <a href="https://techvoly.com/">TechVoly</a>.
+</span></span></p>
+
+
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"><a href="https://www.ibidemgroup.com/edu/traduccion-atributos-relativos-software-ai/">Spanish</a> by <a href="https://www.ibidemgroup.com">Agencia de Traduccion</a>.
+</span></span></p>
+
+
+
+
+<p class="MsoNormal" style="margin: 0in 1in;"><br>
+<span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE">
+
+
+
+
+<span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"></span></span><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE"></span></span></span></span></p>
+
+<p><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;"><span class="SpellE">
+</span></span></p>
+<p class="MsoNormal" style="margin: 0in 1in;"><span style="font-family: &quot;Tahoma&quot;,&quot;sans-serif&quot;;">&nbsp;</span></p>
+&nbsp;
+<p class="MsoNormal" style="margin: 0in 1in; text-align: center;">[Thanks
+to <a href="https://webspace.utexas.edu/yl3663/%7Eylee/">Yong
+Jae Lee</a>
+for the webpage template]</p>
+</div>
+
+<!-- Start of StatCounter Code -->
+<script type="text/javascript">
+var sc_project=1299599; var sc_invisible=1; var sc_partition=63; var sc_click_stat=1; var sc_security="3d8147d8"; </script>
+<script type="text/javascript" src="http://www.statcounter.com/counter/counter.js"></script><noscript><div class="statcounter"><a title="free web stats" href="http://www.statcounter.com/" target="_blank"><img class="statcounter" src="http://c.statcounter.com/1299599/0/3d8147d8/1/" alt="free web
+stats"></a></div>
+</noscript><!-- End of StatCounter Code -->
+</body></html>
