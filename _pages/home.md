@@ -26,7 +26,8 @@ favicon: static/img/deviparikh.png
     <br>
     <a href = "{{ site.baseurl }}./bio.html"> Bio </a>,
     <a href = "{{ site.baseurl }}./Parikh_CV.pdf"> CV </a>, 
-    <a href = "{{ site.baseurl }}./previous_life.html"> Previous life </a>
+    <a href = "{{ site.baseurl }}./previous_life.html"> Previous life </a>,
+    <a href="http://aipaygrad.es">AI Paygrades</a>
     
   </div>
   <!-- <div class="col-sm-4"> -->
