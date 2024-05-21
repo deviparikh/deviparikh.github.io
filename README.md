@@ -1,1 +1,1 @@
-Jekyll source for [Devi Parikh's Homepage](deviparikh.com)
+Jekyll source for [Devi Parikh's Homepage](https://deviparikh.com)
