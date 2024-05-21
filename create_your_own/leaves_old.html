@@ -1,0 +1,367 @@
+<!doctype html>
+<html lang=en>
+   <meta charset=UTF-8>
+   <meta name=viewport content="width=device-width,shrink-to-fit=0,user-scalable=no,minimum-scale=1,maximum-scale=1">
+   <title>Devi Parikh - Algorithmic Art</title>
+   <link href="cyo_style.css" rel="stylesheet" type="text/css">
+   <body>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.js"></script>
+      <div id="div1" class="col-sm-1" style="float: left;">
+         <script src="updateTwitter.js"></script>
+         <script>
+            function doPerPaletteRadioButton() {
+            var url_string = window.location.href;
+                var url = new URL(url_string);
+                url.searchParams.set('pid',$("input[name='palette']:checked").val());
+                //console.log(url.href);
+                window.history.pushState("", "", url.href);
+                setup();
+                updateTwitter();
+              }
+              function doPerEdgeColorButton() {
+            var url_string = window.location.href;
+                var url = new URL(url_string);
+                url.searchParams.set('eid',$("input[name='edgeColor']:checked").val());
+                //console.log(url.href);
+                window.history.pushState("", "", url.href);
+                setup();
+                updateTwitter();
+              }
+         </script>
+         <br>
+         Try other styles by <a href="../art.html#cyo"> Devi Parikh</a> 
+         <br><br>
+         <a href="../art.html#cyo">
+         <img src="../static/img/art/cyo.png" alt="Create Your Own" style="width:300px;border:0;">
+         </a>
+         <br><br>
+         (Not to be used for commercial purposes<br> without prior consent.)
+         <h1>Leaves</h1>
+         <input id = "0" type="radio" name="palette" value="0">
+         <label for="0"><img src="./palettes/s_palette_0.png" height="25" width="25"/></label>&nbsp;
+         <input id = "1" type="radio" name="palette" value="1">
+         <label for="1"><img src="./palettes/s_palette_1.png" height="25" width="25"/></label>&nbsp;
+         <input id = "2" type="radio" name="palette" value="2">
+         <label for="2"><img src="./palettes/s_palette_2.png" height="25" width="25"/></label>&nbsp;
+         <input id = "3" type="radio" name="palette" value="3">
+         <label for="3"><img src="./palettes/s_palette_3.png" height="25" width="25"/></label>&nbsp;
+         <input id = "4" type="radio" name="palette" value="4">
+         <label for="4"><img src="./palettes/cp_palette_4.png" height="25" width="25"/></label>
+         <br>
+         <input id = "5" type="radio" name="palette" value="5">
+         <label for="5"><img src="./palettes/palette_5.png" height="25" width="25"/></label>&nbsp;
+         <input id = "6" type="radio" name="palette" value="6">
+         <label for="6"><img src="./palettes/palette_6.png" height="25" width="25"/></label>&nbsp;
+         <input id = "7" type="radio" name="palette" value="7">
+         <label for="7"><img src="./palettes/palette_7.png" height="25" width="25"/></label>&nbsp;
+         <input id = "8" type="radio" name="palette" value="8" checked="checked">
+         <label for="8"><img src="./palettes/palette_8.png" height="25" width="25"/></label>&nbsp;
+         <input id = "9" type="radio" name="palette" value="9">
+         <label for="9"><img src="./palettes/palette_9.png" height="25" width="25"/></label>
+         <br>
+         <input id = "10" type="radio" name="palette" value="10">
+         <label for="10"><img src="./palettes/palette_10.png" height="25" width="25"/></label>&nbsp;
+         <input id = "11" type="radio" name="palette" value="11">
+         <label for="11"><img src="./palettes/palette_11.png" height="25" width="25"/></label>&nbsp;
+         <input id = "12" type="radio" name="palette" value="12">
+         <label for="12"><img src="./palettes/palette_12.png" height="25" width="25"/></label>
+         <br><br>
+         Number
+         <input id="numEntities" type="range" min="0" max="10" step="1" value="7" class="slider">
+         <a id="showNE"></a>
+         <br><br>
+         Height
+         <input id="verticalSize" type="range" min="10" max="500" step="10" value="120" class="slider">
+         <a id="showVS"></a>
+         <br><br>
+         One curve
+         <input id="offsetLeft" type="range" min="-300" max="300" step="10" value="90" class="slider">    
+         <a id="showOL"></a>
+         <br><br>
+         Other curve
+         <input id="offsetRight" type="range" min="-300" max="300" step="10" value="-50" class="slider">
+         <a id="showOR"></a>
+         <br><br>
+
+         Edge color
+         <input id = "e0" type="radio" name="edgeColor" value="0">
+         <label for="e0"><img src="./palettes/ecolor_0.png" height="25" width="10"/></label>&nbsp;
+         <input id = "e1" type="radio" name="edgeColor" value="1">
+         <label for="e1"><img src="./palettes/ecolor_1.png" height="25" width="10"/></label>&nbsp;
+         <input id = "e2" type="radio" name="edgeColor" value="2">
+         <label for="e2"><img src="./palettes/ecolor_2.png" height="25" width="10"/></label>&nbsp;
+         <input id = "e3" type="radio" name="edgeColor" value="3" checked="checked">
+         <label for="e3"><img src="./palettes/ecolor_3.png" height="25" width="10"/></label>&nbsp;
+         <input id = "e4" type="radio" name="edgeColor" value="4">
+         <label for="e4"><img src="./palettes/ecolor_4.png" height="25" width="10"/></label>
+         <br><br>
+
+         Edge thickness
+         <input id="strokeWidth" type="range" min="0" max="6" step="0.2" value="0" class="slider">
+         <a id="showSW"></a>
+         <br><br>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+         <script>
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var pid = url.searchParams.get("pid");
+            var eid = url.searchParams.get("eid");
+            var n = url.searchParams.get("n");
+            var sw = url.searchParams.get("sw");
+            var ol = url.searchParams.get("ol");
+            var or = url.searchParams.get("or");
+            var vs = url.searchParams.get("vs");
+            var seed = url.searchParams.get("seed");
+            if (pid == null){
+              pid = $("input[name='palette']:checked").val();
+              url.searchParams.append('pid',pid);
+            }
+            if (eid == null){
+              eid = $("input[name='edgeColor']:checked").val();
+              url.searchParams.append('eid',eid);
+            }
+            if (n == null){
+              n = numEntities.value;
+              url.searchParams.append('n',n);
+            }
+            if (sw == null){
+              sw = strokeWidth.value;
+              url.searchParams.append('sw',sw);
+            }
+            if (ol == null){
+              ol = offsetLeft.value;
+              url.searchParams.append('ol',ol);
+            }
+            if (or == null){
+              or = offsetRight.value;
+              url.searchParams.append('or',or);
+            }
+            if (vs == null){
+              vs = verticalSize.value;
+              url.searchParams.append('vs',vs);
+            }
+            if (seed == null){
+              seed = Math.random();
+              url.searchParams.append('seed',seed);
+            };
+            document.getElementById(pid).checked = true;
+            document.getElementById(['e'+eid]).checked = true;
+            document.getElementById("numEntities").value = Number(n);
+            document.getElementById("showNE").innerHTML = numEntities.value;
+            document.getElementById("strokeWidth").value = Number(sw);
+            document.getElementById("showSW").innerHTML = strokeWidth.value;
+            document.getElementById("verticalSize").value = Number(vs);
+            document.getElementById("showVS").innerHTML = verticalSize.value;
+            document.getElementById("offsetLeft").value = Number(ol);
+            document.getElementById("showOL").innerHTML = offsetLeft.value;
+            document.getElementById("offsetRight").value = Number(or);
+            document.getElementById("showOR").innerHTML = offsetRight.value;
+            window.history.pushState("", "", url.href);
+            //console.log(url.href);         
+            var ndefault = n;
+            var piddefault = pid;
+            var eiddefault = eid;
+            var swdefault = sw;
+            var vsdefault = vs;
+            var oldefault = ol;
+            var ordefault = or;
+            var seeddefault = seed;
+         </script>
+         <script type="text/javascript">
+            $(document).on('input', '#strokeWidth', function() {
+            document.getElementById("showSW").innerHTML = strokeWidth.value;
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            url.searchParams.set('sw', strokeWidth.value);
+            window.history.pushState("", "", url.href);
+            setup();
+            });
+            
+            $(document).on('input', '#verticalSize', function() {
+            document.getElementById("showVS").innerHTML = verticalSize.value;
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            url.searchParams.set('vs', verticalSize.value);
+            window.history.pushState("", "", url.href);
+            setup();
+            });
+            
+            $(document).on('input', '#offsetLeft', function() {
+            document.getElementById("showOL").innerHTML = offsetLeft.value;
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            url.searchParams.set('ol', offsetLeft.value);
+            window.history.pushState("", "", url.href);
+            setup();
+            });
+            
+            $(document).on('input', '#offsetRight', function() {
+            document.getElementById("showOR").innerHTML = offsetRight.value;
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            url.searchParams.set('or', offsetRight.value);
+            window.history.pushState("", "", url.href);
+            setup();
+            });
+            
+            $(document).on('input', '#numEntities', function() {
+            document.getElementById("showNE").innerHTML = numEntities.value;
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            url.searchParams.set('n', numEntities.value);
+            window.history.pushState("", "", url.href);
+            setup();
+            });
+
+            $(document).on('change', '#numEntities', function() {
+            updateTwitter();
+            });            
+            $(document).on('change', '#strokeWidth', function() {
+            updateTwitter();
+            });
+            $(document).on('change', '#verticalSize', function() {
+            updateTwitter();
+            });
+            $(document).on('change', '#offsetLeft', function() {
+            updateTwitter();
+            });
+            $(document).on('change', '#offsetRight', function() {
+            updateTwitter();
+            });
+            $(document).on('input', '#0', function() {
+            doPerPaletteRadioButton();
+            });
+            $(document).on('input', '#1', function() {
+            doPerPaletteRadioButton();
+            });
+            $(document).on('input', '#2', function() {
+            doPerPaletteRadioButton();
+            });
+            $(document).on('input', '#3', function() {
+            doPerPaletteRadioButton();
+            });
+            $(document).on('input', '#4', function() {
+            doPerPaletteRadioButton();
+            });
+            $(document).on('input', '#5', function() {
+                doPerPaletteRadioButton();
+            });
+            $(document).on('input', '#6', function() {
+                doPerPaletteRadioButton();
+            });
+            $(document).on('input', '#7', function() {
+                doPerPaletteRadioButton();
+            });
+            $(document).on('input', '#8', function() {
+                doPerPaletteRadioButton();
+            });
+            $(document).on('input', '#9', function() {
+                doPerPaletteRadioButton();
+            });
+            $(document).on('input', '#10', function() {
+                doPerPaletteRadioButton();
+            });
+            $(document).on('input', '#11', function() {
+                doPerPaletteRadioButton();
+            });
+            $(document).on('input', '#12', function() {
+                doPerPaletteRadioButton();
+            });
+
+            $(document).on('input', '#e0', function() {
+                doPerEdgeColorButton();
+            });
+            $(document).on('input', '#e1', function() {
+                doPerEdgeColorButton();
+            });
+            $(document).on('input', '#e2', function() {
+                doPerEdgeColorButton();
+            });
+            $(document).on('input', '#e3', function() {
+                doPerEdgeColorButton();
+            });
+            $(document).on('input', '#e4', function() {
+                doPerEdgeColorButton();
+            });
+             
+         </script>
+         <button type="button" onClick="generate()">Generate</button>
+         <script type="text/javascript">
+            function generate() {
+              var url_string = window.location.href;
+              var url = new URL(url_string);
+              var seed = Math.random();
+              url.searchParams.set('seed',seed);
+              window.history.pushState("", "", url.href);
+              setup();
+              updateTwitter();
+            };
+         </script>
+         <button type="button" onClick="reset()">Reset</button>
+         <script type="text/javascript">
+            function reset() {
+              var url_string = window.location.href;
+              var url = new URL(url_string);
+              url.searchParams.set('n', ndefault);
+              url.searchParams.set('pid', piddefault);
+              url.searchParams.set('eid', eiddefault);
+              url.searchParams.set('sw', swdefault);
+              url.searchParams.set('vs', vsdefault);
+              url.searchParams.set('ol', oldefault);
+              url.searchParams.set('or', ordefault);
+              url.searchParams.set('seed', seeddefault);
+              document.getElementById(piddefault).checked = true;
+              document.getElementById(['e'+eiddefault]).checked = true;
+              document.getElementById("numEntities").value = Number(ndefault);
+              document.getElementById("showNE").innerHTML = numEntities.value;
+              document.getElementById("strokeWidth").value = Number(swdefault);
+              document.getElementById("showSW").innerHTML = strokeWidth.value;
+              document.getElementById("verticalSize").value = Number(vsdefault);
+              document.getElementById("showVS").innerHTML = verticalSize.value;
+              document.getElementById("offsetLeft").value = Number(oldefault);
+              document.getElementById("showOL").innerHTML = offsetLeft.value;
+              document.getElementById("offsetRight").value = Number(ordefault);
+              document.getElementById("showOR").innerHTML = offsetRight.value;
+              window.history.pushState("", "", url.href);
+              setup();
+              updateTwitter();
+            };
+         </script>
+         <a id="download" download="myart.png" target="_blank">
+         <button type="button" onClick="download()">Download</button>
+         </a>
+         <script type="text/javascript">
+            function download() {
+              var download = document.getElementById("download");
+              var image = document.getElementById("mycanvas").toDataURL("image/png");
+              download.setAttribute("href", image);
+            };
+         </script>
+         <!--
+            Share your art! 
+            <a href="#" onclick="javascript:window.location.href='mailto:deviparikh@gmail.com?subject=My art&body=I created this! ' + encodeURIComponent(window.location.href)"> Devi</a>,
+            <a href="#" onclick="javascript:window.location.href='mailto:?subject=My art&body=I created this! %0D%0A%0D%0A' + encodeURIComponent(window.location.href) + '%0D%0A%0D%0A I used an algorithmic art tool by Devi Parikh. It is a lot of fun, you should try it out! %0D%0A%0D%0Ahttps://www.cc.gatech.edu/~parikh/art.html#cyo ' "> a friend</a>, or
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="true">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            -->
+         <br><br>
+         <a href="../leaves.html"> Inspiration</a>.  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="true">Tweet</a> your art.
+         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+         <script>
+            updateTwitter();
+         </script>
+      </div>
+      <div id="sketch-holder" class="col-sm-1" style="float: left;">
+         <script src="leaves_old.js"></script>
+      </div>
+      <script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-119138789-1', 'auto');
+         ga('send', 'pageview');
+      </script>
+   </body>
+</html>

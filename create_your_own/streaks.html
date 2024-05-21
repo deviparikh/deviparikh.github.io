@@ -1,0 +1,353 @@
+<!doctype html>
+<html lang=en>
+   <meta charset=UTF-8>
+   <meta name=viewport content="width=device-width,shrink-to-fit=0,user-scalable=no,minimum-scale=1,maximum-scale=1">
+   <title>Devi Parikh - Algorithmic Art</title>
+   <link href="cyo_style.css" rel="stylesheet" type="text/css">
+   <body>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/addons/p5.dom.js"></script>
+      <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+      <script src=https://cdnjs.cloudflare.com/ajax/libs/mathjs/3.3.0/math.min.js></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.js"></script>
+      <div id="div1" class="col-sm-1" style="float: left;">
+         <script src="updateTwitter.js"></script>
+         <script>
+            function doPerPaletteRadioButton() {
+            var url_string = window.location.href;
+                var url = new URL(url_string);
+                url.searchParams.set('pid',$("input[name='palette']:checked").val());
+                //console.log(url.href);
+                window.history.pushState("", "", url.href);
+                imageChanged = 1;
+                processImage();
+                // updateTwitter();
+              }
+            
+              function doPerPaletteRadioButtonNoProcessImage() {
+                var url_string = window.location.href;
+                var url = new URL(url_string);
+                url.searchParams.set('pid',$("input[name='palette']:checked").val());
+                //console.log(url.href);
+                window.history.pushState("", "", url.href);
+                      if (hiddenOnce == 1) {
+                        document.getElementById('inputUpload').style.visibility = 'visible'; 
+                      } else {
+                        //console.log('Instantiating from html');
+                        instantiateInput(1);
+                      }
+                // processImage();
+                // updateTwitter();
+              }
+            function hideInput() {
+            if (visitedUpload==1) {
+                hiddenOnce = 1;
+                document.getElementById('inputUpload').value = '';
+                document.getElementById('inputUpload').style.visibility = 'hidden'; 
+              }
+            }
+         </script>
+         <br>
+         Try other styles by <a href="../art.html#cyo"> Devi Parikh</a> 
+         <br><br>
+         <a href="../art.html#cyo">
+         <img src="../static/img/art/cyo.png" alt="Create Your Own" style="width:300px;border:0;">
+         </a>
+         <br><br>
+         (Not to be used for commercial purposes<br> without prior consent.)
+         <h1>Streaks</h1>
+         <input id = "1" type="radio" name="palette" value="1">
+         <label for="1"><img src="./streaks_imgs/im1.png" height="40" width="40"/></label>&nbsp;
+         <input id = "2" type="radio" name="palette" value="2" checked="checked">
+         <label for="2"><img src="./streaks_imgs/im2.png" height="40" width="40"/></label>&nbsp;
+         <input id = "3" type="radio" name="palette" value="3">
+         <label for="3"><img src="./streaks_imgs/im3.png" height="40" width="40"/></label>&nbsp;
+         <input id = "4" type="radio" name="palette" value="4">
+         <label for="4"><img src="./streaks_imgs/im4.png" height="40" width="40"/></label>&nbsp;
+         <br>
+         <input id = "5" type="radio" name="palette" value="5">
+         <label for="5"><img src="./streaks_imgs/im5.png" height="40" width="40"/></label>&nbsp;
+         <input id = "6" type="radio" name="palette" value="6">
+         <label for="6"><img src="./streaks_imgs/im6.png" height="40" width="40"/></label>&nbsp;
+         <input id = "7" type="radio" name="palette" value="7">
+         <label for="7"><img src="./streaks_imgs/im7.png" height="40" width="40"/></label>&nbsp;
+         <input id = "8" type="radio" name="palette" value="8">
+         <label for="8"><img src="./streaks_imgs/im8.png" height="40" width="40"/></label>&nbsp;
+         <br>
+         <input id = "9" type="radio" name="palette" value="9">
+         <label for="9"><img src="./streaks_imgs/im9.png" height="40" width="40"/></label>&nbsp;
+         <input id = "10" type="radio" name="palette" value="10">
+         <label for="10"><img src="./streaks_imgs/im10.png" height="40" width="40"/></label>&nbsp;
+         <input id = "11" type="radio" name="palette" value="11">
+         <label for="11"><img src="./streaks_imgs/im11.png" height="40" width="40"/></label>&nbsp;
+         <input id = "12" type="radio" name="palette" value="12">
+         <label for="12"><img src="./streaks_imgs/im12.png" height="40" width="40"/></label>&nbsp;
+         <br>
+         <input id = "13" type="radio" name="palette" value="13">
+         <label for="13"><img src="./streaks_imgs/im13.png" height="40" width="40"/></label>&nbsp;
+         <input id = "14" type="radio" name="palette" value="14">
+         <label for="14"><img src="./streaks_imgs/im14.png" height="40" width="40"/></label>&nbsp;
+         <input id = "15" type="radio" name="palette" value="15">
+         <label for="15"><img src="./streaks_imgs/im15.png" height="40" width="40"/></label>&nbsp;
+         <input id = "16" type="radio" name="palette" value="16">
+         <label for="16"><img src="./streaks_imgs/im16.png" height="40" width="40"/></label>&nbsp;
+         <br>
+         <input id = "17" type="radio" name="palette" value="17">
+         <label for="17"><img src="./streaks_imgs/im17.png" height="40" width="40"/></label>&nbsp;
+         <!--
+            <input id = "18" type="radio" name="palette" value="18">
+            <label for="18"><img src="./streaks_imgs/im18.png" height="40" width="40"/></label>&nbsp;
+            -->
+         <input id = "19" type="radio" name="palette" value="19">
+         <label for="19"><span id="upload">Upload</span></label>
+         <br><br>
+
+         Spikey
+         <img src="./streaks_imgs/flat.png" height="40" width="40"/>
+         <input id="Kvalue" type="range" min="1" max="5" step="1" value="4" class="slider">    
+         <a id="showK">4</a>
+         <img src="./streaks_imgs/spikey.png" height="40" width="40"/>
+         <br><br>
+
+         Textured
+         <img src="./streaks_imgs/smooth.png" height="40" width="40"/>
+         <input id="NumBins" type="range" min="0" max="6" step="1" value="0" class="slider">    
+         <a id="showNumBins">0</a>
+         <img src="./streaks_imgs/textured.png" height="40" width="40"/> 
+         <br><br>
+         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+         <script>
+            var url_string = window.location.href;
+            var url = new URL(url_string);
+            var pid = url.searchParams.get("pid");
+            var k = url.searchParams.get("k");
+            var b = url.searchParams.get("b");
+            var seed = url.searchParams.get("seed");
+            if (pid == null){
+              pid = $("input[name='palette']:checked").val();
+              url.searchParams.append('pid',pid);
+            }
+            if (k == null){
+              k = Kvalue.value;
+              url.searchParams.append('k',k);
+            }
+            if (b == null){
+              b = NumBins.value;
+              url.searchParams.append('b',b);
+            }
+            if (seed == null){
+              seed = Math.random();
+              url.searchParams.append('seed',seed);
+            };
+            document.getElementById(pid).checked = true;
+            document.getElementById("Kvalue").value = Number(k);
+            document.getElementById("showK").innerHTML = Kvalue.value;
+            document.getElementById("NumBins").value = Number(b);
+            document.getElementById("showNumBins").innerHTML = NumBins.value;
+            window.history.pushState("", "", url.href);
+            //console.log(url.href);         
+            var kdefault = k;
+            var piddefault = pid;
+            var bdefault = b;
+            var seeddefault = seed;
+         </script>
+         <script type="text/javascript">
+            $(document).on('input', '#Kvalue', function() {
+                   document.getElementById("showK").innerHTML = Kvalue.value;
+                   var url_string = window.location.href;
+                  var url = new URL(url_string);
+                  url.searchParams.set('k', Kvalue.value);
+                  window.history.pushState("", "", url.href);
+               });
+               $(document).on('change', '#Kvalue', function() {
+                   textureSetsK = 1;
+              processImage();
+                   // addSwirl(1);
+            
+                  // updateTwitter();
+                });
+               $(document).on('input', '#NumBins', function() {
+                   document.getElementById("showNumBins").innerHTML = NumBins.value;
+                   var url_string = window.location.href;
+                  var url = new URL(url_string);
+                  url.searchParams.set('b', NumBins.value);
+                  window.history.pushState("", "", url.href);
+               });
+               $(document).on('change', '#NumBins', function() {
+                  imageChanged = 0;
+                   processImage();
+            
+                  // updateTwitter();
+                });
+               $(document).on('input', '#1', function() {
+                   doPerPaletteRadioButton();
+                   hideInput();
+               });
+               $(document).on('input', '#2', function() {
+                   doPerPaletteRadioButton();
+                   hideInput();
+               });
+               $(document).on('input', '#3', function() {
+                   doPerPaletteRadioButton();
+                   hideInput();
+               });
+               $(document).on('input', '#4', function() {
+                   doPerPaletteRadioButton();
+                   hideInput();
+               });
+               $(document).on('input', '#5', function() {
+                   doPerPaletteRadioButton();
+                   hideInput();
+               });
+               $(document).on('input', '#6', function() {
+                   doPerPaletteRadioButton();
+                   hideInput();
+               });
+               $(document).on('input', '#7', function() {
+                   doPerPaletteRadioButton();
+                   hideInput();
+               });
+               $(document).on('input', '#8', function() {
+                   doPerPaletteRadioButton();
+                   hideInput();
+               });
+               $(document).on('input', '#9', function() {
+                   doPerPaletteRadioButton();
+                   hideInput();
+               });
+               $(document).on('input', '#10', function() {
+                   doPerPaletteRadioButton();
+                   hideInput();
+               });
+               $(document).on('input', '#11', function() {
+                   doPerPaletteRadioButton();
+                   hideInput();
+               });
+               $(document).on('input', '#12', function() {
+                   doPerPaletteRadioButton();
+                   hideInput();
+               });
+               $(document).on('input', '#13', function() {
+                   doPerPaletteRadioButton();
+                   hideInput();
+               });
+               $(document).on('input', '#14', function() {
+                   doPerPaletteRadioButton();
+                   hideInput();
+               });
+               $(document).on('input', '#15', function() {
+                   doPerPaletteRadioButton();
+                   hideInput();
+               });
+               $(document).on('input', '#16', function() {
+                   doPerPaletteRadioButton();
+                   hideInput();
+               });
+               $(document).on('input', '#17', function() {
+                   doPerPaletteRadioButton();
+                   hideInput();
+               });
+               $(document).on('input', '#18', function() {
+                   doPerPaletteRadioButton();
+                   hideInput();
+               });
+               $(document).on('input', '#19', function() {
+                   doPerPaletteRadioButtonNoProcessImage();
+                   if ($("input[name='palette']:checked").val()==19) {
+                 }
+               });
+            
+         </script>
+         <button type="button" onClick="generate()">Generate</button>
+         <script type="text/javascript">
+            function generate() {
+              var url_string = window.location.href;
+              var url = new URL(url_string);
+              var seed = Math.random();
+              url.searchParams.set('seed',seed);
+              window.history.pushState("", "", url.href);
+              textureSetsK = 1;
+              processImage();
+              // addSwirl(1);
+              // updateTwitter();
+            };
+         </script>
+         <button type="button" onClick="reset()">Reset</button>
+         <script type="text/javascript">
+            function reset() {
+              var url_string = window.location.href;
+              var url = new URL(url_string);
+              url.searchParams.set('k', kdefault);
+              url.searchParams.set('pid', piddefault);
+              url.searchParams.set('b', bdefault);
+              url.searchParams.set('seed', seeddefault);
+              document.getElementById(piddefault).checked = true;
+              document.getElementById("Kvalue").value = Number(kdefault);
+              document.getElementById("showK").innerHTML = Kvalue.value;
+              document.getElementById("NumBins").value = Number(bdefault);
+              document.getElementById("showNumBins").innerHTML = NumBins.value;
+              window.history.pushState("", "", url.href);
+              textureSetsK = 1;
+              processImage();
+              // updateTwitter();
+            };
+         </script>
+         <a id="download" download="myart.png" target="_blank">
+         <button type="button" onClick="download()">Download</button>
+         </a>
+         <script type="text/javascript">
+            function download() {
+              var download = document.getElementById("download");
+              var image = document.getElementById("mycanvas").toDataURL("image/png");
+              download.setAttribute("href", image);
+            };
+         </script>
+         <!--
+            Share your art! 
+            <a href="#" onclick="javascript:window.location.href='mailto:deviparikh@gmail.com?subject=My art&body=I created this! ' + encodeURIComponent(window.location.href)"> Devi</a>,
+            <a href="#" onclick="javascript:window.location.href='mailto:?subject=My art&body=I created this! %0D%0A%0D%0A' + encodeURIComponent(window.location.href) + '%0D%0A%0D%0A I used an algorithmic art tool by Devi Parikh. It is a lot of fun, you should try it out! %0D%0A%0D%0Ahttps://www.cc.gatech.edu/~parikh/art.html#cyo ' "> a friend</a>, or
+            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="true">Tweet</a>
+            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+            -->
+         <br><br>
+         <a href="../streaks.html"> Inspiration</a>.  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="true">Tweet</a> your art.
+         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+         <script>
+            // updateTwitter();
+         </script>
+         <br><br>
+         Images above are from <a href="https://www.instagram.com/helena.sarin/">Helena Sarin</a>,<br> 
+         <a href="https://www.instagram.com/muhammedsajid.n/">Muhammed Sajid</a>, and
+         <a href="https://www.instagram.com/foodgreedstruggle/">Olga Zalite</a>.
+         <!--<br>
+         <a href="https://www.latimes.com/travel/deals/la-trb-chicago-van-gogh-bedrooms-20160216-story.html"> a picture
+         in the Van Gogh bedroom</a>.
+            in Grounds for Sculpture <br>
+            n New Jersey -->
+      </div>
+      <div id="sketch-holder" class="col-sm-1" style="float: left;">
+         <script>
+            $(window).bind("load", function() {
+              seed = Math.random();
+              var url_string = window.location.href;
+              var url = new URL(url_string);
+              url.searchParams.set('pid',$("input[name='palette']:checked").val());
+              //console.log(url.href);
+              window.history.pushState("", "", url.href);
+              processImage();
+               
+            });
+         </script>
+         <script src="streaks.js"></script>
+      </div>
+      <script>
+         (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+         (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+         m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+         })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+         ga('create', 'UA-119138789-1', 'auto');
+         ga('send', 'pageview');
+      </script>
+   </body>
+</html>
+
