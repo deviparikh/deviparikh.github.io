@@ -1,0 +1,6 @@
+- name: "Geometric"
+  link: "./geometric.html"
+  thumb: "geometric.png"
+- name: "Multi-color Geometric"
+  link: "./multi_color_geometric.html"
+  thumb: "multi_color_geometric.png"

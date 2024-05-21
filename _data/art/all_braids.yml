@@ -1,0 +1,6 @@
+- name: "Braids"
+  link: "./braids.html"
+  thumb: "braids.png"
+- name: "White Braids"
+  link: "./white_braids.html"
+  thumb: "white_braids.png"
