@@ -3625,7 +3625,7 @@ Proceedings of Industrial and Hazardous Waste Conference, 2002
 [dancing-agents]: https://arxiv.org/abs/2006.11905
 [dancing-agents-webpage]: https://sites.google.com/view/dancing-agents
 [dancing-agents-code]: https://github.com/purvaten/feel-the-music
-[sketching-interface]: https://www.cc.gatech.edu/~parikh/collaborative_painting_no_instructions.html
+[sketching-interface]: https://deviparikh.com/collaborative_painting_no_instructions.html
 [co-creation]: https://arxiv.org/abs/2005.07328
 [vln-via-vilbert]: https://arxiv.org/abs/2004.14973
 [arjunm]: https://arjunmajum.github.io/
@@ -3633,7 +3633,7 @@ Proceedings of Industrial and Hazardous Waste Conference, 2002
 [vilbert-mt-demo]: https://vilbert.cloudcv.org/
 [alice]: https://xaliceli.github.io/
 [lemotif-code]: https://github.com/xaliceli/lemotif
-[strokes]: https://cc.gatech.edu/~parikh/create_your_own/strokes.html
+[strokes]: https://deviparikh.com/create_your_own/strokes.html
 [artaswindow]: https://arxiv.org/abs/2003.01274
 [squint-paper]: https://arxiv.org/abs/2001.06927
 [erichorvitz]: http://erichorvitz.com/
