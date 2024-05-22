@@ -1,0 +1,1197 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv='Content-Type' content='text/html; charset=UTF-8'/>
+<style>
+.sent {font-family:"Trebuchet MS";font-size:110%;padding-bottom: 30px;}
+.sent_lite {font-family:"Trebuchet MS";font-size:110%;}
+
+.feedback {font-family:"Trebuchet MS";font-size:100%;padding-bottom: 20px;padding-top: 20px;}
+
+.textbox { 
+text-align: center;
+padding-left: 10px;
+padding-top: 5px;
+padding-right: 10px;
+height: 25px; 
+width: 140px; 
+background-color: transparent;  
+border-style: solid;  
+border-width: 0px 0px 1px 0px;  
+border-color: darkblue; 
+outline:0; 
+font-family:"Trebuchet MS";
+} 
+.bad_textbox { 
+text-align: center;
+padding-left: 10px;
+padding-top: 5px;
+padding-right: 10px;
+height: 25px; 
+width: 140px; 
+background-color: #ffcccc;  
+border-style: solid;  
+border-width: 0px 0px 1px 0px;  
+border-color: darkblue; 
+outline:0; 
+font-family:"Trebuchet MS";
+} 
+
+th{
+	padding-top: 5px;
+	padding-bottom: 5px;
+	text-align: center;
+	padding-left:15px;
+	padding-right:15px;
+	font-family:"Trebuchet MS";font-size:90%;
+}
+td{
+	padding-left:15px;
+	padding-right:15px;
+}
+.morebtn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 13;
+  -moz-border-radius: 13;
+  border-radius: 13px;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  color: #ffffff;
+  padding: 3px 10px 3px 10px;
+  text-decoration: none;
+}
+
+.morebtn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+.morebtn:disabled {
+  background: #cccccc;
+}
+.generatebtn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 13;
+  -moz-border-radius: 13;
+  border-radius: 13px;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  color: #ffffff;
+  padding: 7px 10px 7px 10px;
+  text-decoration: none;
+}
+
+.generatebtn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+.generatebtn:disabled {
+  background: #cccccc;
+}
+
+
+.downloadbtn {
+  background: #3498db;
+  background-image: -webkit-linear-gradient(top, #3498db, #2980b9);
+  background-image: -moz-linear-gradient(top, #3498db, #2980b9);
+  background-image: -ms-linear-gradient(top, #3498db, #2980b9);
+  background-image: -o-linear-gradient(top, #3498db, #2980b9);
+  background-image: linear-gradient(to bottom, #3498db, #2980b9);
+  -webkit-border-radius: 13;
+  -moz-border-radius: 13;
+  border-radius: 13px;
+  font-family: "Helvetica Neue", "Helvetica", Helvetica, Arial, sans-serif;
+  color: #ffffff;
+  padding: 7px 10px 7px 10px;
+  text-decoration: none;
+}
+
+.downloadbtn:hover {
+  background: #3cb0fd;
+  background-image: -webkit-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -moz-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -ms-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: -o-linear-gradient(top, #3cb0fd, #3498db);
+  background-image: linear-gradient(to bottom, #3cb0fd, #3498db);
+  text-decoration: none;
+}
+.downloadbtn:disabled {
+  background: #cccccc;
+}
+
+</style>
+<style type="text/css">
+	.xlink {cursor:default}
+	.hlink{cursor:help}
+</style>
+<style>
+	.ui-autocomplete {
+		max-height: 200px;
+		overflow-y: auto;
+		/* prevent horizontal scrollbar */
+		overflow-x: hidden;
+	}
+	/* IE 6 doesn't support max-height
+	* we use height instead, but this forces the menu to always be this tall
+	*/
+	* html .ui-autocomplete {
+		height: 200px;
+	}
+</style>
+<title>Generating Abstract Scenes</title>
+</head>
+<body>
+
+<div style="background-color:#cccccc;padding:20px;font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;">
+<h1><b>Generating Abstract Scenes</b></h1>
+<p>Based on <i><a href="http://research.microsoft.com/en-us/people/larryz/">C. L. Zitnick</a>,<a href="https://filebox.ece.vt.edu/~parikh/">D. Parikh</a> and <a href="http://research.microsoft.com/en-us/people/lucyv/">L. Vanderwende</a></i>, <b><a href="https://vision.ece.vt.edu/clipart/">Learning the Visual Interpretation of Sentences</a></b>, <i>ICCV 2013.</i></p>
+<p></p> 
+</div>
+
+<div><canvas id="scene_canvas" width=1120 height=520></canvas></div>
+        
+<div style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;">
+<button type="button" style="font-size:130%;" class="generatebtn" onclick="return scenegen_RPC();">Generate Scene</button>
+<button type="button" style="font-size:130%;" class="downloadbtn" id="download_scene" disabled=true>Download Scene</button>
+<button type="button" style="font-size:130%;" class="generatebtn" id="edit_scene" onclick="return edit_toggle();">Edit on</button>
+</div>
+<div style="font-family: 'Helvetica Neue', 'Helvetica', Helvetica, Arial, sans-serif;font-size:120%">
+<table id="tuple_tbl_0"><tr><th>Primary Object</th><th>Relation</th><th>Secondary Object</th></tr>
+</table>
+</div>
+
+<link rel="stylesheet" href="http://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="http://code.jquery.com/jquery-1.10.2.js"></script>
+<script src="http://code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
+<script src="https://filebox.ece.vt.edu/~linxiao/scenegen_demo/jsonrpc.js"></script>
+ 
+<script type="text/javascript">
+//The super duper long javascript starts here
+	var tags_P=["Jenny", "_X_", "Mike", "ball", "sunglass", "hat", "horn", "owl", "tree", "air", "crown", "catch", "sunshine", "and", "she", "balloon", "dog", "cat", "hand", "glasses", "soccer", "toe", "kick", "he", "hurt", "pail", "sandbox", "plane", "play", "shovel", "racket", "box", "sun", "beach_ball", "pie", "sand", "Mark", "baseball", "hit", "pizza", "grass", "table", "bird", "share", "bat", "football", "ground", "cap", "Lightining", "apple", "lightning", "rocket", "head", "white_cloud", "lighting", "strike", "thunderstorm", "park", "side", "lighten", "they", "rain", "storm", "shirt", "hot_dog", "ballon", "Jennu", "eat", "lke", "ketchup", "fire", "hotdog", "food", "grill", "helicopter", "star", "own", "pale", "it", "pink", "snake", "duck", "kid", "jenny", "time", "wear", "be", "get", "chase", "tennis", "frisby", "Frisbee", "swingset", "cloud", "jus", "tent", "hamburger", "sky", "green_snake", "airplane", "soda", "racquet", "burger", "touchdown", "man", "set", "basketball", "toy", "screen", "mike", "mit", "glove", "picnic", "day", "party", "no_one", "dress", "what", "lunch", "run", "coke", "camp", "leg", "around", "helmet", "king_snake", "slide", "knee", "help", "slide.", "child", "slider", "abo0ut", "bucket", "someone", "barbecue", "swing", "playground", "ride", "BBQ", "sneaker", "no_ball", "frisbe", "campsite", "bench", "Kelly", "catsup", "left", "ok", "sad", "top", "mitt", "basball", "walk", "I", "thing", "softball", "beachball", "fun", "drink", "Princess_Jenny", "dance", "practice", "hold", "each_other", "come", "outfit", "arm", "pet", "tennis_shoe", "foot", "Hogwarts", "stitting", "pick", "cover", "listneing", "turn", "sit", "_X", "blue", "big_tree", "game", "wind", "sight", "collar", "excitement", "try", "board", "Bok", "go", "bear", "campfire", "paw", "besr", "scare", "clothes", "undere", "jump", "see", "Jenni", "break", "throw", "bee", "horse", "bumblebee", "straw", "place", "rocket_ship", "take", "land", "kite", "fly", "helm", "ladder", "climb", "beanie", "question", "Mikie", "lightning_strike", "kitten", "argument", "shade", "spaceship", "bye", "distance", "noise", "flys", "hide", "friend", "everyone", "Happy_Birthday", "bottle", "mustard", "mistake", "background", "hotdogs", "cape", "smile", "face", "bowl", "pirate", "animal", "way", "where", "pit", "step", "castle", "happiness", "landing", "Rainclouds", "spell", "wrap", "hameburger", "sandboz", "bush", "fruit", "angry", "worm", "that", "hole", "rainy_day", "baloon", "pass", "bottom", "give", "fight", "hello", "stick", "disc", "happy", "cookout", "Matt", "field", "you", "growl", "moon", "shoe", "joy", "bolt", "talk", "gear", "wilderness", "steal", "pizzs", "do", "hod", "think", "doing", "tag", "Jnny", "person", "bonfire", "fall", "use", "kitty", "this", "stay", "leave", "cup", "look", "water", "thunder", "drop", "Thre", "yard", "hair", "hug", "meat", "mouth", "propeller", "warn", "grey", "red", "glass", "tooth", "wood", "dinner", "cry", "baloons", "make", "Jenna", "suprised", "ech", "slittering", "wave", "owlis", "corner", "pay", "goodbye", "idea", "join", "call", "fear", "have", "tobaggin", "follow", "cola", "flame", "badminton", "Sally", "form", "car", "put", "sandwich", "Jenny.", "know", "Mike.", "we", "world", "goose", "invisible", "show", "goggle", "seat", "dug", "threaten", "want", "smash", "death", "equipment", "right", "sport", "pop", "Mr._Owl", "scene", "back", "start", "smell", "volleyball", "dig", "cross", "chaing", "cheeseburger", "Miks", "dark", "running", "slikde", "stand", "somebody", "pepperoni", "class", "cook", "short", "floor", "ht", "slow", "raincloud", "soft_drink", "cold_drink", "race", "room", "rocketship", "nothing", "space_ship", "stop", "yell", "nobody", "parachute", "karate", "enjoy", "are", "tail", "Mikeis", "rest", "Jenn", "serpent", "rack", "san.", "tell", "Mke", "anything", "stomp", "bite", "today", "snaked", "jet", "favorite", "style", "lap", "which", "pilot", "int", "Mikd", "o", "attention", "clear", "buggy", "fastball", "coming", "cool", "shoo", "smeakers", "dunk", "raquet", "raindrop", "grounf", "statement", "wearng", "allow", "chidren", "dessert", "cake", "like", "king", "life", "tabl", "dock", "nose", "storm_cloud", "snake_in_the_grass", "site", "wet", "frisbie", "pike", "story", "color", "cap.t", "sanbox", "helicoptor", "rope", "perch", "watch", "sorry", "bug", "trade", "crosslegged", "chef", "Burger", "fetch", "grow", "freeze", "Lenny", "ghost_story", "good", "feel", "apple_pie", "left_hand", "standind", "standing", "copy", "sound", "frown", "wait", "Viking", "claw", "sure", "frissbee", "people", "BEACHBALL", "pat", "blast", "so", "home", "plan", "bouncer", "fise", "flap", "joke", "carnivore", "right_hand", "rescue", "ruin", "notice", "trip", "pain", "amusing", "standng", "shovle", "hate", "bbq", "fetch.", "weather", "light", "rock", "center", "full", "scoop", "snack", "hamburges", "catchup", "direction", "Mike_Jenny", "fir", "clap", "laugh", "Jennty", "space", "sandpit", "Jeenny", "crumb", "Thier", "Bea", "background.", "Bear.", "surrender", "ranger", "Jeeny", "save", "meal", "ballons", "shoulder", "rainstorm", "shelter", "hellicopter", "reuns", "Menny", "keep", "Mars", "barbeque", "jumping_jack", "sip", "sunlight", "_DUMMY", "Jennt", "ache", "Abrown", "stretch", "mitten", "poop", "dirt", "build", "being", "dag", "hot-dog", "ear", "Tjhere", "surprise", "Kenny", "Jennyis", "air.m", "SOCCERBALL", "soccerball", "warm", "hear", "edge", "bad", "ponytail", "hatthe", "something", "stripe", "middle", "stocking_cap", "scale", "patty", "scard", "plain", "whats", "olw", "sunis", "kite.t", "power", "Jenny_Mike", "toss", "Boppy", "snarl", "Hedrick", "Jennny", "spot", "chair", "explain", "overreact", "knock", "Jennie", "string", "attack", "grab", "drinkng", "ship", "s", "holdng", "heklmet", "ball.t", "tickle", "rainbow", "crownd", "lane", "burn", "running_back", "bun", "hike", "playset", "amusement", "brown_bear", "kill", "sandwhich", "bar", "hungry", "lonely", "lawn", "low", "raise", "finger", "anger", "beat", "exercise", "Jeny", "Josh", "say", "hot", "mick", "house", "snake.q", "whole", "trunk", "bring", "cheer", "gesture", "wing", "frizbee", "frissbe", "fotoball", "passenger", "fright", "push", "Jack", "ontop", "hellepcopter", "raquest", "technique", "jumper", "nowhere", "charm", "frighten", "disk", "ready", "h", "ketchip", "musturd", "comment", "tale", "meditate", "soda_pop", "delight", "sandcastle", "guy", "sacared", "find", "somewhere", "catis", "pinic", "change", "Vikings_Hat", "point", "stuff", "tshirt", "beind", "caused", "gog", "trick", "item", "measure", "one_foot", "happen", "hot_air", "silly", "greeting", "late", "gound", "move", "crosed", "front", "fast", "human", "stare", "alot", "mound", "round", "blow", "gril", "dot", "playfuly", "fend", "Mikke", "jumpsuit", "IS_BELOW_THE_OWL", "green", "Miike", "beach", "plate", "mushroom", "sign", "sunglassses", "rockey", "Mr._Cat", "Simon_Says", "protect", "concern", "toboggan", "supper", "sunglassess", "pole", "waste", "bake", "girl", "butt", "orange", "cant", "n", "Ike", "Mix", "prize", "Snake", "yoga", "buring", "candle", "observe", "sittingin", "branch", "shine", "freebie", "Mike_Soda", "Frisby", "accident", "comfort", "piece", "movement", "tongue", "high", "feed", "roar", "witch", "sunshade", "Mik", "btall", "mile", "calm", "tales", "Aplane", "heat", "Heres", "hope", "terror", "eye", "pig-tails", "Catepillar", "duc", "cat.j", "going", "sunglasses.", "shin", "surpised", "appletree", "fdace", "lose", "ketchup.t", "coller", "now", "heads", "picinic", "wizard", "warlock", "Pirate_Hat", "IS_IN_FRONT_OF_THE_CAT", "mistard", "sandbow", "customer", "return", "taste", "John", "JennMiky", "fribee", "float", "CAT", "appls", "argue", "Dow", "twirly", "glasse", "police", "cup.m", "Ariadne", "beg", "aslo", "worry", "crwon", "wrong", "warmth", "dd", "basbell", "grumpy", "firewood", "beej", "while", "gymnastics", "juggle", "slice", "eachother", "behinf", "sin", "kickball", "desk", "Tony", "appear", "bunch", "catsup.", "report", "flying.", "jenni", "aboslutely", "swing-set", "chest", "court", "ligtening", "pan", "spectacle", "homerun", "hants", "baseball.", "ankle", "Baseball_Bat", "soccer-ball", "captain", "danger", "beach-ball", "begin", "time_out", "plaine", "Queen_Jenny", "propellor", "balloonsf", "wonder", "puppy", "sing", "base-ball", "soda-can", "boy", "magic", "arrive", "song", "hotball", "nap", "buy", "hard", "thundercloud", "sand-box", "autism", "tableis", "Mr._Snake", "gem", "mom", "attitude", "shouting", "toboggin", "basket-ball", "overhead", "os", "foot-ball", "swing-sets", "lack", "live", "real", "swingset.", "hang", "sideways", "pigtail", "scar", "shove", "close", "lemonade", "yipee", "juice", "cause", "i", "shower", "vengeance", "mad", "same", "pailis", "who", "teach", "Wendy", "wend", "bll", "sniff", "Miss_Cat", "near-by", "ambush", "A", "Jrnny", "spoil", "adventure", "loom", "understand", "situation", "braid", "spill", "beak", "standnig", "NEX", "trap", "entrance", "outside", "SOG", "Baloons", "Ten-Buc-To", "conversation", "spring", "oil", "hill", "test", "door", "Chicken_Dance", "Mr._Dog", "skin", "safety", "there", "Park", "rider", "slid", "policeman", "stting", "day.", "queen", "shoot", "sand-bucket", "pocket", "sweing-set", "bruise", "bounce", "finish", "rain-cloud", "scared", "stranger", "pair", "kit", "let_go", "name", "stomach", "crowng", "Sun", "hilarious", "Camp", "giddy", "Mkeis", "flight", "forest", "sea", "why", "Kate", "container", "talbe", "palm", "black", "afternoon", "launch", "coptor", "film", "best", "Jenyy", "slid.e", "comeback", "first", "basket", "ducks", "stair", "Hi", "big", "duckk", "business", "rackett", "Mr._Duck", "base", "outdoors", "buger", "whirligig", "work", "freeze-by", "last", "doggy", "didnt", "tie", "hin", "thow", "isstanding", "everybody", "vacation", "Beachball", "input", "bearing", "trouble", "playtime", "Hotdogs", "jusmps", "companion", "rouse", "airport", "twoooooo", "block", "frustration", "hurry", "basll", "can", "figure", "turtle", "kitte", "baskbetball", "wrist", "cherry", "mamba", "mind", "bury", "reach", "ber", "Jimmy", "lightining", "princess", "witchhat", "gras", "IA", "clown", "Arg", "swim", "flash", "Jeannie", "melt", "clue", "Buzzy", "rare", "pitch", "sunglases", "funny", "balloons.Th", "spade", "puddle", "balloon_sail", "Kentish", "jump_suit", "fat", "Michael", "rip", "bucked", "terrible", "CST", "pretend", "refuse", "scream", "fee", "up.", "mate", "behing", "becauseit", "dowm", "money", "lay", "dose", "Vikings_Helmet", "beverage", "helocopter", "die", "Mike_And_Jenny", "sitiig", "wish", "motion", "private", "Mr._Own", "Frisbee_Jenny", "kindergarten", "Mr._Bear", "prank", "present", "bet", "Hokey_Pokey", "pull", "blass", "ho-dog", "t", "Jenny_Pizza", "sc", "snak", "tee_shirt", "mike.J", "rabies", "treasure", "her.", "company", "Tere", "bubble", "stroke", "anyone", "cell_phone", "fit", "wathing", "ing", "lunchtime", "everything", "Mikes_Duck", "dring", "wouldnt", "Ther", "happening", "city", "tent.A", "basketbal"];
+	var tags_R=["be:pa:upset", "share", "wear", "with", "kick", "to", "sit", "be:pa:sad", "be:pa:mad", "be", "wait", "catch", "play", "play:p:in", "jump", "be:pa:happy", "let_go:p:of", "look", "have", "hurt", "hurt:p:when", "feel", "be:pa:pink", "watch", "be:loc:sandboxJenny:s:be", "see", "play:ptcl:in", "hold", "be:loc:sandboxMike:s:be", "yell", "show", "be:pa:surprised", "sit:p:next_to", "stand:ptcl:in", "stand", "be:pa:afraid", "like", "bepie:p:behind", "want", "take", "take:p:into", "be:pa:frustrated", "give:ptcl:back", "throw", "hit", "sit:ptcl:on", "wave", "talk", "be:pa:angry", "strike", "come", "launch:p:above", "hide:p:behind", "be:pa:worried", "lighten", "tumble:p:into", "move:p:into", "run:p:from", "scare:p:of", "hope", "scare", "play:p:with", "look:p:at", "be:loc:tableketchup:s:be", "grow:ptcl:on", "be:pa:fying", "run", "eat", "will", "put", "put:p:on", "be:pa:yellow", "grill", "be:loc:fireJenny:s:be", "dance", "fall", "peak:p:out_of", "be:loc:bucketpale:p:of", "float:p:towards", "be:pa:high", "surprise", "sniff", "shout", "pretend", "be:pa:pirate", "smile", "chase", "shine", "try", "get", "tell", "be:pa:bored", "hate", "have:ptcl:on", "beswingset:p:behind", "move", "bebaseball:p:in_front_of", "stand:ptcl:by", "float:p:above", "run:p:away_from", "be:pa:scared", "be:pa:friend", "be:pa:runnign", "sit:p:in_front_of", "startle", "enjoy", "float:p:in", "fly:p:over", "come:p:from_under", "drink", "be:pa:dark", "be:pa:ready", "betree:p:behind", "behind", "celebrate", "toss", "fly:ptcl:in", "be:pa:close", "land", "fall:ptcl:on", "be:pa:slippery", "throw:p:into", "run:p:toward", "stand:p:next_to", "be:pa:sand", "jump:p:off", "love", "shin", "fly:p:in", "shine:p:on", "be:pa:excited", "be:pa:sunny", "bring", "come:ptcl:to", "bring:p:to", "beside", "be:loc:tablepizza:s:be", "be:pa:green", "think", "be:pa:cool", "run:p:behind", "above", "go", "leave", "camp:p:on", "go:p:toward", "run:ptcl:after", "burn", "away_from", "fly:p:on", "camp", "fly:p:out_of", "fly", "land:p:next_to", "steep:p:inside", "slide:p:down", "climb", "help", "be:pa:red", "be:pa:cloudy", "fall:ptcl:off", "roll", "be:pa:abo0ut", "be:pa:stormy", "be:pa:empty", "be:pa:pale", "swing", "start", "rain", "lightning", "run:p:to", "be:pa:alone", "fly:p:above", "but", "walk:p:with", "cry", "be:pa:orange", "begrill:p:next_to", "cook", "make", "be:pa:pinkbucket:p:next_to", "cook:p:with", "hold:ptcl:out", "find", "stand:ptcl:on", "spot", "carry", "look:ptcl:for", "hold:ptcl:up", "lose", "fly:p:near", "climb:p:up", "of", "toss:p:while", "walk:ptcl:through", "cry:ptcl:out", "behe:s:sit", "do", "stand:p:behind", "ride", "drop", "sit:p:beside", "call", "practice", "for", "attach:p:to", "give", "betree:p:next_to", "be:pa:yellowtable:p:behind", "wave:p:to", "waive:p:to", "punt", "be:loc:sandboxJenny:s:be:loc:sandboxsandbox:p:with", "sit:p:outside_of", "sit:p:between", "play:p:beside", "reach:p:for", "sing", "pet", "fly:p:into", "have:p:on", "be:pa:full", "let", "go:p:to", "call:p:for", "beglove:p:between", "between", "be:pa:stitting", "next_to", "beJenny:s:run", "beJenny:s:betree:p:with", "beJenny:s:besunshine:p:with", "like:p:when", "pick", "cover", "be:pa:listneing", "wait:p:for", "sit:p:behind", "cry:p:as", "laugh:p:as", "grow:p:with", "on", "rain:p:over", "stick", "be:pa:Verb", "be:pa:wet", "leave:ptcl:out", "hide", "use", "worry", "come:p:to", "from", "cheer:p:for", "blow", "off", "laugh", "feed", "hover:p:over", "catch:p:with", "sit:p:inside", "be:pa:big", "be:loc:sandboxsandbox:p:with", "be:loc:sandboxcat:s:be", "bebasketball:s:bebasketball:p:next_to", "go:ptcl:down", "slide", "read", "sit:p:on_top_of", "be:loc:endend:p:of", "sit:p:near", "run:p:towards", "be:pa:overhead", "grab", "beduck:p:in_front_of", "reach", "be:pa:shy", "near", "fly:p:past", "offer", "_DUMMY", "put:p:out", "be:pa:cold", "keep", "stand:p:near", "have:ptcl:up", "befire:p:next_to", "point:p:to", "be:pa:blueleft:p:of", "be:pa:brown", "be:pa:hat", "swing:p:on", "be:pa:balloon", "jump:p:off_of", "swing:p:when", "play:ptcl:on", "be:pa:leader", "be:pa:mean", "be:pa:careful", "walk:p:towards", "get:ptcl:away", "run:ptcl:up", "pass", "beJenny:s:throw", "be:pa:bouncy", "walk:ptcl:up", "ask", "blast:p:across", "upset", "sit:p:around", "beball:p:under", "be:loc:treetree:s:watch", "play:p:next_to", "be:pa:pretty", "listen:p:to", "follow", "beowl:p:in_front_of", "chase:p:after", "visit", "fly:p:through", "pick:ptcl:up", "in", "beKelly:s:be", "introduce", "be:pa:indifferent", "stare", "walk", "becola:s:becola:p:in_front_of", "say", "be:pa:hungry", "be:loc:entranceentrance:p:of", "talk:p:outside", "go:p:into", "beJenny:s:be", "besnake:p:near", "behelicopter:p:above", "save", "scare:ptcl:off", "cheer", "be:pa:hurt", "fly:p:behind", "be:loc:tablebottle:p:of", "jump:p:in_front_of", "scare:ptcl:away", "float", "decide", "towards", "stop", "through", "beshovel:s:beshovel:p:beside", "perch:p:on", "lay", "besoda:s:be", "set:p:between", "stand:p:across_from", "dress:p:as", "be:pa:wizard", "play:p:near", "be:pa:clear", "be:pa:move", "move:p:away_from", "be:pa:angrey", "hold:p:by", "frown:p:in", "be:pa:blueduck:p:next_to", "pitch", "wander", "pat", "beduck:p:near", "step", "be:pa:annoyed", "be:pa:tired", "sit:p:with", "mad", "kick:p:into", "get:ptcl:in", "knock:p:over_by", "be:loc:tablemustard:s:be", "jump:p:with", "excite:p:about", "be:loc:grassfootball:s:be", "jump:p:into", "becloud:p:with", "welcome", "approach", "amuse", "bepie:s:be", "cast", "wrap:p:around", "sit:p:beneath", "jump:ptcl:on", "be:pa:shocked", "stand:p:in_front_of", "over", "bebucket:p:next_to", "be:loc:bottombottom:p:of", "beworm:p:near", "go:ptcl:up", "come:ptcl:down", "slide:p:on", "go:p:towards", "be:loc:treeduck:s:be", "be:loc:treesnake:s:be", "be:pa:rainging", "beball:p:near", "belightning:s:be", "be:pa:pass", "be:pa:running_back", "get:ptcl:on", "wait:p:near", "ask:p:for", "fight:p:over", "fight", "when", "fly:p:toward", "beketchup:p:next_to", "shine:p:over", "be:pa:scary", "bebear:p:by", "be:pa:campfire:p:near", "betent:p:behind", "enter", "come:p:toward", "catch:p:in", "becloud:p:behind", "be:loc:slideJenny:s:be", "becat:p:with", "tie:p:to", "hover:p:in", "raise", "jump:p:in", "growl", "play:p:even_though", "be:pa:nearby", "bear", "soar:p:past", "fly:p:to", "be:loc:groundsoda:s:be", "go:ptcl:on", "wave:p:at", "leap:p:with", "be:loc:tableball:s:be", "blast", "come:p:out_of", "steal", "be:pa:thrilled", "lighten:p:in", "bebeach_ball:p:in_front_of", "in_front_of", "come:p:from_behind", "camp:p:near", "without", "camp:p:in", "beMike:s:beJenny:s:camp", "fall:p:out_of", "plan", "get:p:out_of", "give:ptcl:away", "be:pa:hot", "be:pa:idea", "sit:p:close_to", "go:ptcl:in", "strike:ptcl:down", "strike:p:for", "think:p:of", "beballoon:p:behind", "beketchup:s:be", "wait:ptcl:on", "becup:s:be", "be:loc:airJenny:s:be", "set:p:for", "put:ptcl:out", "burn:p:even_though", "guard", "be:pa:weraing", "be:pa:colorful", "be:pa:unhappy", "be:loc:groundground:p:by", "cry:ptcl:down", "fall:p:of", "shine:p:in", "sneak", "be:pa:mike", "bother", "decide:p:with", "attack", "notice", "frighten", "build", "knock", "be:pa:hard", "fly:p:towards", "be:pa:drinking_water", "toss:p:over", "knock:p:over", "out", "betree:p:between", "worry:p:about", "cause", "bebolt:s:bebolt:s:lighten", "sit:p:on", "be:loc:sunjenny:s:be", "be:loc:groundbat:s:be", "stand:p:on_top_of", "be:pa:bright", "be:pa:bear", "stand:p:beside", "be:pa:scaring", "float:p:over", "be:pa:pizza", "be:pa:chef", "behot_dog:s:be", "be:pa:tent", "set:p:in", "be:pa:princess", "be:pa:picnic", "rain:p:behind", "pull", "throw:ptcl:up", "rain:p:on", "betable:p:behind", "balloon", "mike", "invite", "invite:p:to", "invite:p:for", "cover:ptcl:up", "warn:p:about", "knit", "roar", "be:pa:silly", "be:pa:witch", "talk:p:about", "wear:p:on", "fix", "put:ptcl:up", "laugh:p:with", "slither", "prepare:p:for", "lay:ptcl:in", "fall:p:by", "place", "place:p:over", "burn:p:in_front_of", "be:pa:invitng", "put:ptcl:on", "prepare", "bepie:p:next_to", "eat:p:with", "blaze", "scream", "shine:p:above", "at", "run:p:across", "set:p:after", "skip", "be:pa:suprised", "crawl:p:towards", "be:pa:eager", "be:pa:slittering", "sit:p:by", "look:p:away_from", "care:p:for", "be:loc:treedog:s:be", "be:loc:treecat:s:be", "pay", "smell", "be:pa:cherry", "bounce:p:near", "swat", "light", "warm", "get:p:close_to", "glow", "fly:p:across", "join", "bump:p:into", "smile:p:at", "be:loc:tablehot_dog:s:be", "tie", "be:pa:curious", "slither:p:towards", "cry:p:in", "wish", "be:loc:campfireJenny:s:be", "dance:p:near", "drink:p:with", "be:pa:cloud", "sit:p:in", "be:pa:warm", "beMike_Jenny:s:beduck:s:be", "be:pa:be", "be:loc:groundground:p:in_front_of", "think:p:when", "be:pa:funny", "forget:p:about", "stand:p:between", "wish:p:for", "know", "live", "roar:p:on", "barbecue", "bebucket:p:with", "function", "distract", "offend", "threaten", "warn", "be:pa:friendly", "beowl:p:above", "smash", "about", "defend", "rest", "becloud:p:in_front_of", "be:loc:treeball:s:be", "throw:ptcl:over", "throw:p:to", "leave:p:across", "come:p:from", "point", "frown", "be:pa:shoe", "bepop:p:between", "jump:p:for", "hold:p:over", "be:pa:embarrassed", "befootball:p:on_top_of", "land:p:into", "take:ptcl:off", "trail:p:behind", "look:p:like", "back:p:away_from", "wear:p:even_though", "take:ptcl:over", "be:pa:camp", "roar:p:at", "be:pa:runing", "beplane:p:above", "hit:p:with", "sit:ptcl:up", "run:p:past", "dig:ptcl:in", "stand:p:outside_of", "float:p:past", "fight:p:with", "fly:p:onto", "visit:p:with", "be:loc:helicopterJenny:s:be", "be:pa:tree", "toward", "clap", "perch", "copy", "push", "push:p:down", "run:p:into", "set:ptcl:up", "sleep", "go:p:behind", "be:pa:ball", "swing:p:while", "get:ptcl:off", "beright:p:of", "betent:p:next_to", "be:pa:proud", "besnake:p:behind", "sit:p:under", "be:pa:nervous", "fall:ptcl:to", "drift:p:across", "fall:p:when", "fall:ptcl:down", "holler:p:for", "beMike:s:be", "stare:p:at", "be:loc:tentJenny:s:be", "be:loc:rainJenny:s:be", "be:loc:tablesoda:s:be", "be:loc:tabletable:p:next_to", "forget", "hang", "warm:p:over", "win", "becat:s:be", "miss", "fall:p:down", "be:pa:sittingin", "slow", "hold:p:onto", "betrip:s:camp", "get:p:so", "bebear:p:under", "be:loc:cloudJenny:s:be", "hand", "run:p:for", "kick:p:over", "take:p:over", "be:pa:boppy", "sail:p:in", "ruin", "pour:ptcl:on", "excite", "dig", "into", "hide:p:underneath", "be:pa:good", "be:loc:parkMr._Bear:s:be:loc:parkperson:s:be:loc:parkMr._Dog:s:be", "eat:p:so", "starve", "protect", "have:p:above", "be:pa:scarybear:p:behind", "bebear:p:near", "balloon:p:in", "be:pa:and", "be:pa:loose", "bepie:p:on_top_of", "be:loc:tablecat:s:be", "bedog:s:be", "sit:p:to", "hover", "knock:ptcl:down", "be:pa:unaware", "run:p:next_to", "be:loc:boxbox:s:cover:p:with", "be:pa:okay", "rise", "go:ptcl:over", "share:p:with", "stay", "understand", "raise:p:into", "bite", "be:pa:alarmed", "move:p:towards", "sit:p:of", "beJenny:s:beMike:s:camp", "peek", "throw:p:over", "crawl:p:past", "play:p:on", "hop:p:next_to", "begin", "stun", "behat:s:be", "watch:p:as", "out_of", "come:p:towards", "be:pa:day", "be:pa:gone", "hug", "knit:p:on", "be:pa:nice", "be:pa:blue", "choose", "choose:p:between", "besky:p:above", "besun:s:shine", "go:p:after", "cheer:p:beside", "hog", "beplane:s:be", "be:pa:terrified", "look:p:inside", "lift", "carry:ptcl:off", "head:p:for", "be:loc:swingglove:s:be", "becola:s:be", "launch", "wind", "be:loc:airrocket_ship:s:be", "be:pa:rainstorm", "stay:p:beside", "start:p:to", "be:pa:distracted", "be:loc:tableFrisbee:s:be", "meet", "hiss", "kiss", "be:pa:sun", "sit:p:away_from", "beduck:p:behind", "bebig_tree:p:behind", "befire:p:in_front_of", "hear", "shoo", "be:pa:grey", "heat", "dance:p:next_to", "swing:p:with", "play:p:by", "hide:p:by", "land:p:near", "land:p:behind", "smile:p:as", "beowl:p:between", "mind", "bebear:p:at", "be:pa:madit:s:rain", "surprise:p:by", "come:p:on", "be:pa:home", "dress:p:up", "play:p:around", "be:pa:glasses", "quack", "move:p:in_front_of", "finish", "walk:p:toward", "walk:p:past", "growl:p:at", "be:pa:frightened", "call:p:over", "run:p:with", "feel:p:like", "fly:p:close_to", "stand:p:under", "beball:p:in_front_of", "have:p:in", "betable:p:next_to", "grow:p:near", "betoy:p:around", "wonder", "move:p:in", "beshovel:s:beshovel:p:by", "be:pa:sandbox", "be:loc:sandboxketchup:s:be", "beset:p:of", "fall:p:from", "be:pa:pet", "be:loc:sandboxshovel:s:be", "becloud:p:above", "besandbox:p:near", "fly:p:in_front_of", "bounce", "attempt", "be:pa:lookout", "be:pa:pinkthey:s:put:ptcl:over", "argue", "go:p:down", "go:p:past", "be:pa:loud", "bedog:p:with", "besnake:p:under", "be:pa:standingby", "float:p:into", "sadden", "bebear:p:behind", "grab:p:for", "be:pa:orangetent:p:next_to", "cool", "be:pa:snake", "camp:p:with", "sit:p:outside", "sit:p:in_between", "beballoon:p:in_front_of", "set:p:behind", "be:loc:boxJenny:s:be", "berocket:p:above", "berocket_ship:p:behind", "beketchup:p:near", "beball:p:outside_of", "pull:ptcl:on", "be:pa:next", "land:p:between", "berocket:s:be", "bedog:p:next_to", "see:p:in", "scream:p:at", "be:loc:groundground:p:behind", "be:pa:bouncetoy:s:bounce", "play:p:together_with", "bounce:p:across", "be:pa:small", "trade", "grill:p:up", "be:pa:hot-air", "beshe:s:fall:ptcl:off", "fall:p:off_of", "zoom:p:through", "stand:p:to", "lift:p:above", "sell", "laugh:p:at", "close:p:to", "be:loc:fireMike:s:be", "sit:p:above", "jog", "be:pa:ecstatic", "bebeach_ball:p:next_to", "be:loc:grillmustard:s:be", "face", "back", "wave:p:toward", "bebeach_ball:p:behind", "bepie:p:between", "beglove:p:next_to", "bepale:p:of", "astonish", "astonish:p:at", "be:loc:parkpark:p:with", "beduck:s:be", "bepail:p:between", "be:loc:treeMike:s:be", "be:pa:standind", "say:p:to", "be:pa:angered", "form:p:in_front_of", "bemustard:s:be", "upset:p:about", "be:pa:fun", "be:pa:trowing", "fly:p:away_from", "float:p:away_from", "throw:p:down", "sit:p:across_from", "throw:p:around", "eye", "think:p:about", "grow", "bebottle:s:be", "around", "punt:p:over", "kneel", "be:pa:lose", "bejenny:s:be", "be:pa:glad", "bekite:p:between", "walk:p:far_from", "race", "get:p:to", "come:p:for", "be:pa:rom", "fall:p:into", "sit:p:while", "slap", "tackle", "be:pa:open", "be:loc:grassgrass:p:near", "have:p:when", "be:pa:hamburger", "be:pa:amused", "greet", "realize", "be:pa:creature", "be:pa:wearng", "be:pa:wering", "bebeach_ball:p:between", "hunt", "before", "rescue", "be:pa:dangerous", "be:loc:tablesunglass:s:be", "burn:p:next_to", "confront", "streak", "be:pa:standng", "by", "storm", "be:pa:cute", "appear", "be:loc:treetree:p:behind", "be:pa:far_off", "have:p:with", "be:loc:parkJenny:s:be", "bego:p:on", "block", "beairplane:s:be", "be:pa:wise", "bekid:s:have", "sit:ptcl:down", "fire", "aim", "inside", "be:pa:slideboard:s:slide", "bebasketball:p:behind", "shovel", "be:pa:barbequing", "go:p:in", "be:pa:sandbox:p:behind", "fetch", "be:pa:redy", "sip", "be:pa:bouncytoy:p:behind", "shovel:p:with", "beJenny:s:play:p:with", "hole", "be:pa:storm", "lay:ptcl:on", "be:pa:barebecueing", "be:loc:firebottle:p:of", "march", "cry:p:for", "tease", "belightning:p:above", "put:ptcl:down", "waive:p:for", "stand:p:close_to", "get:p:into", "be:loc:cloudsnake:s:be", "lounge", "ride:p:in", "float:p:behind", "sneak:p:behind", "play:p:as", "be:loc:parkMike:s:be", "cry:p:while", "as", "awaken", "be:pa:surprise", "fell", "play:p:when", "be:pa:rainning", "be:pa:confused", "be:pa:strong", "give:ptcl:up", "run:p:between", "be:pa:black", "bedog:p:between", "expect", "wear:p:as", "stand:p:up", "be:pa:pail", "be:loc:slideowl:s:be", "throw:p:so", "beball:p:close_to", "be:pa:prisoner", "watch:p:on", "growl:p:behind", "stand:p:by", "be:loc:boardboard:s:slide", "be:pa:busy", "run:p:in_front_of", "care:p:about", "believe", "be:pa:dramatic", "break", "shelter", "bebear:p:between", "be:loc:treeJenny:s:be", "head:p:towards", "face:p:away_from", "lift:p:into", "be:pa:airplane", "be:pa:thirsty", "part", "dress", "remind", "be:loc:treetree:p:with", "growl:p:when", "run:p:when", "run:ptcl:in", "be:pa:competitive", "fall:ptcl:in", "run:p:at", "be:pa:astonished", "plant", "kick:ptcl:up", "act", "be:pa:hot-airair:p:above", "move:p:toward", "anticipate", "focus", "be:pa:big_tree", "be:pa:shine", "land:p:before", "be:pa:able", "walk:p:by", "besky:p:behind", "be:loc:groundbeach_ball:s:be:loc:groundground:p:next_to", "try:p:to", "be:pa:scarybear:p:next_to", "lick", "beMike:s:play", "be:loc:sandboxMike_Jenny:s:be:loc:sandboxdog:s:be", "go:p:near", "cheer:p:on_to", "be:pa:ripe", "juggle", "pass:p:before", "spend", "betent:p:for", "lunch", "berain:s:be", "sit:p:down", "ignore", "sit:p:at", "beFrisbee:s:be", "burn:p:near", "be:pa:sunglass", "beduck:p:between", "be:loc:parkjenny:s:be", "sit:p:below", "be:pa:weardog:s:wear", "be:pa:soccer", "help:p:up", "be:pa:wrong", "braid", "be:pa:nexto", "thrill", "be:pa:startled", "jump:p:next_to", "reach:p:into", "touch", "bow:p:in", "fall:p:so", "kick:ptcl:over", "tell:p:about", "jump:p:when", "belightning:p:between", "bepop:p:in_front_of", "besoda:s:beground:p:next_to", "besnake:p:between", "run:ptcl:around", "lie:p:under", "crawl", "slither:p:behind", "be:pa:scale", "keep:p:away_from", "split", "reach:ptcl:out", "bebat:s:bebat:p:behind", "want:p:off", "be:pa:cause", "be:pa:scard", "slither:p:to", "sit:ptcl:in", "be:loc:mikedog:s:be", "watch:ptcl:over", "bepizza:p:next_to", "care", "drink:p:out_of", "be:pa:bigcloud:p:behind", "scold", "beowl:s:perch", "run:p:under", "slither:p:toward", "be:pa:weaing", "be:pa:chearing", "be:pa:daredevil", "nose", "summon", "befire:p:between", "be:pa:gong", "alarm", "rise:p:in", "behamburger:s:be", "give:p:for", "be:pa:hot_dog", "be:loc:sideMike:s:be", "match", "drop:p:over", "be:loc:tablehotdog:s:be", "be:pa:mustard", "be:pa:wearig", "set:ptcl:down", "set", "be:pa:thankful", "be:pa:pinkground:p:next_to", "stand:ptcl:over", "cry:p:next_to", "explain", "overreact", "shock", "be:pa:queen", "fly:p:as", "beairplane:p:above", "betree:p:with", "be:pa:amazed", "mimic", "while", "talk:p:beside", "behotdog:s:be", "beburger:s:be", "hot-dog", "sail:p:into", "hide:p:of", "walk:p:away_from", "deliver", "drive", "talk:p:to", "behelicopter:p:next_to", "pass:ptcl:by", "rise:p:on", "becat:p:near", "walk:ptcl:over", "walk:p:to", "be:pa:on_the_ball", "sit:p:atop", "camp:p:even_though", "be:pa:pie", "bake", "begrill:p:between", "serve", "shin:p:on", "tickle", "teach", "back:ptcl:up", "back:p:as", "be:loc:groundground:p:between", "bebear:p:beside", "kneel:p:behind", "stand:p:away_from", "betree:p:in_between", "in_between", "be:pa:OK", "gasp", "cry:p:about", "bebird:p:next_to", "travel:p:in", "await", "be:pa:have", "hang:ptcl:over", "play:p:to", "be:loc:slidejenny:s:be", "past", "kill", "cross", "play:p:outside", "come:p:with", "be:pa:runny", "smile:p:while", "be:pa:easy", "ball", "beball:p:behind", "threaten:p:with", "dance:p:with", "kick:ptcl:back", "befootball:p:in_front_of", "begrill:p:behind", "beat", "beat:p:to", "race:p:to", "besunglass:s:besunglass:s:sit:ptcl:on", "run:ptcl:through", "be:pa:gloomy", "pass:p:in_front_of", "do:p:by", "argue:p:next_to", "walk:p:between", "be:pa:irritated", "be:pa:sittting", "slide:p:off", "be:pa:jealous", "wave:p:from", "beplane:s:fly:p:over", "leave:ptcl:behind", "be:pa:talltree:p:behind", "betoy:p:between", "bebear:s:be", "mock", "be:pa:watchful", "crawl:p:away_from", "beairplane:p:behind", "betree:p:near", "get:p:of", "toss:p:into", "be:pa:unsure", "slide:p:off_of", "cheer:ptcl:up", "fly:p:off", "beyou:s:be", "be:pa:low", "up_to", "mike:p:when", "take:p:when", "be:pa:hitter", "be:pa:pitcher", "be:pa:alos", "bring:ptcl:back", "need", "scream:p:with", "freeze:p:with", "drop:p:when", "be:pa:treehe:s:tree", "swing:p:onto", "beglove:p:under", "push:p:on", "be:loc:firemike:s:be", "float:p:across", "be:loc:playgroundJenny:s:be", "look:p:as", "happen:p:to", "drop:p:on_to", "be:pa:orangecat:p:next_to", "beswing:p:on", "be:pa:batter", "swing:p:at", "secure:p:to", "roar:p:in", "dance:p:around", "float:p:by", "swing:p:next_to", "cover:p:by", "be:pa:scarying", "be:loc:sandboxdog:s:be", "walk:p:when", "play:p:outside_of", "hang:p:above", "be:pa:concerned", "be:loc:parkpark:p:behind", "be:pa:bad", "be:loc:parkMike_Jenny:s:be:loc:parkdog:s:be", "beshe:s:be:pa:okay", "be:loc:tableMike:s:be", "jump:p:over", "waddle", "bedog:p:near", "be:pa:late", "be:pa:sorry", "bepizza:p:below", "be:pa:rude", "take:p:from", "behotdog:p:between", "be:pa:wantdog:s:want", "be:pa:oblivious", "cry:p:when", "wag", "kick:p:close_to", "meditate", "beburger:p:in_front_of", "be:loc:treeMike_Jenny:s:be", "be:pa:bigsky:p:above", "kick:p:in", "eat:p:but", "spill", "spill:p:onto", "roar:p:with", "be:pa:sideways", "look:p:as_if", "be:loc:toytoy:s:bounce", "be:pa:noisy", "rock", "be:pa:beautiful", "beJenny:s:beMike:s:grill", "argue:p:about", "float:p:in_front_of", "go:ptcl:for", "be:pa:sacared", "beballoon:p:next_to", "prance", "sit:p:against", "scare:p:at", "bestorm_cloud:p:above", "belighting:s:be", "be:pa:color", "be:loc:campfireMike:s:be", "be:loc:tablepie:s:be", "be:pa:fluffy", "slip", "slither:p:in_front_of", "be:pa:above", "rise:p:into", "drift:p:over", "bestorm:s:be", "work", "be:pa:redright:p:of", "bepizza:p:in_front_of", "be:pa:white", "levitate", "be:pa:front", "poop", "be:loc:boxbox:p:with", "be:loc:tablebucket:s:be", "be:pa:random", "be:pa:buring", "loose", "site", "jump:p:up_for", "be:pa:star", "bemitt:p:near", "hover:p:above", "fell:p:down", "fall:p:next_to", "be:pa:pinkslider:p:between", "be:pa:sick", "put:ptcl:to", "becloud:p:between", "be:pa:blond", "spook", "trick", "bedog:p:behind", "be:pa:surprising", "be:pa:right", "have:p:on_top_of", "balance", "lighten:p:out", "happen", "peek:p:at", "plate", "beballoon:p:above", "berain:p:above", "say:p:about", "beawe:s:look", "stare:p:from", "wave:p:in", "waive", "wage", "tend", "step:p:to", "pie", "run:p:on", "be:pa:yet", "leg", "carry:ptcl:away", "run:p:near", "reach:p:towards", "look:p:from_behind", "be:loc:backgroundlightning:s:come", "be:loc:playgroundplayground:p:with", "boot", "laugh:p:while", "be:pa:slide", "bepizza:p:between", "be:loc:tabledrink:s:be", "disturb", "hold:p:to", "trip:p:over", "trip", "check", "grill:p:on", "go:p:away_from", "set:p:on", "slither:p:by", "buy", "stand:p:outside", "bebig_tree:p:between", "be:pa:ballon", "swing:p:over", "beJenny:s:fly", "fend:p:off", "rain:p:near", "be:loc:firejenny:s:be", "stomp", "state", "becat:s:beplane:s:toy", "be:loc:airplanecat:s:be", "be:loc:planedog:s:be", "be:loc:wingwing:p:of", "be:loc:planeJenny:s:be", "team", "scare:p:with", "get:p:past", "be:pa:eatng", "chat", "bepail:s:be", "outstretch", "be:loc:treetree:p:next_to", "quit", "flash:p:in", "wave:p:as", "be:pa:watchno_one:s:watch", "be:pa:single", "score", "be:pa:relaxing", "be:pa:yummy", "besign:p:of", "ride:p:on", "be:pa:greentree:p:behind", "complain:p:about", "be:pa:quiet", "be:pa:kickign", "bat", "lay:p:with", "shine:p:behind", "look:p:with", "bepizza:s:be", "go:p:inside", "becampfire:p:near", "move:p:on", "shine:p:upon", "be:pa:slideing", "be:pa:jumoing", "be:loc:toptop:p:of", "come:p:at", "be:pa:kick", "throw:p:at", "cry:p:from", "waste", "want:p:away_from", "be:pa:crystal_ball", "beplace:p:next_to", "cry:p:in_front_of", "be:pa:diseased", "sneak:p:on", "be:loc:groundground:p:near", "onto", "down", "shin:p:in", "besun:s:be", "be:pa:bigcloud:s:be", "becant:p:behind", "be:loc:boxMike:s:be", "head:p:toward", "connect:p:to", "taste", "skip:p:across", "be:pa:cloudless", "stop:p:from", "crash:p:into", "beslider:p:behind", "walk:p:behind", "be:pa:hand", "bedog:p:in_front_of", "observe", "imitate", "bask", "kick:p:next_to", "be:pa:cathing", "be:loc:planecat:s:be", "crawl:p:toward", "land:p:under", "wriggle:p:away_from", "race:p:in", "laugh:p:when", "be:pa:sunnymike:s:play", "perch:p:on_top_of", "beslide:p:next_to", "take:p:without", "return", "belove:p:with", "be:pa:sacred", "slither:p:away_from", "be:pa:net", "be:loc:jennycat:s:be", "go:ptcl:by", "comfort", "be:pa:fond", "bepie:p:in_front_of", "beowl:s:sit:ptcl:on", "behelicopter:s:be", "beowl:p:behind", "growl:p:like", "stick:ptcl:out", "want:p:off_of", "peek:p:from_behind", "throw:p:up", "jump:p:up", "becloud:s:be:pa:Verb", "hat", "befire:s:set:p:next_to", "raise:p:in", "shake", "tumble:ptcl:down", "shout:p:for", "bethey:s:be:pa:happy", "crawl:p:to", "air", "beshovel:s:be", "be:loc:treetree:p:in", "calm:ptcl:down", "beg:p:for", "bebaseball:p:above", "bebeachball:p:above", "cheer:p:as", "scare:p:when", "give:p:so", "beball:p:next_to", "stand:p:with", "be:pa:f", "throw:ptcl:away", "yell:p:for", "come:ptcl:again", "be:loc:grassdog:s:be", "wear:p:to", "be:pa:scare", "scream:p:in", "be:pa:rainy", "take:p:with", "react", "stare:p:after", "beride:p:behind", "beFrisbee:p:between", "bedog:s:bedog:p:close_to", "kick:p:even_though", "kick:p:for", "be:pa:annoying", "be:pa:jet", "wear:p:in", "betable:p:near", "beswing:s:set", "cook:p:on", "be:pa:beautifulMike:s:kick:ptcl:around", "kick:ptcl:around", "beJenny:s:cry", "be:loc:parkMike:s:play", "skip:p:to", "be:pa:wild", "roll:p:down", "betoy:p:near", "be:loc:airMike:s:be", "be:pa:surpised", "get:ptcl:up", "snake", "beappletree:p:between", "be:pa:kciking", "be:loc:airair:p:above", "fry", "be:pa:orangecat:p:with", "seem", "rest:p:for", "sit:p:far_from", "rid", "fire:ptcl:off", "block:p:by", "besnake:p:close_to", "be:loc:tabletable:p:behind", "be:pa:tiny", "see:p:when", "wave:p:on", "catch:p:under", "walk:p:along", "return:p:to", "bring:p:for", "walk:p:beside", "beladder:p:behind", "eat:p:on", "be:pa:giant", "beMike:s:want", "skip:p:towards", "cook:p:when", "interrupt", "attract", "from_under", "be:pa:flyairplane:s:fly", "beapple:p:behind", "scream:p:for", "have:p:over", "look:p:to", "leap", "slide:p:into", "be:pa:enjoyning", "be:pa:beplane:s:be:pa:be", "be:pa:interested", "bebeach_ball:s:be", "beMike:s:scare", "crawl:p:by", "be:pa:jenny", "be:loc:barbecueJenny:s:be", "bebasketball:p:between", "cook:p:so", "holler", "float:p:near", "betoy:s:bounce", "bebottle:p:of", "becrown:p:above", "droop", "stand:p:before", "fill:p:with", "find:p:with", "bob", "wrong", "follow:ptcl:around", "create", "stare:p:into", "order", "be:pa:sky", "be:pa:vicking", "besnake:p:next_to", "beset:p:behind", "be:pa:prince", "instead_of", "be:loc:woodMike:s:be", "set:p:in_front_of", "be:loc:tableJenny:s:be", "like:p:on", "feel:p:out_of", "want:p:on", "beburger:s:run:p:with", "befood:s:cook", "lean:p:against", "wring", "be:pa:pointy", "look:p:while", "thunder", "hide:p:beneath", "get:p:in_the_way_of", "be:pa:first_mate", "point:ptcl:out", "sport", "be:loc:treeglove:s:be", "be:pa:sure", "exercise", "suggest", "bewhile:p:for", "be:loc:eachotherjenny:s:be", "sail:p:through", "dirty", "jump:p:up_to", "jump:p:from", "waddle:p:up", "hope:p:for", "be:pa:throwning", "weary", "stand:p:of", "lean:p:on", "want:p:then", "heat:ptcl:up", "be:loc:tablehot_dog:p:with", "annoy", "be:pa:playinging", "change:p:as", "be:loc:sunJenny:s:be", "be:pa:hold", "hiss:p:in", "besnake:p:in_front_of", "run_scared:p:as", "be:pa:asleep", "run:p:out_of", "get:p:off_of", "add", "_DUMMY:p:with", "becat:p:between", "be:loc:sandboxKelly:s:be", "be:pa:cross_legged", "speak", "excite:p:for", "be:pa:kicing", "zoom", "report", "swing:p:by", "be:pa:throwining", "receive", "be:pa:flyhelicopter:s:fly", "beJenny:s:wear", "run:p:as", "be:pa:pleased", "be:pa:\\running", "betable:p:between", "lighten:p:behind", "scar:p:of", "stand:p:on", "set:p:beside", "be:loc:tableburger:s:be", "slither:p:underneath", "prance:p:towards", "beJenny:s:bedog:s:be", "bebear:p:next_to", "apologize:p:to", "anger", "be:pa:runnning", "beball:p:above", "agree", "dog", "be:loc:parkMike:s:be:loc:parkpark:p:with", "yell:p:at", "be:pa:bigballoon:p:behind", "look:p:for", "kick:p:at", "be:pa:ketchup", "rest:p:under", "get:ptcl:down", "beball:s:be", "form:p:in", "excite:p:next_to", "play:ptcl:up", "tear", "roar:p:behind", "ware", "be:pa:tall", "bat:p:while", "cry:p:with", "be:loc:swingsetJenny:s:be", "scoop", "be:pa:shock", "bepie:p:near", "bebeach_ball:p:near", "be:pa:captain", "ahead_of", "be:pa:boring", "be_X:s:be:pa:sunny", "decorate", "betable:p:with", "be:loc:campsiteMike:s:be", "see:p:next_to", "be:pa:fell", "move:p:from", "be:pa:pinkbucket:p:behind", "strike:p:near", "bebottom:p:of", "beslide:p:with", "be:pa:gray", "be:loc:parkJenny:s:be:loc:parkpark:p:for", "be:pa:catcher", "be:loc:catJenny:s:be", "beslide:p:behind", "sit:p:on_the_top_of", "be:pa:sing", "be:pa:tp", "be:pa:sittng", "climb:p:to", "jump:p:out", "becat:p:in_front_of", "fill", "close", "conjure", "lie", "arrive", "nap", "crawl:p:into", "motion", "be:loc:groundbaseball:s:be", "fly:p:from_behind", "befootball:p:near", "befron:p:of", "begreen_snake:p:next_to", "sit:p:than", "roll:p:into", "want:p:to", "beball:p:between", "be:pa:game", "wait:p:as", "come:p:near", "be:loc:footfoot:p:of", "be:loc:groundground:p:next_to", "use:p:on", "act:p:like", "go:p:with", "climb:p:into", "be:pa:holdng", "soar:p:in", "beballoon:s:be", "blast:p:above", "be:loc:tablepale:p:of", "blast:p:in", "bebasket-ball:p:near", "blast:p:into", "be:loc:tablebat:s:be", "besun:s:besun:p:behind", "stand:p:in_the_front_of", "be:pa:king", "look:p:into", "be:pa:eating_apple", "decide:p:between", "be:pa:missing", "becat:s:come:ptcl:to", "be:pa:furious", "be:pa:sittingg", "be:pa:aggravated", "argue:p:with", "get:p:at", "up", "wave:p:behind", "hide:p:from", "betree:s:be:pa:be", "beJenny:s:camp", "burn:p:between", "kick:p:like", "see:p:on", "head", "besnake:p:above", "stick:p:on", "be:pa:baby", "hang:p:with", "betable:p:close_to", "begreen_snake:p:near", "besnake_in_the_grass:p:near", "sniff:p:at", "jump:p:onto", "warm:p:near", "be:pa:standi", "be:loc:tentMike:s:be", "be:pa:Red", "be:loc:birdhat:p:with", "befootball:p:between", "bethey:s:sky", "yell:p:as", "gaze", "be:loc:grassgrass:p:beneath", "be:pa:infront", "trade:p:with", "jump:p:toward", "be:loc:groundmitt:s:be:loc:groundground:p:near", "land:p:when", "shoot:p:across", "allow", "scar", "be:loc:sandJenny:s:be", "be:loc:treeFrisbee:s:be", "bebaloon:p:behind", "be:pa:kicker", "be:loc:sandboxbottom:p:of", "finish:ptcl:up", "finish:p:of", "be:pa:complete", "bebasketball:s:be", "bebucket:p:in_front_of", "bebasketball:p:next_to", "chase:p:around", "beJenny:s:eat", "hit:p:so", "be:loc:grassgrass:p:beside", "belightning:s:strike", "shoot", "strike:p:above", "fall:ptcl:behind", "be_X:s:be:pa:happy", "roll:p:across", "beswing:s:be", "bebeach-ball:p:near", "ruin:p:by", "be:loc:grasspail:s:be", "be:loc:groundpizza:s:be", "be:pa:depressed", "be:pa:flustered", "roll:p:away_from", "bethey:s:hold", "tree", "be:pa:great", "_DUMMY:p:so", "be:pa:fast", "be:pa:cat", "sit:p:for", "belong:p:to", "bebeach_ball:p:above", "be:pa:base-ball", "soar", "pour", "besnake:s:be", "be:pa:include", "be:pa:largesandbox:p:with", "slither:p:past", "pull:ptcl:down", "pull:p:over", "run:ptcl:across", "be:pa:stanking", "be:loc:sandboxball:s:be", "while:p:at", "be:loc:sideside:p:of", "growl:p:beside", "beglove:s:beglove:p:near", "seek", "seek:p:as", "spoil", "postpone", "continue", "take:p:in", "strike:p:over", "be:loc:parkcat:s:be", "be:loc:parkdog:s:be", "ride:p:upon", "bit", "fall:p:above", "be:pa:birthday", "cry:p:on", "be:pa:purple", "fly:p:by", "wear:p:so", "be:pa:smilling", "hop", "besoda:p:near", "be:pa:standnig", "have:p:for", "run:p:while", "be:pa:cherrypie:p:for", "waddle:p:under", "slide:p:as", "be:pa:orangecat:p:near", "behat:p:in_front_of", "fall:ptcl:for", "push:p:towards", "sit:ptcl:by", "scratch", "bebecaues:s:be:pa:ball", "be:pa:safe", "be:loc:parkpark:p:but", "slither:p:across", "rest:p:on_top_of", "come:p:next_to", "walk:p:near", "beowl:p:on_top_of", "be:pa:rain", "jump:p:of", "wave:p:towards", "fight:p:about", "becampfire:p:outside", "strike:p:behind", "beball:p:outside", "bebaseball:p:outside", "sit:ptcl:around", "be:pa:little", "be:pa:sittingon", "call:ptcl:out", "put:ptcl:away", "place:p:with", "be:loc:grassbottom:p:of", "be:loc:groundground:p:under", "be:pa:spooky", "tire", "cheer:p:on", "drop:ptcl:off", "besandbox:p:next_to", "ply:p:in", "bepail:p:of", "waddle:p:towards", "slide:p:past", "rest:p:against", "be:loc:sandboxJenny_Mike:s:be:loc:sandboxcat:s:be", "mess:ptcl:up", "bebat:p:near", "beduck:p:next_to", "be:loc:sandbox.it:s:be", "beballoon:p:up", "hook:p:to", "sail:p:thru", "be:loc:ParkMike:s:be", "berider:p:next_to", "scare:p:on", "be:pa:family", "stay:p:around", "beplane:p:behind", "be:pa:stting", "be:pa:sunnyday.:p:a", "beno_one:s:play:ptcl:on", "shade", "beMike:s:be:pa:favorite", "swing:p:in", "call:p:to", "seat", "opposite", "beash:s:besky:p:above", "becloud:s:be", "be:pa:heavy", "be:loc:rainsnake:s:be", "melt", "beowl:s:be", "fall:p:onto", "flip", "shin:p:above", "come:p:close_to", "jump:p:out_of", "be:loc:balloonballoon:s:wave", "fly:p:when", "bebear:p:in_front_of", "behelicopter:p:behind", "kick:ptcl:out", "scream:p:when", "remove", "be:pa:sandy", "be:pa:bigbear:p:near", "bedog:s:bedog:p:by", "zip:p:in", "hand:ptcl:in", "throw:ptcl:back", "be:pa:prettytree:p:behind", "be:loc:setJenny:s:be", "becat:p:next_to", "dream", "be:pa:genie", "argue:p:over", "lay:p:inside", "be:pa:grumpy", "glance", "shovel:p:into", "stay:p:away_from", "be:pa:angrybear:p:next_to", "be:pa:becasue", "be:pa:water", "stare:p:to", "be:pa:warrior", "be:pa:black_and_white", "enjoy:p:as", "stay:p:on", "move:ptcl:off", "stomp:p:towards", "get:p:away_from", "scare:p:to", "ride:p:over", "demand", "spin", "site:p:with", "hurt:p:on", "spin:p:as", "finish:p:with", "jog:p:in", "sleep:ptcl:in", "own", "beswing:p:for", "play:p:on_top_of", "crack", "hold:p:in", "beburger:p:on_top_of", "be:pa:large", "land:p:in", "bemustard:s:put:ptcl:on", "walk:p:out_of", "be:pa:cap", "be:pa:sandpail:p:between", "cry:p:beside", "be:pa:stainding", "hand:ptcl:over", "stand:p:at", "beketchup:p:by", "beketchup:p:for", "bebottle:p:next_to", "come:p:behind", "thank:p:for", "pop", "surrender:p:in", "rest:p:between", "tip:ptcl:over", "swear", "concentrate", "have:p:out", "release", "walk:p:across", "site:p:next_to", "be:loc:parkduck:s:be", "be:pa:happty", "look:ptcl:up", "be:loc:campJenny:s:be", "be:pa:different", "sing:p:on", "bebonfire:p:behind", "near:p:near", "befootball:p:next_to", "take:ptcl:away", "be:pa:autistic", "provide", "be:loc:groundfootball:s:be", "leave:p:when", "hand:p:to", "behot-dog:s:have", "giggle", "cry:p:after", "take_care:p:when", "fall:p:off", "be:pa:cared", "bebaseball:s:bebaseball:p:by", "be:pa:toy", "jump:p:near", "yank", "fly:p:thru", "beMike:s:pitch", "along_with", "rouse", "be:loc:groundground:p:beside", "play:p:between", "be:pa:scaredof", "cry:p:at", "speak:p:to", "be:loc:groundground:p:below", "beyard:p:with", "make:p:so", "cant", "fuss", "under", "walk:p:on", "be:pa:orangecat:s:seem", "roll:p:out_of", "be:pa:camptent:s:camp", "slither:p:up_to", "lend", "hot-dog:p:to", "count", "be:pa:alive", "be:loc:grassplate:p:of", "kick:p:up", "bebaloon:p:above", "shoot:p:towards", "be:pa:pinkslide:p:next_to", "kneel:p:near", "walk:p:in_front_of", "rain:p:into", "fall:p:with", "lie:p:next_to", "be:pa:cloudybear:s:come:p:out_of", "hold:p:up", "watch:p:for", "be:pa:shinyslide:p:behind", "beketchup:s:put:ptcl:on", "burn:p:with", "use:p:as", "see:p:across", "be:pa:goofy", "be:loc:shipJenny:s:be", "figure:ptcl:out", "beMike_Jenny:s:bebear:s:be", "stand:p:around", "becampfire:p:between", "begreen_snake:p:behind", "becampfire:p:next_to", "build:p:near", "be:pa:hot-airballoon:p:behind", "be:pa:weird", "kneel:p:next_to", "rain:p:above", "be:pa:pinkshovel:p:by", "laugh:p:for", "pose", "be:pa:deadly", "belightning:p:behind", "bury", "be:pa:giddy", "carry:p:with", "run:p:beside", "listen", "be:pa:city", "beswingset:p:near", "come:p:into", "jog:p:alongside", "go:p:beside", "slide:p:behind", "be:loc:sandboxsandbox:s:drink", "bebecaues:s:be:pa:hot_dog", "be_X:s:be:pa:Verb", "cry:p:over", "yell:p:about", "besoda_pop:s:be", "slide:p:with", "jump:p:to", "swim", "sit:p:in_the_front_of", "be:pa:joyful", "beduck:p:on_top_of", "come:p:of", "be:pa:bumblebee", "be:pa:yellowtable:p:near", "flash", "reach:p:toward", "beduck:p:with", "waddle:p:next_to", "ride:p:into", "scare:p:away_from", "start:p:as_if", "raise:p:as", "be:pa:campimg", "be:pa:fluffycloud:p:above", "beJenny:s:go", "creep", "be:pa:flat", "be:loc:sandboxbeach_ball:s:be", "form:p:over", "be:loc:sandboxpail:s:be", "follow:p:by", "besnake:p:underneath", "be:pa:ear", "befire:p:behind", "becat:s:becat:p:in_front_of", "look:p:from", "be:loc:fireanimal:s:be", "be:loc:tablehamburger:s:be", "be:pa:flykite:s:fly", "be:pa:broke", "begrill:s:cook:p:by", "bemustard:p:near", "kick:p:down_to", "bebaloon:p:between", "put:p:in", "beslide:s:be", "be:pa:medium", "stretch:p:after", "be:pa:sittig", "be:loc:grassbaseball:s:be", "be:pa:runner", "besand:p:by", "watch:p:from", "befront:p:of", "hot", "be:pa:fly", "scare:p:so", "travel", "slither:p:near", "rush", "know:p:when", "make:p:to", "be:pa:sneaky", "talk:p:with", "sit:p:inside_of", "zoom:p:down", "be:pa:runnining", "be:pa:pretend", "throw:p:with", "face:p:towards", "float:p:between", "swing:p:in_front_of", "be:pa:wavy", "refuse", "add:p:to", "fee", "sneak:ptcl:up", "sand:p:next_to", "head:p:to", "beVerb:s:belighten:s:be", "be:pa:warching", "help:p:off", "mean", "be:pa:neat", "fall:p:while", "kick:p:as", "be:loc:big_treeJenny:s:be", "put:ptcl:back", "be:pa:catcing", "flash:p:behind", "berain:s:berain:p:above", "hurry", "all_over", "rescue:p:from", "tangle:p:in", "be:pa:foggy", "take:p:to", "cook:p:out", "appear:p:in", "knell", "be:pa:left-handed", "die", "kick:p:towards", "lightning:p:over", "set:p:with", "wet", "wet:p:from", "play:p:in_front_of", "be:pa:impressed", "run:ptcl:on", "burn:p:by", "poke:p:out_of", "be:loc:grasscat:s:be", "look:ptcl:over", "graduate", "be:pa:waste", "beowl:p:with", "bet", "keep:p:from", "let_go", "offer:p:up", "pull:ptcl:up", "beballoon:p:between", "be:loc:swingJenny:s:be", "slip:p:on", "be:pa:crown", "behe:s:table", "rest:p:from", "becat:s:becat:p:on_top_of", "creep:p:behind", "include", "waddle:p:past", "be:pa:animal", "be:pa:slideboard:p:behind", "be:pa:jerk", "say:p:as", "light:p:even_though", "float:p:out_of", "shine:p:for", "be:pa:hlding", "throw:p:when", "be:pa:hot-airballoon:p:near", "be:loc:tabletable:p:with", "watch:p:underneath", "be:loc:sandboxbucket:s:be", "talk:p:in", "ground", "form", "gather:p:around", "bekid:s:play", "signal", "star", "be:pa:stupid", "let:p:on", "be:pa:thristy", "mike:p:over", "be:pa:slow", "cool:p:with", "step:p:on", "set:p:up", "be:pa:cherrytree:p:behind", "be:pa:bigbear:p:by", "hit:p:over", "be:pa:brave", "get:p:for", "be:pa:cloudyday:p:with", "let_go:p:down", "beshovel:p:in", "beJenny:s:befriend:s:glance", "crawl:p:across", "walk:p:next_to", "be:loc:sandboxowl:s:be", "be:loc:sandboxMike_Jenny:s:be:loc:sandboxowl:s:be", "stand:p:in_the_middle_of"];
+	var tags_S=["Jenny", "_X_", "Mike", "ball", "sunglass", "hat", "horn", "owl", "tree", "air", "crown", "catch", "sunshine", "and", "she", "balloon", "dog", "cat", "hand", "glasses", "soccer", "toe", "kick", "he", "hurt", "pail", "sandbox", "plane", "play", "shovel", "racket", "box", "sun", "beach_ball", "pie", "sand", "Mark", "baseball", "hit", "pizza", "grass", "table", "bird", "share", "bat", "football", "ground", "cap", "Lightining", "apple", "lightning", "rocket", "head", "white_cloud", "lighting", "strike", "thunderstorm", "park", "side", "lighten", "they", "rain", "storm", "shirt", "hot_dog", "ballon", "Jennu", "eat", "lke", "ketchup", "fire", "hotdog", "food", "grill", "helicopter", "star", "own", "pale", "it", "pink", "snake", "duck", "kid", "jenny", "time", "wear", "be", "get", "chase", "tennis", "frisby", "Frisbee", "swingset", "cloud", "jus", "tent", "hamburger", "sky", "green_snake", "airplane", "soda", "racquet", "burger", "touchdown", "man", "set", "basketball", "toy", "screen", "mike", "mit", "glove", "picnic", "day", "party", "no_one", "dress", "what", "lunch", "run", "coke", "camp", "leg", "around", "helmet", "king_snake", "slide", "knee", "help", "slide.", "child", "slider", "abo0ut", "bucket", "someone", "barbecue", "swing", "playground", "ride", "BBQ", "sneaker", "no_ball", "frisbe", "campsite", "bench", "Kelly", "catsup", "left", "ok", "sad", "top", "mitt", "basball", "walk", "I", "thing", "softball", "beachball", "fun", "drink", "Princess_Jenny", "dance", "practice", "hold", "each_other", "come", "outfit", "arm", "pet", "tennis_shoe", "foot", "Hogwarts", "stitting", "pick", "cover", "listneing", "turn", "sit", "_X", "blue", "big_tree", "game", "wind", "sight", "collar", "excitement", "try", "board", "Bok", "go", "bear", "campfire", "paw", "besr", "scare", "clothes", "undere", "jump", "see", "Jenni", "break", "throw", "bee", "horse", "bumblebee", "straw", "place", "rocket_ship", "take", "land", "kite", "fly", "helm", "ladder", "climb", "beanie", "question", "Mikie", "lightning_strike", "kitten", "argument", "shade", "spaceship", "bye", "distance", "noise", "flys", "hide", "friend", "everyone", "Happy_Birthday", "bottle", "mustard", "mistake", "background", "hotdogs", "cape", "smile", "face", "bowl", "pirate", "animal", "way", "where", "pit", "step", "castle", "happiness", "landing", "Rainclouds", "spell", "wrap", "hameburger", "sandboz", "bush", "fruit", "angry", "worm", "that", "hole", "rainy_day", "baloon", "pass", "bottom", "give", "fight", "hello", "stick", "disc", "happy", "cookout", "Matt", "field", "you", "growl", "moon", "shoe", "joy", "bolt", "talk", "gear", "wilderness", "steal", "pizzs", "do", "hod", "think", "doing", "tag", "Jnny", "person", "bonfire", "fall", "use", "kitty", "this", "stay", "leave", "cup", "look", "water", "thunder", "drop", "Thre", "yard", "hair", "hug", "meat", "mouth", "propeller", "warn", "grey", "red", "glass", "tooth", "wood", "dinner", "cry", "baloons", "make", "Jenna", "suprised", "ech", "slittering", "wave", "owlis", "corner", "pay", "goodbye", "idea", "join", "call", "fear", "have", "tobaggin", "follow", "cola", "flame", "badminton", "Sally", "form", "car", "put", "sandwich", "Jenny.", "know", "Mike.", "we", "world", "goose", "invisible", "show", "goggle", "seat", "dug", "threaten", "want", "smash", "death", "equipment", "right", "sport", "pop", "Mr._Owl", "scene", "back", "start", "smell", "volleyball", "dig", "cross", "chaing", "cheeseburger", "Miks", "dark", "running", "slikde", "stand", "somebody", "pepperoni", "class", "cook", "short", "floor", "ht", "slow", "raincloud", "soft_drink", "cold_drink", "race", "room", "rocketship", "nothing", "space_ship", "stop", "yell", "nobody", "parachute", "karate", "enjoy", "are", "tail", "Mikeis", "rest", "Jenn", "serpent", "rack", "san.", "tell", "Mke", "anything", "stomp", "bite", "today", "snaked", "jet", "favorite", "style", "lap", "which", "pilot", "int", "Mikd", "o", "attention", "clear", "buggy", "fastball", "coming", "cool", "shoo", "smeakers", "dunk", "raquet", "raindrop", "grounf", "statement", "wearng", "allow", "chidren", "dessert", "cake", "like", "king", "life", "tabl", "dock", "nose", "storm_cloud", "snake_in_the_grass", "site", "wet", "frisbie", "pike", "story", "color", "cap.t", "sanbox", "helicoptor", "rope", "perch", "watch", "sorry", "bug", "trade", "crosslegged", "chef", "Burger", "fetch", "grow", "freeze", "Lenny", "ghost_story", "good", "feel", "apple_pie", "left_hand", "standind", "standing", "copy", "sound", "frown", "wait", "Viking", "claw", "sure", "frissbee", "people", "BEACHBALL", "pat", "blast", "so", "home", "plan", "bouncer", "fise", "flap", "joke", "carnivore", "right_hand", "rescue", "ruin", "notice", "trip", "pain", "amusing", "standng", "shovle", "hate", "bbq", "fetch.", "weather", "light", "rock", "center", "full", "scoop", "snack", "hamburges", "catchup", "direction", "Mike_Jenny", "fir", "clap", "laugh", "Jennty", "space", "sandpit", "Jeenny", "crumb", "Thier", "Bea", "background.", "Bear.", "surrender", "ranger", "Jeeny", "save", "meal", "ballons", "shoulder", "rainstorm", "shelter", "hellicopter", "reuns", "Menny", "keep", "Mars", "barbeque", "jumping_jack", "sip", "sunlight", "_DUMMY", "Jennt", "ache", "Abrown", "stretch", "mitten", "poop", "dirt", "build", "being", "dag", "hot-dog", "ear", "Tjhere", "surprise", "Kenny", "Jennyis", "air.m", "SOCCERBALL", "soccerball", "warm", "hear", "edge", "bad", "ponytail", "hatthe", "something", "stripe", "middle", "stocking_cap", "scale", "patty", "scard", "plain", "whats", "olw", "sunis", "kite.t", "power", "Jenny_Mike", "toss", "Boppy", "snarl", "Hedrick", "Jennny", "spot", "chair", "explain", "overreact", "knock", "Jennie", "string", "attack", "grab", "drinkng", "ship", "s", "holdng", "heklmet", "ball.t", "tickle", "rainbow", "crownd", "lane", "burn", "running_back", "bun", "hike", "playset", "amusement", "brown_bear", "kill", "sandwhich", "bar", "hungry", "lonely", "lawn", "low", "raise", "finger", "anger", "beat", "exercise", "Jeny", "Josh", "say", "hot", "mick", "house", "snake.q", "whole", "trunk", "bring", "cheer", "gesture", "wing", "frizbee", "frissbe", "fotoball", "passenger", "fright", "push", "Jack", "ontop", "hellepcopter", "raquest", "technique", "jumper", "nowhere", "charm", "frighten", "disk", "ready", "h", "ketchip", "musturd", "comment", "tale", "meditate", "soda_pop", "delight", "sandcastle", "guy", "sacared", "find", "somewhere", "catis", "pinic", "change", "Vikings_Hat", "point", "stuff", "tshirt", "beind", "caused", "gog", "trick", "item", "measure", "one_foot", "happen", "hot_air", "silly", "greeting", "late", "gound", "move", "crosed", "front", "fast", "human", "stare", "alot", "mound", "round", "blow", "gril", "dot", "playfuly", "fend", "Mikke", "jumpsuit", "IS_BELOW_THE_OWL", "green", "Miike", "beach", "plate", "mushroom", "sign", "sunglassses", "rockey", "Mr._Cat", "Simon_Says", "protect", "concern", "toboggan", "supper", "sunglassess", "pole", "waste", "bake", "girl", "butt", "orange", "cant", "n", "Ike", "Mix", "prize", "Snake", "yoga", "buring", "candle", "observe", "sittingin", "branch", "shine", "freebie", "Mike_Soda", "Frisby", "accident", "comfort", "piece", "movement", "tongue", "high", "feed", "roar", "witch", "sunshade", "Mik", "btall", "mile", "calm", "tales", "Aplane", "heat", "Heres", "hope", "terror", "eye", "pig-tails", "Catepillar", "duc", "cat.j", "going", "sunglasses.", "shin", "surpised", "appletree", "fdace", "lose", "ketchup.t", "coller", "now", "heads", "picinic", "wizard", "warlock", "Pirate_Hat", "IS_IN_FRONT_OF_THE_CAT", "mistard", "sandbow", "customer", "return", "taste", "John", "JennMiky", "fribee", "float", "CAT", "appls", "argue", "Dow", "twirly", "glasse", "police", "cup.m", "Ariadne", "beg", "aslo", "worry", "crwon", "wrong", "warmth", "dd", "basbell", "grumpy", "firewood", "beej", "while", "gymnastics", "juggle", "slice", "eachother", "behinf", "sin", "kickball", "desk", "Tony", "appear", "bunch", "catsup.", "report", "flying.", "jenni", "aboslutely", "swing-set", "chest", "court", "ligtening", "pan", "spectacle", "homerun", "hants", "baseball.", "ankle", "Baseball_Bat", "soccer-ball", "captain", "danger", "beach-ball", "begin", "time_out", "plaine", "Queen_Jenny", "propellor", "balloonsf", "wonder", "puppy", "sing", "base-ball", "soda-can", "boy", "magic", "arrive", "song", "hotball", "nap", "buy", "hard", "thundercloud", "sand-box", "autism", "tableis", "Mr._Snake", "gem", "mom", "attitude", "shouting", "toboggin", "basket-ball", "overhead", "os", "foot-ball", "swing-sets", "lack", "live", "real", "swingset.", "hang", "sideways", "pigtail", "scar", "shove", "close", "lemonade", "yipee", "juice", "cause", "i", "shower", "vengeance", "mad", "same", "pailis", "who", "teach", "Wendy", "wend", "bll", "sniff", "Miss_Cat", "near-by", "ambush", "A", "Jrnny", "spoil", "adventure", "loom", "understand", "situation", "braid", "spill", "beak", "standnig", "NEX", "trap", "entrance", "outside", "SOG", "Baloons", "Ten-Buc-To", "conversation", "spring", "oil", "hill", "test", "door", "Chicken_Dance", "Mr._Dog", "skin", "safety", "there", "Park", "rider", "slid", "policeman", "stting", "day.", "queen", "shoot", "sand-bucket", "pocket", "sweing-set", "bruise", "bounce", "finish", "rain-cloud", "scared", "stranger", "pair", "kit", "let_go", "name", "stomach", "crowng", "Sun", "hilarious", "Camp", "giddy", "Mkeis", "flight", "forest", "sea", "why", "Kate", "container", "talbe", "palm", "black", "afternoon", "launch", "coptor", "film", "best", "Jenyy", "slid.e", "comeback", "first", "basket", "ducks", "stair", "Hi", "big", "duckk", "business", "rackett", "Mr._Duck", "base", "outdoors", "buger", "whirligig", "work", "freeze-by", "last", "doggy", "didnt", "tie", "hin", "thow", "isstanding", "everybody", "vacation", "Beachball", "input", "bearing", "trouble", "playtime", "Hotdogs", "jusmps", "companion", "rouse", "airport", "twoooooo", "block", "frustration", "hurry", "basll", "can", "figure", "turtle", "kitte", "baskbetball", "wrist", "cherry", "mamba", "mind", "bury", "reach", "ber", "Jimmy", "lightining", "princess", "witchhat", "gras", "IA", "clown", "Arg", "swim", "flash", "Jeannie", "melt", "clue", "Buzzy", "rare", "pitch", "sunglases", "funny", "balloons.Th", "spade", "puddle", "balloon_sail", "Kentish", "jump_suit", "fat", "Michael", "rip", "bucked", "terrible", "CST", "pretend", "refuse", "scream", "fee", "up.", "mate", "behing", "becauseit", "dowm", "money", "lay", "dose", "Vikings_Helmet", "beverage", "helocopter", "die", "Mike_And_Jenny", "sitiig", "wish", "motion", "private", "Mr._Own", "Frisbee_Jenny", "kindergarten", "Mr._Bear", "prank", "present", "bet", "Hokey_Pokey", "pull", "blass", "ho-dog", "t", "Jenny_Pizza", "sc", "snak", "tee_shirt", "mike.J", "rabies", "treasure", "her.", "company", "Tere", "bubble", "stroke", "anyone", "cell_phone", "fit", "wathing", "ing", "lunchtime", "everything", "Mikes_Duck", "dring", "wouldnt", "Ther", "happening", "city", "tent.A", "basketbal"];
+	
+	var nquestions_per_hit=1;
+	var default_ntuples_per_sentence=3;
+	var more_button_prompt="I want more tuples!"
+	var max_ntuples=10;
+	
+	function init_tuple()
+	{
+		for(var i=0;i<nquestions_per_hit;i++)
+		{
+			for(var j=0;j<default_ntuples_per_sentence;j++)
+				More(i);
+		}
+	}
+	function jumpto(up_id,down_id,left_id,right_id,up_id_alt,down_id_alt)
+	{
+		return function(event){
+			var x = event.keyCode;
+			
+			switch(x){
+				case 37:
+					var target=document.getElementById(left_id);
+					if(target!=null)
+						target.focus();
+					break;
+				case 38:
+					var target=document.getElementById(up_id);
+					if(target!=null)
+						target.focus();
+					else
+					{
+						var target=document.getElementById(up_id_alt);
+						if(target!=null)
+							target.focus();
+					}
+					break;
+				case 39:
+					var target=document.getElementById(right_id);
+					if(target!=null)
+						target.focus();
+					break;
+				case 40:
+					var target=document.getElementById(down_id);
+					if(target!=null)
+						target.focus();
+					else
+					{
+						var target=document.getElementById(down_id_alt);
+						if(target!=null)
+							target.focus();
+					}
+					break;
+				default:
+					break;
+			}
+		}
+	}
+
+	function More(sentence_id)
+	{
+		var table_id = "tuple_tbl_{0}".format(sentence_id.toString());
+		var table = document.getElementById(table_id);
+		var nrows = table.rows.length;
+		var new_row_id=nrows-1;
+		//Remove the old button
+		if (table.rows[nrows-1].cells.length>3)
+			table.rows[nrows-1].deleteCell(3);
+		//Add a new row of inputs
+		var new_row=table.insertRow(nrows);
+		new_row.insertCell(0).appendChild(new_input(0,sentence_id,new_row_id));
+		new_row.insertCell(1).appendChild(new_input(1,sentence_id,new_row_id));
+		new_row.insertCell(2).appendChild(new_input(2,sentence_id,new_row_id));
+		new_row.insertCell(3).appendChild(new_button(more_button_prompt,function(){return More(sentence_id);},new_row_id>=max_ntuples-1));
+	}
+	function new_input(type,sentence_id,row_id)
+	{
+		var types=["P","R","S"];
+		var input = document.createElement("input");
+		input.type = "text";
+		input.className = "textbox";
+		input.id = "{0}_{1}_{2}".format(types[type],sentence_id.toString(),row_id.toString());
+		input.name = "{0}_{1}_{2}".format(types[type],sentence_id.toString(),row_id.toString());
+		up_id = "{0}_{1}_{2}".format(types[type],sentence_id.toString(),(row_id-1).toString());
+		down_id = "{0}_{1}_{2}".format(types[type],sentence_id.toString(),(row_id+1).toString());
+		up_id_alt="{0}_{1}_{2}".format(types[0],(sentence_id-1).toString(),0);
+		down_id_alt = "{0}_{1}_{2}".format(types[0],(sentence_id+1).toString(),0);
+		if(type>0)
+			left_id = null;//"{0}_{1}_{2}".format(types[type-1],sentence_id.toString(),row_id.toString());
+		else
+			left_id=null;
+		if(type<types.length-1)
+			right_id = null;//"{0}_{1}_{2}".format(types[type+1],sentence_id.toString(),row_id.toString());
+		else
+			right_id=null;
+		//input.onkeyup=jumpto(up_id,down_id,left_id,right_id,up_id_alt,down_id_alt);
+		input.onkeyup=jumpto(null,null,null,null,null,null);
+		$(function() {
+			var availableTags;
+			if(type==0)
+				availableTags=tags_P;
+			else if(type==1)
+				availableTags=tags_R;
+			else
+				availableTags=tags_S;
+			
+			$( "#{0}_{1}_{2}".format(types[type],sentence_id.toString(),row_id.toString()) ).autocomplete({
+				source: availableTags
+			});
+		});
+		return input;
+	}
+	function de_highlight_fn(type,sentence_id,row_id)
+	{
+		return function(){
+			var types=["P","R","S"];
+			var item=document.getElementById("{0}_{1}_{2}".format(types[type],sentence_id.toString(),row_id.toString()));
+			item.className="textbox";
+			item.onfocus=null;
+			return true;
+		}
+	}
+	function highlight(type,sentence_id,row_id)
+	{
+		var types=["P","R","S"];
+		var item=document.getElementById("{0}_{1}_{2}".format(types[type],sentence_id.toString(),row_id.toString()));
+		item.className="bad_textbox";
+		item.onfocus=de_highlight_fn(type,sentence_id,row_id);
+		return true;
+	}
+	function get_string(type,sentence_id,row_id)
+	{
+		var types=["P","R","S"];
+		var item=document.getElementById("{0}_{1}_{2}".format(types[type],sentence_id.toString(),row_id.toString()));
+		if(item)
+			return item.value;
+		else
+			return "";
+	}
+
+	function new_button(text,callback,disabled)
+	{
+		disabled=disabled || false;
+		var btn = document.createElement("BUTTON");        // Create a <button> element
+		var t = document.createTextNode(text);       // Create a text node
+		btn.onclick=callback;
+		btn.appendChild(t);                                // Append the text to <button>
+		btn.className="morebtn";
+		btn.disabled=disabled;
+		return btn;
+	}
+	function get_tuple(sentence_id)
+	{
+		var table_id = "tuple_tbl_{0}".format(sentence_id.toString());
+		var table = document.getElementById(table_id);
+		var nrows = table.rows.length;
+		var tuples=Array();
+		for(var i=0;i<nrows;i++)
+		{
+			//Make sure it's a valid tuple
+			
+			var tuple=Array();
+			var filter = function (str) {return str.replace(/^\s+|\s+$/g,'');};
+			var p=filter(get_string(0,sentence_id,i));
+			var r=filter(get_string(1,sentence_id,i));
+			var s=filter(get_string(2,sentence_id,i));
+			if(p!="" && r!="" || s!="" && r!="")
+			{
+				console.log("p:"+p+"/r:"+r+"/s:"+s);
+				tuple.push(p);
+				tuple.push(r);
+				tuple.push(s);
+				tuples.push(tuple);
+			}
+		}
+		return tuples;
+	}
+	//Array intersection method. Cred: atk on stackoverflow/1885557
+	function intersect_safe(a, b)
+	{
+	  var ai=0, bi=0;
+	  var result = new Array();
+
+	  while( ai < a.length && bi < b.length )
+	  {
+		 if      (a[ai] < b[bi] ){ ai++; }
+		 else if (a[ai] > b[bi] ){ bi++; }
+		 else /* they're equal */
+		 {
+		   result.push(a[ai]);
+		   ai++;
+		   bi++;
+		 }
+	  }
+
+	  return result;
+	}
+	//Make an array unique function. Cred: mahesh, Jonik on stackoverflow/13486479
+	Array.prototype.unique = function() {
+		var unique = [];
+		for (var i = 0; i < this.length; i++) {
+			if (unique.indexOf(this[i]) == -1) {
+				unique.push(this[i]);
+			}
+		}
+		return unique.sort();
+	};
+	//Make a fake sprintf function. Cred: Scott on stackoverflow/18405736
+	if (!String.prototype.format) {
+		String.prototype.format = function() {
+			var args = arguments;
+			return this.replace(/{(\d+)}/g, function(match, number) { 
+				return typeof args[number] != 'undefined'
+				? args[number]
+				: match;
+			});
+		};
+	}
+	
+	init_tuple();
+</script>
+
+<script type="text/javascript">
+
+
+	// Various variables setting up the appearence of the interface
+	var editing=false;
+	var CANVAS_WIDTH = 500;
+	var CANVAS_HEIGHT = 400;
+	var CANVAS_ROW = 106;
+	var CANVAS_COL = 20;
+	var CLIPART_WIDTH = 450;
+	var CLIPART_HEIGHT = 450;
+	var CLIPART_ROW = 62;
+	var CLIPART_COL = CANVAS_WIDTH + 50;
+	var CLIPART_BUFFER = 5;
+	// Number of clipart to show of the children
+	var NUM_CLIPART_VERT = 10;
+	var NUM_CLIPART_HORZ = 7;
+	var CLIPART_SKIP = CLIPART_WIDTH / NUM_CLIPART_VERT;
+	var CLIPART_SIZE = CLIPART_SKIP - 2 * CLIPART_BUFFER;
+	// Number of clip art to show of the other objects
+	var NUM_CLIPART_VERT_SM = 14;
+	var NUM_CLIPART_HORZ_SM = 4;
+	var CLIPART_SKIP_SM = CLIPART_WIDTH / NUM_CLIPART_VERT_SM;
+	var CLIPART_SIZE_SM = CLIPART_SKIP_SM - 2 * CLIPART_BUFFER;
+	var CLIPART_OBJECT_COL = CLIPART_COL + CLIPART_SKIP * NUM_CLIPART_HORZ + 24;
+	// Button size
+	var BUTTON_COL = 50;
+	var BUTTON_ROW = 54;
+	var NOT_USED = -10000;
+	var NUM_SCENES_TO_COMPLETE = 1;
+
+
+
+	var numClipart = NUM_CLIPART_VERT * NUM_CLIPART_HORZ + NUM_CLIPART_VERT_SM * NUM_CLIPART_HORZ_SM;
+	var wasOnCanvas = false;
+	// The relative sizing at different scales
+	var depthScale = [1.0, 0.7, 0.49];
+	var currentScene = 1;
+
+	var numTypes = 8;
+
+	// Each object type has its own prefix, the ordering of the object types affects the
+	// order in which they are rendered. That is the "t" type (toys) will be rendered on top
+	// of the "hb0" (boy) category assuming they have the same depth.
+	var prefix = [];
+	prefix.push('s');
+	prefix.push('p');
+	prefix.push('hb0');
+	prefix.push('hb1');
+	prefix.push('a');
+	prefix.push('c');
+	prefix.push('e');
+	prefix.push('t');
+
+	// Total number of clipart for each type
+	var typeTotalCt = [];
+	typeTotalCt.push(8);
+	typeTotalCt.push(10);
+	typeTotalCt.push(35);
+	typeTotalCt.push(35);
+	typeTotalCt.push(6);
+	typeTotalCt.push(10);
+	typeTotalCt.push(7);
+	typeTotalCt.push(15);
+
+	// Total number of clipart to be randomly selected for each type 
+	// The sum should equal numClipart
+	var typeCt = [];
+	typeCt.push(8);
+	typeCt.push(10);
+	typeCt.push(35);
+	typeCt.push(35);
+	typeCt.push(6);
+	typeCt.push(10);
+	typeCt.push(7);
+	typeCt.push(15);
+
+	//global variables for the page
+	var i, j;
+	var img;
+	var selectedImg;
+	var buttonImg;
+	var titleImg;
+	var canvas_fix;
+	var ctx;
+	var image_name;
+	var category_name;
+	var clipartImgs = [];
+	var selectedIdx = NOT_USED;
+	var moveClipart = false;
+	var mouse_offset_X = 0;
+	var mouse_offset_Y = 0;
+
+	// String to return to AMT
+	var resultAMT = "";
+
+	var clipArtObjectIdx = [];
+	var clipArtTypeIdx = [];
+	var clipArtX = [];
+	var clipArtY = [];
+	var clipArtZ = [];
+	var clipArtFlip = [];
+	var same_list = [];
+
+	var base_URL = 'https://vision.ece.vt.edu/clipart/Pngs/';
+	var base_URL_Clipart = 'https://vision.ece.vt.edu/clipart/Pngs/';
+	//var base_URL = './Pngs/';
+	//var base_URL_Clipart = './Pngs/';
+
+	//current location
+	var cx = 0;
+	var cy = 0;
+
+	var buttonW = 0;
+	var buttonH = 0;
+
+	// top level initialization of the canvas
+	function init() {
+		img = new Image();
+		//img.crossOrigin = "*";
+		img.src = base_URL + 'background.png';
+		canvas_fix = document.getElementById("scene_canvas");
+		ctx = canvas_fix.getContext("2d");
+		canvas_fix.onmousemove = mousemove_canvas;
+		canvas_fix.onmousedown = mousedown_canvas;
+		canvas_fix.onmouseup = mouseup_canvas;
+
+		selectedImg = new Image();
+		//selectedImg.crossOrigin = "*";
+		selectedImg.src = base_URL + 'selected.png';
+		buttonImg = new Image();
+		//buttonImg.crossOrigin = "*";
+		buttonImg.src = base_URL + 'buttons.png';
+		titleImg = new Image();
+		//titleImg.crossOrigin = "*";
+		titleImg.src = base_URL + 'title.png';
+
+		img.onload = draw_canvas;
+		buttonImg.onload = draw_canvas;
+		selectedImg.onload = draw_canvas;
+		titleImg.onload = draw_canvas;
+
+		resetScene();
+		draw_canvas();
+	}
+
+	function resetScene() {
+		clipArtObjectIdx = [];
+		clipArtTypeIdx = [];
+		clipArtX = [];
+		clipArtY = [];
+		clipArtZ = [];
+		clipArtFlip = [];
+		clipartImgs = [];
+
+		selectedIdx = NOT_USED;
+		moveClipart = false;
+		mouse_offset_X = 0;
+		mouse_offset_Y = 0;
+
+		for (i = 0; i < numClipart; i++) {
+			clipArtObjectIdx.push(0);
+			clipArtTypeIdx.push(0);
+			clipArtX.push(NOT_USED);
+			clipArtY.push(NOT_USED);
+			clipArtZ.push(0);
+
+			// DEVI: The next six lines are the only ones changed
+			if (Math.random() > 0.5) {
+				clipArtFlip.push(0);
+			}
+			else {
+				clipArtFlip.push(1);
+			}
+		}
+
+		var idx = 0;
+		// Randomly select clipart for each type
+		for (i = 0; i < numTypes; i++) {
+			for (j = 0; j < typeCt[i]; j++) {
+				var found = true;
+				clipArtTypeIdx[idx] = i;
+
+				while (found) {
+					clipArtObjectIdx[idx] = Math.floor(0.99 * typeTotalCt[i] * Math.random());
+
+					found = false;
+					for (k = 0; k < idx; k++)
+						if (clipArtObjectIdx[k] == clipArtObjectIdx[idx] && clipArtTypeIdx[k] == clipArtTypeIdx[idx])
+							found = true;
+				}
+
+				idx++;
+			}
+		}
+
+		// Make sure sun is in back (bad hack)
+		if (clipArtTypeIdx[1] == 0 && clipArtObjectIdx[1] == 3) {
+			clipArtTypeIdx[1] = clipArtTypeIdx[0];
+			clipArtObjectIdx[1] = clipArtObjectIdx[0];
+			clipArtTypeIdx[0] = 0;
+			clipArtObjectIdx[0] = 3;
+		}
+
+		// Make sure sun is in back (bad hack)
+		if (clipArtTypeIdx[2] == 0 && clipArtObjectIdx[2] == 3) {
+			clipArtTypeIdx[2] = clipArtTypeIdx[0];
+			clipArtObjectIdx[2] = clipArtObjectIdx[0];
+			clipArtTypeIdx[0] = 0;
+			clipArtObjectIdx[0] = 3;
+		}
+
+		same_list = [];
+		for (i = 0; i < numClipart; i++) {
+			same_list.push(i);
+		}
+
+		// All of the boys are the same
+		for (i = 0; i < numClipart; i++)
+			if (clipArtTypeIdx[i] == 2)
+				same_list[i] = 100;
+
+		// All of the girls are the same
+		for (i = 0; i < numClipart; i++)
+			if (clipArtTypeIdx[i] == 3)
+				same_list[i] = 101;
+
+		// Load the clip art images
+		for (i = 0; i < numClipart; i++) {
+			var clipartImg = new Image();
+			clipartImg.src = base_URL_Clipart + prefix[clipArtTypeIdx[i]] + '_' + clipArtObjectIdx[i] + 's.png';
+			//    clipartImg.src = base_URL_Clipart + prefix[clipArtTypeIdx[i]] + '_' + clipArtObjectIdx[i] + '_0_0.png';
+			//    clipartImg.src = base_URL_Clipart + 's' + '_' + 0 + '_0_0.png';
+			//clipartImg.crossOrigin = "*";
+			clipartImgs.push(clipartImg);
+
+		}
+
+		// Update the canvas once the images are loaded
+		for (i = 0; i < numClipart; i++)
+			clipartImgs[i].onload = draw_canvas;
+
+	}
+
+
+	// draw canvas
+	function draw_canvas() {
+		//draw the image
+		ctx.clearRect(0, 0, CANVAS_WIDTH, CANVAS_HEIGHT);
+		draw_scene();
+		draw_clipart();
+		draw_buttons();
+	}
+
+	function draw_scene() {
+		ctx.fillStyle = 'white';
+		ctx.fillRect(0, 0, canvas_fix.width, canvas_fix.height);
+
+		ctx.drawImage(img, CANVAS_COL, CANVAS_ROW, CANVAS_WIDTH, CANVAS_HEIGHT);
+
+		// Make sure we get the depth ordering correct (render the sky objects first)
+		for (j = 2; j >= 0; j--) {
+			for (i = 0; i < numClipart; i++) {
+				if (clipArtX[i] >= 0 && clipArtZ[i] == j && clipArtTypeIdx[i] === 0) {
+					var scale = depthScale[clipArtZ[i]];
+
+					var w = clipartImgs[i].width;
+					var h = clipartImgs[i].height;
+
+					var rowOffset = -h / 2;
+					var colOffset = -w / 2;
+					rowOffset *= scale;
+					colOffset *= scale;
+
+					if (clipArtFlip[i] == 0) {
+						ctx.drawImage(clipartImgs[i], 0, 0, w, h, clipArtX[i] + colOffset + CANVAS_COL, clipArtY[i] + rowOffset + CANVAS_ROW, w * scale, h * scale);
+					}
+
+					if (clipArtFlip[i] == 1) {
+						ctx.setTransform(-1, 0, 0, 1, 0, 0);
+						ctx.drawImage(clipartImgs[i], 0, 0, w, h, -clipArtX[i] + colOffset - CANVAS_COL, clipArtY[i] + rowOffset + CANVAS_ROW, w * scale, h * scale);
+						ctx.setTransform(1, 0, 0, 1, 0, 0);
+					}
+				}
+			}
+		}
+
+		// Make sure we get the depth ordering correct (render the objects using their depth order)
+		for (j = 2; j >= 0; j--) {
+			for (i = 0; i < numClipart; i++) {
+				if (clipArtX[i] >= 0 && clipArtZ[i] == j && clipArtTypeIdx[i] != 0) {
+					var scale = depthScale[clipArtZ[i]];
+
+					var w = clipartImgs[i].width;
+					var h = clipartImgs[i].height;
+
+					var rowOffset = -h / 2;
+					var colOffset = -w / 2;
+					rowOffset *= scale;
+					colOffset *= scale;
+
+					if (clipArtFlip[i] == 0) {
+						ctx.drawImage(clipartImgs[i], 0, 0, w, h, clipArtX[i] + colOffset + CANVAS_COL, clipArtY[i] + rowOffset + CANVAS_ROW, w * scale, h * scale);
+					}
+
+					if (clipArtFlip[i] == 1) {
+						ctx.setTransform(-1, 0, 0, 1, 0, 0);
+						ctx.drawImage(clipartImgs[i], 0, 0, w, h, -clipArtX[i] + colOffset - CANVAS_COL, clipArtY[i] + rowOffset + CANVAS_ROW, w * scale, h * scale);
+						ctx.setTransform(1, 0, 0, 1, 0, 0);
+					}
+
+				}
+			}
+		}
+
+		ctx.fillStyle = 'white';
+		ctx.fillRect(0, 0, CANVAS_COL, canvas_fix.height);
+		ctx.fillRect(0, 0, CANVAS_COL + CANVAS_WIDTH, CANVAS_ROW);
+		ctx.fillRect(CANVAS_COL + CANVAS_WIDTH, 0, CLIPART_COL, canvas_fix.height);
+		ctx.fillRect(0, CANVAS_ROW + CANVAS_HEIGHT, CLIPART_COL, canvas_fix.height);
+
+
+		if(editing)
+		{
+			ctx.drawImage(titleImg, CANVAS_COL, 15);
+		}
+
+	}
+
+	function draw_clipart() {
+		if(editing)
+		{
+			//ctx.fillStyle = 'Gainsboro';
+			//ctx.fillRect(CLIPART_COL - 4, CLIPART_ROW - 4, 2 * CLIPART_SKIP + 8, CLIPART_HEIGHT + 8);
+			ctx.fillStyle = 'Gainsboro';
+			ctx.fillRect(CLIPART_OBJECT_COL - 4, CLIPART_ROW - 4, CLIPART_SKIP_SM * NUM_CLIPART_HORZ_SM + 8, CLIPART_HEIGHT + 8);
+			var r, c;
+
+			for (r = 0; r < NUM_CLIPART_VERT; r++)
+				for (c = 0; c < NUM_CLIPART_HORZ; c++) {
+					var idx = r + c * NUM_CLIPART_VERT + typeCt[0] + typeCt[1];
+
+					if (selectedIdx == idx)
+						ctx.drawImage(selectedImg, CLIPART_COL + c * CLIPART_SKIP, CLIPART_ROW + r * CLIPART_SKIP, CLIPART_SKIP, CLIPART_SKIP);
+
+					var w = clipartImgs[idx].width;
+					var h = clipartImgs[idx].height;
+					var newW = Math.min(w, CLIPART_SIZE * w / Math.max(w, h));
+					var newH = Math.min(h, CLIPART_SIZE * h / Math.max(w, h));
+
+					var rowOffset = (CLIPART_SIZE - newH) / 2;
+					var colOffset = (CLIPART_SIZE - newW) / 2;
+					var xo = CLIPART_COL + c * CLIPART_SKIP + CLIPART_BUFFER + colOffset;
+					var yo = CLIPART_ROW + r * CLIPART_SKIP + CLIPART_BUFFER + rowOffset;
+
+					ctx.drawImage(clipartImgs[idx], 0, 0, w, h, Math.floor(xo), Math.floor(yo), newW, newH);
+				}
+
+			for (r = 0; r < NUM_CLIPART_VERT_SM; r++)
+				for (c = 0; c < NUM_CLIPART_HORZ_SM; c++) {
+
+					var idx = r * NUM_CLIPART_HORZ_SM + c;
+
+					if (idx >= typeCt[0] + typeCt[1])
+						idx += typeCt[2] + typeCt[3];
+
+					if (selectedIdx == idx)
+						ctx.drawImage(selectedImg, 0, 0, selectedImg.width, selectedImg.height, c * CLIPART_SKIP_SM + CLIPART_OBJECT_COL, CLIPART_ROW + r * CLIPART_SKIP_SM, CLIPART_SKIP_SM, CLIPART_SKIP_SM);
+
+					var w = clipartImgs[idx].width;
+					var h = clipartImgs[idx].height;
+					var newW = Math.min(w, CLIPART_SIZE_SM * w / Math.max(w, h));
+					var newH = Math.min(h, CLIPART_SIZE_SM * h / Math.max(w, h));
+
+					var rowOffset = (CLIPART_SIZE_SM - newH) / 2;
+					var colOffset = (CLIPART_SIZE_SM - newW) / 2;
+					var xo = c * CLIPART_SKIP_SM + CLIPART_BUFFER + colOffset + CLIPART_OBJECT_COL;
+					var yo = CLIPART_ROW + r * CLIPART_SKIP_SM + CLIPART_BUFFER + rowOffset;
+
+					ctx.drawImage(clipartImgs[idx], 0, 0, w, h, Math.floor(xo), Math.floor(yo), newW, newH);
+				}
+		}
+
+
+	}
+
+	function draw_buttons() {
+		
+		if(editing)
+		{
+			buttonW = buttonImg.width / 2;
+			buttonH = buttonImg.height / 5;
+			w = buttonW;
+			h = buttonH;
+
+			if (w > 0 && h > 0) {
+				for (i = 0; i < 3; i++) {
+					if (selectedIdx != NOT_USED) {
+						if (i === clipArtZ[selectedIdx]) {
+							ctx.drawImage(buttonImg, w, i * h, w, h, i * w + CANVAS_COL + BUTTON_COL, BUTTON_ROW, w, h);
+						}
+						else {
+							ctx.drawImage(buttonImg, 0, i * h, w, h, i * w + CANVAS_COL + BUTTON_COL, BUTTON_ROW, w, h);
+						}
+					}
+					else {
+						ctx.drawImage(buttonImg, 0, i * h, w, h, i * w + CANVAS_COL + BUTTON_COL, BUTTON_ROW, w, h);
+					}
+				}
+
+				for (i = 0; i < 2; i++) {
+					if (selectedIdx != NOT_USED) {
+						if (i == clipArtFlip[selectedIdx]) {
+							ctx.drawImage(buttonImg, w, (i + 3) * h, w, h, i * w + CANVAS_COL + BUTTON_COL + 3 * w + w / 2, BUTTON_ROW, w, h);
+						}
+						else {
+							ctx.drawImage(buttonImg, 0, (i + 3) * h, w, h, i * w + CANVAS_COL + BUTTON_COL + 3 * w + w / 2, BUTTON_ROW, w, h);
+						}
+					}
+					else {
+						ctx.drawImage(buttonImg, 0, (i + 3) * h, w, h, i * w + CANVAS_COL + BUTTON_COL + 3 * w + w / 2, BUTTON_ROW, w, h);
+					}
+				}
+			}
+		}
+	}
+
+	function pushForward() {
+		if(editing==false)
+			return;
+		if (selectedIdx != NOT_USED) {
+			if (clipArtZ[selectedIdx] > 0) {
+				clipArtZ[selectedIdx]--;
+				draw_canvas();
+			}
+		}
+	}
+
+	function pushBackward() {
+		if(editing==false)
+			return;
+		if (selectedIdx != NOT_USED) {
+			if (clipArtZ[selectedIdx] < 2) {
+				clipArtZ[selectedIdx]++;
+				draw_canvas();
+			}
+		}
+	}
+
+	function mouseup_canvas(event) {
+		if(editing==false)
+			return;
+		moveClipart = false;
+
+		if (selectedIdx >= 0 && clipArtX[selectedIdx] === NOT_USED) {
+			selectedIdx = NOT_USED;
+			draw_canvas();
+		}
+	}
+
+	function mousedown_canvas(event) {
+		if(editing==false)
+			return;
+		
+		var ev = event || window.event;
+
+		if (ev.pageX) cx = ev.pageX;
+		else if (ev.clientX)
+			cx = ev.clientX + (document.documentElement.scrollLeft ?
+		document.documentElement.scrollLeft :
+		document.body.scrollLeft);
+
+		if (ev.pageY) cy = ev.pageY;
+		else if (ev.clientY)
+			cy = ev.clientY + (document.documentElement.scrollTop ?
+		document.documentElement.scrollTop :
+		document.body.scrollTop);
+
+		var clipartX = cx - CLIPART_COL - canvas_fix.offsetLeft;
+		var clipartY = cy - CLIPART_ROW - canvas_fix.offsetTop;
+
+		var clipart_pressed = false;
+
+		if (clipartX < CLIPART_SKIP * NUM_CLIPART_HORZ && clipartX > 0 && clipartY < CLIPART_HEIGHT && clipartY > 0) {
+
+			selectedIdx = Math.floor(clipartX / CLIPART_SKIP);
+			selectedIdx *= NUM_CLIPART_VERT;
+			selectedIdx += Math.floor(clipartY / CLIPART_SKIP);
+
+			selectedIdx += typeCt[0] + typeCt[1];
+			clipart_pressed = true;
+		}
+
+		clipartX = cx - CLIPART_OBJECT_COL - canvas_fix.offsetLeft;
+		clipartY = cy - CLIPART_ROW - canvas_fix.offsetTop;
+
+		if (clipartX < CLIPART_SKIP_SM * NUM_CLIPART_HORZ_SM && clipartX > 0 && clipartY < CLIPART_HEIGHT && clipartY > 0) {
+
+			selectedIdx = Math.floor(clipartY / CLIPART_SKIP_SM);
+			selectedIdx *= NUM_CLIPART_HORZ_SM;
+			selectedIdx += Math.floor(clipartX / CLIPART_SKIP_SM);
+
+			if (selectedIdx >= typeCt[0] + typeCt[1])
+				selectedIdx += typeCt[2] + typeCt[3];
+
+			clipart_pressed = true;
+		}
+
+
+
+		if (clipart_pressed === true) {
+			var foundIdx = NOT_USED;
+			for (i = 0; i < numClipart; i++) {
+				if (selectedIdx != i && clipArtX[i] >= 0 && same_list[selectedIdx] == same_list[i])
+					foundIdx = i;
+			}
+
+			if (foundIdx >= 0) {
+				clipArtX[selectedIdx] = clipArtX[foundIdx];
+				clipArtY[selectedIdx] = clipArtY[foundIdx];
+				clipArtZ[selectedIdx] = clipArtZ[foundIdx];
+				clipArtFlip[selectedIdx] = clipArtFlip[foundIdx];
+				clipArtX[foundIdx] = NOT_USED;
+			}
+
+			mouse_offset_X = 0;
+			mouse_offset_Y = 0;
+			wasOnCanvas = false;
+			moveClipart = true;
+
+			draw_canvas();
+		}
+
+		var canvasX = cx - CANVAS_COL - canvas_fix.offsetLeft;
+		var canvasY = cy - CANVAS_ROW - canvas_fix.offsetTop;
+
+		if (canvasX < CANVAS_WIDTH && canvasX > 0 && canvasY < CANVAS_HEIGHT && canvasY > 0) {
+
+			selectedIdx = NOT_USED;
+
+			// Make sure we get the depth ordering correct
+			for (j = 2; j >= 0; j--) {
+				for (i = 0; i < numClipart; i++) {
+					if (clipArtX[i] >= 0 && clipArtZ[i] == j) {
+						var scale = depthScale[clipArtZ[i]];
+
+						var w = scale*clipartImgs[i].width;
+						var h = scale*clipartImgs[i].height;
+						var rowOffset = -h / 2;
+						var colOffset = -w / 2;
+						var x = clipArtX[i] + colOffset;
+						var y = clipArtY[i] + rowOffset;
+
+						if (canvasX >= x && canvasX < x + w && canvasY >= y && canvasY < y + h) {
+							selectedIdx = i;
+							mouse_offset_X = (x + w / 2) - canvasX;
+							mouse_offset_Y = (y + h / 2) - canvasY;
+						}
+					}
+				}
+			}
+
+			if (selectedIdx >= 0) {
+				if (moveClipart === true) {
+					clipArtX[selectedIdx] = canvasX + mouse_offset_X;
+					clipArtY[selectedIdx] = canvasY + mouse_offset_Y;
+					moveClipart = false;
+				}
+				else {
+					clipArtX[selectedIdx] = canvasX + mouse_offset_X;
+					clipArtY[selectedIdx] = canvasY + mouse_offset_Y;
+					moveClipart = true;
+				}
+
+				draw_canvas();
+			}
+		}
+
+		var scaleButtonX = cx - CANVAS_COL - canvas_fix.offsetLeft - BUTTON_COL;
+		var scaleButtonY = cy - canvas_fix.offsetTop - BUTTON_ROW;
+
+		if (scaleButtonX >= 0 && scaleButtonX < buttonW * 3 && scaleButtonY >= 0 && scaleButtonY < buttonH) {
+			if (selectedIdx != NOT_USED) {
+				clipArtZ[selectedIdx] = Math.floor(scaleButtonX / buttonW);
+				draw_canvas();
+			}
+		}
+
+		var flipButtonX = cx - CANVAS_COL - canvas_fix.offsetLeft - 3 * buttonW - buttonW / 2 - BUTTON_COL;
+		var flipButtonY = cy - canvas_fix.offsetTop - BUTTON_ROW;
+
+		if (flipButtonX >= 0 && flipButtonX < buttonW * 2 && flipButtonY >= 0 && flipButtonY < buttonH) {
+			if (selectedIdx != NOT_USED) {
+				clipArtFlip[selectedIdx] = Math.floor(flipButtonX / buttonW);
+				draw_canvas();
+			}
+		}
+
+
+	}
+	//update the current location of the keypoint
+	function mousemove_canvas(event) {
+		if(editing==false)
+			return;
+		var ev = event || window.event;
+
+		if (ev.pageX) cx = ev.pageX;
+		else if (ev.clientX)
+			cx = ev.clientX + (document.documentElement.scrollLeft ?
+	document.documentElement.scrollLeft :
+	document.body.scrollLeft);
+
+		if (ev.pageY) cy = ev.pageY;
+		else if (ev.clientY)
+			cy = ev.clientY + (document.documentElement.scrollTop ?
+	document.documentElement.scrollTop :
+	document.body.scrollTop);
+
+		if (selectedIdx != NOT_USED && moveClipart == true && wasOnCanvas === true) {
+			clipArtX[selectedIdx] = NOT_USED;
+			draw_canvas();
+		}
+
+		var canvasX = cx - CANVAS_COL - canvas_fix.offsetLeft;
+		var canvasY = cy - CANVAS_ROW - canvas_fix.offsetTop;
+
+		if (canvasX < CANVAS_WIDTH && canvasX > 0 && canvasY < CANVAS_HEIGHT && canvasY > 0) {
+			wasOnCanvas = true;
+
+			if (selectedIdx != NOT_USED && moveClipart === true) {
+				clipArtX[selectedIdx] = canvasX + mouse_offset_X;
+				clipArtY[selectedIdx] = canvasY + mouse_offset_Y;
+				draw_canvas();
+			}
+
+		}
+
+	}
+
+	/// functions related to AMT task
+	function gup(name) {
+		var regexS = "[\\?&]" + name + "=([^&#]*)";
+		var regex = new RegExp(regexS);
+		var tmpURL = window.location.href;
+		var results = regex.exec(tmpURL);
+		if (results == null)
+			return "";
+		else
+			return results[1];
+	}
+	//
+	// This method decodes the query parameters that were URL-encoded
+	//
+	function decode(strToDecode) {
+		var encoded = strToDecode;
+		return unescape(encoded.replace(/\+/g, " "));
+	}
+	// what to submit to AMT server
+	function update_results_string() {
+		resultAMT += numClipart + ",";
+
+		for (i = 0; i < numClipart; i++) {
+			resultAMT += prefix[clipArtTypeIdx[i]] + '_' + clipArtObjectIdx[i] + '.png' + ",";
+			resultAMT += i + ",";
+			resultAMT += clipArtObjectIdx[i] + ",";
+			resultAMT += clipArtTypeIdx[i] + ",";
+			resultAMT += clipArtX[i] + ",";
+			resultAMT += clipArtY[i] + ",";
+			resultAMT += clipArtZ[i] + ",";
+			resultAMT += clipArtFlip[i] + ",";
+		}
+	}
+	
+	function edit_toggle(){
+		editing=!editing;
+		draw_canvas();
+		if(editing)
+		{
+			document.getElementById("edit_scene").innerHTML="Edit off";
+		}
+		else
+		{
+			document.getElementById("edit_scene").innerHTML="Edit on";
+		}
+	}
+	init();
+</script>
+
+<script type="text/javascript">
+	var rpc_service_url="http://rosenblatt.ece.vt.edu:8881";
+
+	function scenegen_RPC()
+	{
+		var jsonService = new JsonRpc.ServiceProxy(rpc_service_url, {
+					asynchronous: false,
+					methods: ['scenegen']
+				});
+		try {
+			tuples=get_tuple(0);
+			var result = jsonService.scenegen(tuples);
+			result['tuples']=tuples;
+			for (var j = 0; j < numClipart; j++) {
+				clipArtX[j]=NOT_USED;
+				clipArtY[j]=NOT_USED;
+				clipArtZ[j]=0;
+				if (Math.random() > 0.5) {
+					clipArtFlip[j]=0;
+				}
+				else {
+					clipArtFlip[j]=1;
+				}
+			}
+			
+			for (var i=0;i<result["objects"].length;i++)
+			{
+				for (var j = 0; j < numClipart; j++)
+				{
+					if(clipArtTypeIdx[j]==result["objects"][i]["category"] && clipArtObjectIdx[j]==result["objects"][i]["attribute"] )
+					{
+						clipArtX[j] = result["objects"][i]["x"];
+						clipArtY[j] = result["objects"][i]["y"];
+						clipArtZ[j] = result["objects"][i]["z"];
+						clipArtFlip[j] = result["objects"][i]["flip"];
+					}
+				}
+			}
+			draw_canvas()
+			
+			//check for out of dictionary words
+			for (var i=0;i<result["tuple_ids"].length;i++)
+			{
+				if(result["tuple_ids"][i][0]==-1)
+					highlight(0,0,i);
+				if(result["tuple_ids"][i][1]==-1)
+					highlight(1,0,i);
+				if(result["tuple_ids"][i][2]==-1)
+					highlight(2,0,i);
+			}
+			//available for download
+			document.getElementById("download_scene").disabled=false;
+			document.getElementById("download_scene").onclick=function() {
+				var canvas_img=new Image();
+				//canvas_img.crossOrigin = "*";
+				canvas_img.src=document.getElementById('scene_canvas').toDataURL('image/png');
+				var oc = document.createElement('canvas');
+				var octx = oc.getContext('2d');
+				oc.width=500;
+				oc.height=400;
+				octx.drawImage(canvas_img,-CANVAS_COL,-CANVAS_ROW);
+				
+				var clipart_scene_img=new Image();
+				clipart_scene_img.src=oc.toDataURL('image/png');
+				
+				var w=window.open('about:blank','image from canvas'); 
+				w.document.write("<img src='"+clipart_scene_img+"' alt='from canvas'/>");
+			};
+			//document.getElementById("download_scene").onclick=function() {
+			//	export_raw('scene.json', JSON.stringify(result));
+			//};
+			
+		} catch (e) {
+			alert("Failed because: " + e);
+		}
+	}
+	//Download generated objects. Example from: jsfiddle.net
+	function fake_click(obj) {
+    var ev = document.createEvent("MouseEvents");
+    ev.initMouseEvent(
+        "click", true, false, window, 0, 0, 0, 0, 0
+        , false, false, false, false, 0, null
+        );
+    obj.dispatchEvent(ev);
+	}
+
+	function export_raw(name, data) {
+		var urlObject = window.URL || window.webkitURL || window;
+
+		var export_blob = new Blob([data]);
+
+		var save_link = document.createElementNS("http://www.w3.org/1999/xhtml", "a")
+		save_link.href = urlObject.createObjectURL(export_blob);
+		save_link.download = name;
+		fake_click(save_link);
+	}
+</script>
+</body>
+</html>
