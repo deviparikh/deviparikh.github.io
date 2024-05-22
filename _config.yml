@@ -1,7 +1,11 @@
+url: http://deviparikh.com
 title: Devi Parikh
-description: Devi Parikh's Homepage
+author:
+  name: Devi Parikh
+  email: deviparikh.dp@gmail.com
+description: AI Researcher, Generative Artist.
+# permalink: /posts/:title/
 baseurl: "" # the subpath of your site, e.g. /blog
-url: "http://deviparikh.com" # the base hostname & protocol for your site
 
 # Build settings
 markdown: kramdown
