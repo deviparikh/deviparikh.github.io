@@ -3,7 +3,7 @@ layout: pub
 urltitle: "Devi Parikh - Algorithmic Art"
 title: "Devi Parikh - Algorithmic Art"
 categories: Devi Parikh, Algorithmic Art
-favicon: static/img/art/GANbook.png
+favicon: static/img/art/ganbook.png
 permalink: /ganbook
 ---
 

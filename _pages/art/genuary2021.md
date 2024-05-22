@@ -21,9 +21,9 @@ I went through all the prompts in a day (<24 hours of work). I was optimizing fo
 Below are collages of pieces using different input images.
 
 
-<a href = './static/genuary2021/all_maus__haus.png'><img src = './static/genuary2021/all_maus__haus.png' width="300px" alt = 'genuary'></a> 
-<a href = './static/genuary2021/all_water.png'><img src = './static/genuary2021/all_water.png' width="300px" alt = 'genuary'></a>
-<a href = './static/genuary2021/all_painting.png'><img src = './static/genuary2021/all_painting.png' width="300px" alt = 'genuary'></a>
+<a href = './static/art/genuary2021/all_maus__haus.png'><img src = './static/art/genuary2021/all_maus__haus.png' width="300px" alt = 'genuary'></a> 
+<a href = './static/art/genuary2021/all_water.png'><img src = './static/art/genuary2021/all_water.png' width="300px" alt = 'genuary'></a>
+<a href = './static/art/genuary2021/all_painting.png'><img src = './static/art/genuary2021/all_painting.png' width="300px" alt = 'genuary'></a>
 
 The individual pieces below use a sunset image as input.
 

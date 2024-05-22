@@ -3,7 +3,7 @@ layout: pub
 urltitle: "Devi Parikh - Algorithmic Art"
 title: "Devi Parikh - Algorithmic Art"
 categories: Devi Parikh, Algorithmic Art
-favicon: static/img/art/tessellation.gif
+favicon: /static/img/art/tessellation.png
 permalink: /tessellation
 ---
 

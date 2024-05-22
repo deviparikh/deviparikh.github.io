@@ -3628,7 +3628,7 @@ Proceedings of Industrial and Hazardous Waste Conference, 2002
 [dancing-agents]: https://arxiv.org/abs/2006.11905
 [dancing-agents-webpage]: https://sites.google.com/view/dancing-agents
 [dancing-agents-code]: https://github.com/purvaten/feel-the-music
-[sketching-interface]: https://deviparikh.com/collaborative_painting_no_instructions.html
+[sketching-interface]: https://deviparikh.com/projects/collaborative_painting_no_instructions.html
 [co-creation]: https://arxiv.org/abs/2005.07328
 [vln-via-vilbert]: https://arxiv.org/abs/2004.14973
 [arjunm]: https://arjunmajum.github.io/
@@ -4016,7 +4016,7 @@ Proceedings of Industrial and Hazardous Waste Conference, 2002
 [attrib-pos]: {{site.baseurl}}publications/DuanParikhCrandallGrauman_CVPR_2012_local_attributes_poster.pdf
 [contour]: {{site.baseurl}}publications/ZitnickParikh_CVPR_2012_contour.pdf
 [cont-html]: /projects/contour.html
-[cont-html#data]: contour.html#data
+[cont-html#data]: /projects/contour.html#data
 [cont-12-pos]: {{site.baseurl}}publications/ZitnickParikh_CVPR_2012_contour_poster.pdf
 [aude]: http://cvcl.mit.edu/aude.htm
 [memorability]: http://web.mit.edu/phillipi/UnderstandingMemorability/
@@ -4028,9 +4028,9 @@ Proceedings of Industrial and Hazardous Waste Conference, 2002
 [nips11-mem]: {{site.baseurl}}publications/IsolaParikhTorralbaOliva_NIPS2011_memorability.pdf
 [iccv11-rel]: {{site.baseurl}}publications/ParikhGrauman_ICCV2011_relative.pdf
 [rel]:/projects/relative.html
-[rel#data]: relative.html#data
-[rel#code]: relative.html#code
-[rel-att-ppt]: relative_attributes/relative_attributes.ppt
+[rel#data]: /projects/relative.html#data
+[rel#code]: /projects/relative.html#code
+[rel-att-ppt]: /projects/relative_attributes/relative_attributes.ppt
 [231-m4v]: https://www.youtube.com/watch?v=br2Im3tpBc8
 [par-grauman]: {{site.baseurl}}publications/ParikhGrauman_ICCV2011_relative_poster.pdf
 [puzzled]: {{site.baseurl}}publications/Parikh_ICCV2011_puzzled.pdf
@@ -4040,7 +4040,7 @@ Proceedings of Industrial and Hazardous Waste Conference, 2002
 [adaptive-context]: http://chenlab.ece.cornell.edu/projects/AdaptiveContext/
 [weakest]: {{site.baseurl}}publications/ParikhZitnick_CVPR2011_weakest_link.pdf
 [person-det]: /projects/person_detection.html
-[person#down]: person_detection.html#download
+[person#down]: /projects/person_detection.html#download
 [cvpr11]: {{site.baseurl}}publications/ParikhZitnick_CVPR2011_weakest_link_poster.pdf
 [cvpr11-ppt]: {{site.baseurl}}publications/slides/ParikhZitnick_CVPR2011_weakest_link.pptx
 [nameable]: {{site.baseurl}}publications/ParikhGrauman_CVPR2011_nameable.pdf

@@ -232,7 +232,7 @@ I've spent several months at:
 [cvpr15]: http://www.pamitc.org/cvpr15
 [icvgip14]: http://mile.ee.iisc.ernet.in/ICVGIP2014/
 [eccv14]: http://eccv2014.org/
-[pna14]: https://filebox.ece.vt.edu/%7Eparikh/PnA2014/
+[pna14]: https://deviparikh.com/projects/PnA2014/
 [hmcv14]: http://vision.cs.utexas.edu/hmcv2014/
 [vt-aro-yip]: http://www.vtnews.vt.edu/articles/2014/04/041714-engineering-deviparikharmyaward.html
 [macv14]: https://filebox.ece.vt.edu/%7Emacv2014/
