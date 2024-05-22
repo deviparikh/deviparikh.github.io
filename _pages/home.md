@@ -1,7 +1,7 @@
 ---
 layout: project
-urltitle:  "Devi Parikh - Home"
-title: "Devi Parikh - Home"
+urltitle:  "Devi Parikh"
+title: "AI Researcher, Generative Artist"
 permalink: ./
 favicon: static/img/deviparikh.png
 ---
