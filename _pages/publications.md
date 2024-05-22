@@ -2322,7 +2322,9 @@ WhittleSearch: Interactive Image Search with Relative Attribute Feedback
 
 International Journal of Computer Vision (IJCV), 2015
 
-[[project page and data][whit-search.edu]] [[poster][whit-search-pos]] [[demo][whit-demo]] [[video][whit-demo-video]]
+[[project page and data][whit-search.edu]][[poster][whit-search-pos]][[video][whit-demo-video]]
+<!-- [[demo][whit-demo]]  -->
+
 
 </div>
 </div><hr>
@@ -2637,7 +2639,8 @@ Relative Attributes for Enhanced Human-Machine Communication (Demo)
 
 IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2013
 
-[[relative description demo][rel-desc-demo]] [[classifier feedback demo][class-feed-demo]] 
+<!-- [[relative description demo][rel-desc-demo]]  -->
+[[classifier feedback demo][class-feed-demo]] 
 
 </div>
 </div><hr>
@@ -3911,7 +3914,7 @@ Proceedings of Industrial and Hazardous Waste Conference, 2002
 [robots]: http://www.robots.ox.ac.uk/%7Ephst/
 [per-attrib]: {{site.baseurl}}publications/ICIP_2016_personalized_attributes.pdf
 [pami-15]: {{site.baseurl}}publications/ZitnickVedantamParikh_clipart_PAMI2015.pdf
-[clipart]: http://optimus.cc.gatech.edu/clipart/
+[clipart]: /projects/clipart/
 [roozbeh]: https://cs.stanford.edu/~roozbeh/
 [fidler]: http://www.cs.utoronto.ca/%7Efidler/
 [yuille]: http://www.stat.ucla.edu/%7Eyuille/
@@ -3988,7 +3991,7 @@ Proceedings of Industrial and Hazardous Waste Conference, 2002
 [att-feed]: /projects/attribute_feedback
 [att-feed-poster]: {{site.baseurl}}publications/BiswasParikh_CVPR_2013_active_attributes_feedback_poster.pdf
 [class-feed-demo]: http://godel.ece.vt.edu/classifier/feedback.php
-[rel-desc-demo]: http://optimus.cc.gatech.edu/descriptor/
+<!-- [rel-desc-demo]: http://optimus.cc.gatech.edu/descriptor/ -->
 [emra]: http://www.umiacs.umd.edu/%7Emrastega/
 [cvpr13]: {{site.baseurl}}publications/Rastegari_Diba_Parikh_Farhadi_CVPR_2013.pdf
 [cvpr13-pos]: {{site.baseurl}}publications/Rastegari_CVPR_2013_complex_query_poster.pdf
@@ -4004,7 +4007,7 @@ Proceedings of Industrial and Hazardous Waste Conference, 2002
 [whit-search]: {{site.baseurl}}publications/KovashkaParikhGrauman_CVPR_2012_whittle_search.pdf
 [whit-search.edu]: http://vision.cs.utexas.edu/whittlesearch/
 [whit-search-pos]: {{site.baseurl}}publications/KovashkaParikhGrauman_CVPR_2012_whittle_search_poster.pdf
-[whit-demo]: http://optimus.cc.gatech.edu/whittle/
+<!-- [whit-demo]: http://optimus.cc.gatech.edu/whittle/ -->
 [whit-demo-video]: https://www.youtube.com/watch?v=3A6YkHn6OU0&feature=youtu.be
 [ekduan]: https://www.linkedin.com/in/kun-duan-52097820
 [Edjc]: https://www.cs.indiana.edu/%7Edjcran/
