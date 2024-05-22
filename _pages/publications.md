@@ -3985,7 +3985,7 @@ Proceedings of Industrial and Hazardous Waste Conference, 2002
 [debug-crf-poster]: {{site.baseurl}}publications/Mottaghi_CVPR_2013_debug_crf_poster.pptx
 [earijit]: http://www.umiacs.umd.edu/%7Earijit/
 [att-feedback]: {{site.baseurl}}publications/BiswasParikh_CVPR_2013_active_attributes_feedback.pdf
-[att-feed]: attribute_feedback
+[att-feed]: /projects/attribute_feedback
 [att-feed-poster]: {{site.baseurl}}publications/BiswasParikh_CVPR_2013_active_attributes_feedback_poster.pdf
 [class-feed-demo]: http://godel.ece.vt.edu/classifier/feedback.php
 [rel-desc-demo]: http://optimus.cc.gatech.edu/descriptor/
@@ -4012,7 +4012,7 @@ Proceedings of Industrial and Hazardous Waste Conference, 2002
 [attrib-discov]: http://vision.soic.indiana.edu/attributediscovery
 [attrib-pos]: {{site.baseurl}}publications/DuanParikhCrandallGrauman_CVPR_2012_local_attributes_poster.pdf
 [contour]: {{site.baseurl}}publications/ZitnickParikh_CVPR_2012_contour.pdf
-[cont-html]: contour.html
+[cont-html]: /projects/contour.html
 [cont-html#data]: contour.html#data
 [cont-12-pos]: {{site.baseurl}}publications/ZitnickParikh_CVPR_2012_contour_poster.pdf
 [aude]: http://cvcl.mit.edu/aude.htm
@@ -4024,7 +4024,7 @@ Proceedings of Industrial and Hazardous Waste Conference, 2002
 [img-proces-b]: http://www.springer.com/computer/image+processing/book/978-1-4614-1914-3
 [nips11-mem]: {{site.baseurl}}publications/IsolaParikhTorralbaOliva_NIPS2011_memorability.pdf
 [iccv11-rel]: {{site.baseurl}}publications/ParikhGrauman_ICCV2011_relative.pdf
-[rel]:relative.html
+[rel]:/projects/relative.html
 [rel#data]: relative.html#data
 [rel#code]: relative.html#code
 [rel-att-ppt]: relative_attributes/relative_attributes.ppt
@@ -4036,13 +4036,13 @@ Proceedings of Industrial and Hazardous Waste Conference, 2002
 [jumbled-unlabel]: {{site.baseurl}}publications/LiParikhChen_ICCV2011_unlabeled.pdf
 [adaptive-context]: http://chenlab.ece.cornell.edu/projects/AdaptiveContext/
 [weakest]: {{site.baseurl}}publications/ParikhZitnick_CVPR2011_weakest_link.pdf
-[person-det]: person_detection.html
+[person-det]: /projects/person_detection.html
 [person#down]: person_detection.html#download
 [cvpr11]: {{site.baseurl}}publications/ParikhZitnick_CVPR2011_weakest_link_poster.pdf
 [cvpr11-ppt]: {{site.baseurl}}publications/slides/ParikhZitnick_CVPR2011_weakest_link.pptx
 [nameable]: {{site.baseurl}}publications/ParikhGrauman_CVPR2011_nameable.pdf
 [nameable-supp]: {{site.baseurl}}publications/nameable_supp.pdf
-[nameable-html]: nameable.html
+[nameable-html]: /projects/nameable.html
 [nameable-post]: {{site.baseurl}}publications/ParikhGrauman_CVPR2011_nameable_poster.pdf
 [nameable-pptx]: {{site.baseurl}}publications/slides/ParikhGrauman_CVPR2011_nameable.pptx
 [nameable-cvpr11]: {{site.baseurl}}publications/ParikhGrauman_FGVC_CVPR2011_nameable.pdf
