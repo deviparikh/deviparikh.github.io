@@ -1,7 +1,7 @@
 ---
 layout: pub
 urltitle: "Visual Intelligence Lab"
-title: "Visual Intelligence Lab"
+title: "Devi Parikh - Lab"
 favicon: static/img/vil.png
 permalink: /vil
 ---
