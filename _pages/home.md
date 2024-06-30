@@ -48,6 +48,7 @@ favicon: static/img/deviparikh.png
 <!-- %%%%%%%%%%%%%%%%%%% NEWS %%%%%%%%%%%%%%%%%%% -->
 <!-- <a class="anchor" name="/news"></a> -->
 ## News
+- 2024: (An unusual) [Keynote at ICLR 2024][iclr2024-keynote] sharing five stories from my 20-year journey in AI so far.
 - 2024: I left my role as a Senior Director in GenAI at Meta. Stay tuned for what's next!
 - 2023: Introduced [Emu][emu-announcement], [Emu Edit][emu-edit-website], [Emu Video][emu-video-website], and [Emu Video Edit][emu-video-edit-website]!
 - 2023: I moved to the new Generative AI org at Meta!
@@ -182,6 +183,7 @@ I've spent several months at:
 </div>
 <hr>
 -->
+[iclr2024-keynote]: https://iclr.cc/virtual/2024/invited-talk/21803
 [emu-announcement]: https://about.fb.com/news/2023/09/introducing-ai-powered-assistants-characters-and-creative-tools/
 [emu-edit-website]: https://emu-edit.metademolab.com/
 [emu-video-website]: https://emu-video.metademolab.com/
