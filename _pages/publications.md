@@ -24,8 +24,32 @@ favicon: static/img/deviparikh.png
 
 {::options parse_block_html="true" /}
 
+<div class="row vertical-align">
+<div class="col-sm-5">
+<img alt="topics" src="{{ site.baseurl }}static/img/pub/emus.gif">
+</div>
+<div class="col-sm-7">
 
+Xiaoliang Dai\*, Ji Hou\*, Chih-Yao Ma\*, Sam Tsai\*, Jialiang Wang\*, Rui Wang\*, Peizhao Zhang\*, Simon Vandenhende, Xiaofang Wang, Abhimanyu Dubey, Matthew Yu, Abhishek Kadian, Filip Radenovic, Dhruv Mahajan, Kunpeng Li, Yue Zhao, Vladan Petrovic, Mitesh Kumar Singh, Simran Motwani, Yi Wen, Yiwen Song, Roshan Sumbaly^, Vignesh Ramanathan^, Zijian He^, Peter Vajda^, Devi Parikh^
 
+\* equal contribution, alphabetical order,
+^ equal last authors
+
+[Emu: Enhancing Image Generation Models Using Photogenic Needles in a Haystack][emu]
+
+arXiv:2309.15807, 2023
+
+<span class="md-grey">AI + Creativity</span>
+
+</div>
+</div><hr>
+
+{::options parse_block_html="false" /}
+
+##### 2024 [[back to top][btt]]
+{:.mt-2 .mb-2}
+
+{::options parse_block_html="true" /}
 
 <div class="row vertical-align">
 <div class="col-sm-5">
@@ -37,9 +61,9 @@ Uriel Singer\*, Amit Zohar\*, Yuval Kirstain, Shelly Sheynin, Adam Polyak, Devi 
 
 \* equal contribution
 
-[Video Editing via Factorized Diffusion Distillation (a.k.a, Emu Video Edit (EVE))][emu-video-edit]
+[Video Editing via Factorized Diffusion Distillation (a.k.a, Emu Video Edit)][emu-video-edit]
 
-arXiv:2403.09334 2024
+European Conference on Computer Vision (ECCV), 2024
 
 [[project page][emu-video-edit-project]]
 
@@ -61,7 +85,7 @@ Rohit Girdhar\*^, Mannat Singh\*^, Andrew Brown\*, Quentin Duval\*, Samaneh Azad
 
 [Emu Video: Factorizing Text-to-Video Generation by Explicit Image Conditioning][emu-video]
 
-arXiv:2311.10709, 2023
+European Conference on Computer Vision (ECCV), 2024
 
 [[project page][emu-video-project]]
 
@@ -69,34 +93,6 @@ arXiv:2311.10709, 2023
 
 </div>
 </div><hr>
-
-<div class="row vertical-align">
-<div class="col-sm-5">
-<img alt="topics" src="{{ site.baseurl }}static/img/pub/emus.gif">
-</div>
-<div class="col-sm-7">
-
-Xiaoliang Dai\*, Ji Hou\*, Chih-Yao Ma\*, Sam Tsai\*, Jialiang Wang\*, Rui Wang\*, Peizhao Zhang\*, Simon Vandenhende, Xiaofang Wang, Abhimanyu Dubey, Matthew Yu, Abhishek Kadian, Filip Radenovic, Dhruv Mahajan, Kunpeng Li, Yue Zhao, Vladan Petrovic, Mitesh Kumar Singh, Simran Motwani, Yi Wen, Yiwen Song, Roshan Sumbaly^, Vignesh Ramanathan^, Zijian He^, Peter Vajda^, Devi Parikh^
-
-\* equal contribution, alphabetical order,
-^ equal last authors
-
-[Emu: Enhancing Image Generation Models Using Photogenic Needles in a Haystack][emu]
-
-arXiv:2309.15807, 2023
-
-<span class="md-grey">AI + Creativity</span>
-
-</div>
-</div><hr>
-
-
-{::options parse_block_html="false" /}
-
-##### 2024 [[back to top][btt]]
-{:.mt-2 .mb-2}
-
-{::options parse_block_html="true" /}
 
 <div class="row vertical-align">
 <div class="col-sm-5">
@@ -110,7 +106,7 @@ Shelly Sheynin\*, Adam Polyak\*, Uriel Singer\*, Yuval Kirstain\*, Amit Zohar\*,
 
 [Emu Edit: Precise Image Editing via Recognition and Generation Tasks][emu-edit]
 
-IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2024
+IEEE Conference on Computer Vision and Pattern Recognition (CVPR), 2024 <span class="md-blue">(Highlight)</span>
 
 [[project page][emu-edit-project]]
 
