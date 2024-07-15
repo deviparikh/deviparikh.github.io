@@ -14,11 +14,7 @@ favicon: static/img/deviparikh.png
     </a>
   </div>
   <div class="col-sm-5">
-    (On leave since 2021)
-    <br>
-    Associate Professor
-    <br>
-    <a href="http://www.gatech.edu/"> Georgia Tech </a>
+    Building something new.
     <br>
     <br>
     <a href="mailto:deviparikh.dp@gmail.com"> deviparikh.dp@gmail.com </a>
@@ -48,6 +44,7 @@ favicon: static/img/deviparikh.png
 <!-- %%%%%%%%%%%%%%%%%%% NEWS %%%%%%%%%%%%%%%%%%% -->
 <!-- <a class="anchor" name="/news"></a> -->
 ## News
+- 2024: I left my position as Associate Professor at Georgia Tech.
 - 2024: (An unusual) [Keynote at ICLR 2024][iclr2024-keynote] sharing five stories from my 20-year journey in AI so far.
 - 2024: I left my role as a Senior Director in GenAI at Meta. Stay tuned for what's next!
 - 2023: Introduced [Emu][emu-announcement], [Emu Edit][emu-edit-website], [Emu Video][emu-video-website], and [Emu Video Edit][emu-video-edit-website]!
