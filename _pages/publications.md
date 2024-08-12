@@ -63,7 +63,7 @@ Uriel Singer\*, Amit Zohar\*, Yuval Kirstain, Shelly Sheynin, Adam Polyak, Devi 
 
 [Video Editing via Factorized Diffusion Distillation (a.k.a, Emu Video Edit)][emu-video-edit]
 
-European Conference on Computer Vision (ECCV), 2024
+European Conference on Computer Vision (ECCV), 2024 <span class="md-blue">(Oral)</span>
 
 [[project page][emu-video-edit-project]]
 
