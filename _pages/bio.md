@@ -8,7 +8,7 @@ favicon: static/img/deviparikh.png
 
 # Bio
 
-Till early 2024, Devi Parikh was a Senior Director in Generative AI at Meta and an Associate Professor at Georgia Tech. 
+Till early-mid 2024, Devi Parikh was a Senior Director in Generative AI at Meta and an Associate Professor at Georgia Tech. 
 
 Before that, she was a Director in the Fundamental AI Research (FAIR) lab at Meta. From 2013 to 2016, she was an Assistant Professor at Virginia Tech. From 2009 to 2012, she was a Research Assistant Professor at TTIC, an academic computer science institute affiliated with University of Chicago. She has held visiting positions at Cornell University, University of Texas at Austin, Microsoft Research, MIT and Carnegie Mellon University. She received her M.S. and Ph.D. degrees from CMU in 2007 and 2009 respectively. She received her B.S. from Rowan University in 2005. 
 
