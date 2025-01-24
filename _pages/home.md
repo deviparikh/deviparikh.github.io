@@ -14,12 +14,14 @@ favicon: static/img/deviparikh.png
     </a>
   </div>
   <div class="col-sm-5">
+    <br>
     Co-Founder, <a href="https://yutori.com"> Yutori </a>
     <br>
     <br>
     <a href="mailto:deviparikh.dp@gmail.com"> Email </a>,
     <a href = "{{ site.baseurl }}./bio.html"> Bio </a>,
-    <a href = "{{ site.baseurl }}./Parikh_CV.pdf"> CV </a>, 
+    <a href = "{{ site.baseurl }}./Parikh_CV.pdf"> CV </a>
+    <br> 
     <a href = "{{ site.baseurl }}./previous_life.html"> Previous life </a>,
     <a href="http://aipaygrad.es">AI Paygrades</a>
     
