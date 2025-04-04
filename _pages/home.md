@@ -15,7 +15,7 @@ favicon: static/img/deviparikh.png
   </div>
   <div class="col-sm-5">
     <br>
-    Co-founder & co-CEO, <a href="https://yutori.com"> Yutori </a>
+    Co-CEO, <a href="https://yutori.com"> Yutori </a>
     <br>
     <br>
     <a href="mailto:deviparikh.dp@gmail.com"> Email </a>,
