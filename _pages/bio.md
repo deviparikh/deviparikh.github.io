@@ -10,7 +10,7 @@ favicon: static/img/deviparikh.png
 
 Devi Parikh is Co-founder and Co-CEO of Yutori.
 
-Till March of 2024, Devi Parikh was a Senior Director in Generative AI at Meta and an Associate Professor at Georgia Tech. Before joining the Fundamental AI Research (FAIR) lab at Meta and the School of Interactive Computing at Georgia Tech in 2016, she was an Assistant Professor at Virginia Tech for three years. From 2009 to 2012, she was a Research Assistant Professor at TTIC, an academic computer science institute affiliated with University of Chicago. She has held visiting positions at Cornell University, University of Texas at Austin, Microsoft Research, MIT and Carnegie Mellon University. She received her M.S. and Ph.D. degrees from CMU in 2007 and 2009 respectively. She received her B.S. from Rowan University in 2005. 
+Till March of 2024, Devi was a Senior Director in Generative AI at Meta and an Associate Professor at Georgia Tech. Before joining the Fundamental AI Research (FAIR) lab at Meta and the School of Interactive Computing at Georgia Tech in 2016, she was an Assistant Professor at Virginia Tech for three years. From 2009 to 2012, she was a Research Assistant Professor at TTIC, an academic computer science institute affiliated with University of Chicago. She has held visiting positions at Cornell University, University of Texas at Austin, Microsoft Research, MIT and Carnegie Mellon University. She received her M.S. and Ph.D. degrees from CMU in 2007 and 2009 respectively. She received her B.S. from Rowan University in 2005. 
 
 Her research interests are in human-AI collaboration, generative AI, multimodal AI (vision & language), and AI for creativity.
 
