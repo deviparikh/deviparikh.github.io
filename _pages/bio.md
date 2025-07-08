@@ -8,11 +8,11 @@ favicon: static/img/deviparikh.png
 
 # Bio
 
-Till early-mid 2024, Devi Parikh was a Senior Director in Generative AI at Meta and an Associate Professor at Georgia Tech. 
+Devi Parikh is Co-founder and Co-CEO of Yutori.
 
-Before joining the Fundamental AI Research (FAIR) lab at Meta and the School of Interactive Computing at Georgia Tech in 2016, she was an Assistant Professor at Virginia Tech for three years. From 2009 to 2012, she was a Research Assistant Professor at TTIC, an academic computer science institute affiliated with University of Chicago. She has held visiting positions at Cornell University, University of Texas at Austin, Microsoft Research, MIT and Carnegie Mellon University. She received her M.S. and Ph.D. degrees from CMU in 2007 and 2009 respectively. She received her B.S. from Rowan University in 2005. 
+Till March of 2024, Devi Parikh was a Senior Director in Generative AI at Meta and an Associate Professor at Georgia Tech. Before joining the Fundamental AI Research (FAIR) lab at Meta and the School of Interactive Computing at Georgia Tech in 2016, she was an Assistant Professor at Virginia Tech for three years. From 2009 to 2012, she was a Research Assistant Professor at TTIC, an academic computer science institute affiliated with University of Chicago. She has held visiting positions at Cornell University, University of Texas at Austin, Microsoft Research, MIT and Carnegie Mellon University. She received her M.S. and Ph.D. degrees from CMU in 2007 and 2009 respectively. She received her B.S. from Rowan University in 2005. 
 
-Her research interests are in generative AI, multimodal AI (vision & language), human-AI collaboration and AI for creativity.
+Her research interests are in human-AI collaboration, generative AI, multimodal AI (vision & language), and AI for creativity.
 
  <!-- Her research interests include computer vision and AI in general and visual recognition problems in particular. Her recent work involves exploring problems at the intersection of vision and language, and leveraging human-machine collaboration for building smarter machines. She has also worked on other topics such as ensemble of classifiers, data fusion, inference in probabilistic models, 3D reassembly, barcode segmentation, computational photography, interactive computer vision, contextual reasoning, hierarchical representations of images, and human-debugging. -->
 
