@@ -44,6 +44,8 @@ favicon: static/img/deviparikh.png
 <!-- %%%%%%%%%%%%%%%%%%% NEWS %%%%%%%%%%%%%%%%%%% -->
 <!-- <a class="anchor" name="/news"></a> -->
 ## News
+- 2025: Won the [PAMI Mark Everingham Prize at ICCV 2025][pamiprize] for [VQA][vqa]! 
+- 2025: [Launched][scoutsannouncement] [Scouts][scouts] by Yutori!
 - 2025: [Yutori][yutori] is [out of stealth][yutori-out-of-stealth]!
 - 2024: I left my position as Associate Professor at Georgia Tech.
 - 2024: (An unusual) [Keynote at ICLR 2024][iclr2024-keynote] sharing five stories from my 20-year journey in AI so far.
@@ -276,3 +278,6 @@ I've spent several months at:
 [microsoft-gavinj]: http://research.microsoft.com/en-us/people/gavinj/
 [intel-research]: http://pittsburgh.intel-research.net/
 [cmu-erahuls]: http://www.cs.cmu.edu/%7Erahuls/
+[pamiprize]: https://www.thecvf.com?page_id=413#Everingham
+[scoutsannouncement]: https://x.com/abhshkdz/status/1932469194978922555?s=20
+[scouts]: https://scouts.yutori.com
