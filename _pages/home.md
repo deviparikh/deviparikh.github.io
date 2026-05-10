@@ -44,6 +44,7 @@ favicon: static/img/deviparikh.png
 <!-- %%%%%%%%%%%%%%%%%%% NEWS %%%%%%%%%%%%%%%%%%% -->
 <!-- <a class="anchor" name="/news"></a> -->
 ## News
+- 2026: Included in San Francisco Business Times' list of Most Influential Women in Bay Area Business.
 - 2025: Won the [PAMI Mark Everingham Prize at ICCV 2025][pamiprize] for [VQA][vqa]! 
 - 2025: [Launched][scoutsannouncement] [Scouts][scouts] by Yutori!
 - 2025: [Yutori][yutori] is [out of stealth][yutori-out-of-stealth]!
