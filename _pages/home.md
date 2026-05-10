@@ -44,7 +44,7 @@ favicon: static/img/deviparikh.png
 <!-- %%%%%%%%%%%%%%%%%%% NEWS %%%%%%%%%%%%%%%%%%% -->
 <!-- <a class="anchor" name="/news"></a> -->
 ## News
-- 2026: Included in San Francisco Business Times' list of Most Influential Women in Bay Area Business.
+- 2026: Included in San Francisco Business Times' list of [Most Influential Women in Bay Area Business][sfbt].
 - 2025: Won the [PAMI Mark Everingham Prize at ICCV 2025][pamiprize] for [VQA][vqa]! 
 - 2025: [Launched][scoutsannouncement] [Scouts][scouts] by Yutori!
 - 2025: [Yutori][yutori] is [out of stealth][yutori-out-of-stealth]!
@@ -184,6 +184,7 @@ I've spent several months at:
 </div>
 <hr>
 -->
+[sfbt]: https://www.bizjournals.com/sanfrancisco/c/bay-area-influential-women-business-profiles/43994/most-influential-women-in-bay-area-business-devi-parikh.html
 [yutori]: https://yutori.com
 [yutori-out-of-stealth]: https://x.com/deviparikh/status/1882565541099118654
 [iclr2024-keynote]: https://iclr.cc/virtual/2024/invited-talk/21803
