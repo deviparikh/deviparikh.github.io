@@ -9,8 +9,6 @@ permalink: /circles
 
 # Circles
 
-<h2><a href='./create_your_own/circle_packing.html'>Create Your Own!</a></h2>
-
 <div class = 'art'>
   <!-- loop through persons -->
   {% for person in site.data.art.circles %}
