@@ -497,7 +497,7 @@ body.cyo-page-body .cyo-swatch-grid--rangoli {
 }
 
 body.cyo-page-body .cyo-swatch-grid--edge {
-    grid-template-columns: repeat(5, 32px);
+    grid-template-columns: repeat(5, var(--cyo-choice-frame));
 }
 
 body.cyo-page-body .cyo-swatch-grid--compact {
