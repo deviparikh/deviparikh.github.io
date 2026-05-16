@@ -696,6 +696,11 @@ function isLikelyInAppBrowser() {
     return iOSWebView || /(Twitter|FBAN|FBAV|Instagram|Line|LinkedInApp)/i.test(ua);
 }
 
+function isMobileOS() {
+    const ua = navigator.userAgent || '';
+    return isIOSDevice() || /Android/i.test(ua);
+}
+
 function canShareFiles(files) {
     return !!(navigator.share && navigator.canShare && navigator.canShare({ files }));
 }
@@ -850,7 +855,8 @@ async function downloadPNG() {
     const fname = makeFilename('rangoli', 'png');
     const file = dataURLToFile(canvasEl.toDataURL('image/png'), fname, 'image/png');
     const previewWindow = isLikelyInAppBrowser() ? openPreparingWindow('Preparing image...') : null;
-    if (canShareFiles([file])) {
+    const shouldUseNativeShare = isMobileOS() || isLikelyInAppBrowser();
+    if (shouldUseNativeShare && canShareFiles([file])) {
         try {
             await navigator.share({ files: [file], title: fname });
             if (previewWindow) {
