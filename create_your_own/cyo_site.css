@@ -543,7 +543,7 @@ body.cyo-page-body input[type="radio"]:checked + .cyo-swatch {
 }
 
 body.cyo-page-body input[type="radio"] + .cyo-swatch--edge {
-    border-radius: 2px;
+    border-radius: 999px;
 }
 
 body.cyo-page-body input[type="radio"] + .cyo-swatch--thumb {
