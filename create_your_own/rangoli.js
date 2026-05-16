@@ -683,6 +683,76 @@ function drawCaption(tBloom) {
 // ---------- Recording ----------
 let recordedExt = 'mp4';
 let recordedMime = 'video/mp4';
+let recordingPreviewWindow = null;
+
+function isIOSDevice() {
+    const ua = navigator.userAgent || '';
+    return /iPad|iPhone|iPod/.test(ua) || (navigator.platform === 'MacIntel' && navigator.maxTouchPoints > 1);
+}
+
+function isLikelyInAppBrowser() {
+    const ua = navigator.userAgent || '';
+    const iOSWebView = isIOSDevice() && /AppleWebKit/i.test(ua) && !/Safari/i.test(ua);
+    return iOSWebView || /(Twitter|FBAN|FBAV|Instagram|Line|LinkedInApp)/i.test(ua);
+}
+
+function canShareFiles(files) {
+    return !!(navigator.share && navigator.canShare && navigator.canShare({ files }));
+}
+
+function dataURLToFile(dataURL, filename, mimeType) {
+    const parts = dataURL.split(',');
+    const base64 = parts[1] || '';
+    const mime = mimeType || ((parts[0].match(/data:(.*?);base64/) || [])[1]) || 'application/octet-stream';
+    const binary = atob(base64);
+    const bytes = new Uint8Array(binary.length);
+    for (let i = 0; i < binary.length; i++) bytes[i] = binary.charCodeAt(i);
+    return new File([bytes], filename, { type: mime });
+}
+
+function triggerFileDownload(file, filename) {
+    const url = URL.createObjectURL(file);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = filename;
+    document.body.appendChild(a);
+    a.click();
+    setTimeout(() => {
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }, 100);
+}
+
+function openPreparingWindow(titleText) {
+    const win = window.open('', '_blank');
+    if (!win) return null;
+    try {
+        win.document.write(`<!doctype html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>${titleText}</title><style>body{margin:0;padding:24px;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;color:#222;background:#fff}p{margin:0;font-size:16px;line-height:1.5}</style></head><body><p>${titleText}</p></body></html>`);
+        win.document.close();
+    } catch (e) {}
+    return win;
+}
+
+function renderAssetWindow(win, file, kindLabel) {
+    if (!win || !file) return false;
+    const objectUrl = URL.createObjectURL(file);
+    const isVideo = file.type.indexOf('video/') === 0;
+    const mediaTag = isVideo
+        ? `<video controls playsinline style="display:block;max-width:100%;height:auto;margin:0 auto 20px;" src="${objectUrl}"></video>`
+        : `<img alt="${kindLabel}" style="display:block;max-width:100%;height:auto;margin:0 auto 20px;" src="${objectUrl}">`;
+    const helpText = isVideo
+        ? 'Use the browser share menu, or open in Safari, to save or send this video.'
+        : 'Tap and hold the image, or use the browser share menu, to save it.';
+    try {
+        win.document.write(`<!doctype html><html><head><meta name="viewport" content="width=device-width, initial-scale=1"><title>${file.name}</title><style>body{margin:0;padding:24px;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Neue',Helvetica,Arial,sans-serif;color:#222;background:#fff}main{max-width:900px;margin:0 auto}p{margin:0 0 16px;font-size:16px;line-height:1.5}a{color:#222;text-decoration:none;border-bottom:1px solid #ccc}</style></head><body><main><p>${helpText}</p>${mediaTag}<p><a href="${objectUrl}" download="${file.name}">Download ${kindLabel}</a></p></main></body></html>`);
+        win.document.close();
+        win.addEventListener('beforeunload', () => URL.revokeObjectURL(objectUrl), { once: true });
+        return true;
+    } catch (e) {
+        URL.revokeObjectURL(objectUrl);
+        return false;
+    }
+}
 
 function startRecording() {
     if (isRecording) return;
@@ -714,9 +784,16 @@ function startRecording() {
         }
     }
 
+    const shouldPreviewVideo = isLikelyInAppBrowser();
+    recordingPreviewWindow = shouldPreviewVideo ? openPreparingWindow('Preparing video...') : null;
+
     try {
         mediaRecorder = new MediaRecorder(stream, options);
     } catch (e) {
+        if (recordingPreviewWindow) {
+            try { recordingPreviewWindow.close(); } catch (err) {}
+            recordingPreviewWindow = null;
+        }
         alert("Couldn't start recording: " + e.message);
         return;
     }
@@ -725,18 +802,18 @@ function startRecording() {
         if (e.data && e.data.size > 0) recordedChunks.push(e.data);
     };
     mediaRecorder.onstop = () => {
-        const blob = new Blob(recordedChunks, { type: recordedMime });
-        const url = URL.createObjectURL(blob);
         const fname = makeFilename('rangoli', recordedExt);
-        const a = document.createElement('a');
-        a.href = url;
-        a.download = fname;
-        document.body.appendChild(a);
-        a.click();
-        setTimeout(() => {
-            document.body.removeChild(a);
-            URL.revokeObjectURL(url);
-        }, 100);
+        const blob = new Blob(recordedChunks, { type: recordedMime });
+        const file = new File([blob], fname, { type: recordedMime });
+        if (recordingPreviewWindow && renderAssetWindow(recordingPreviewWindow, file, 'video')) {
+            recordingPreviewWindow = null;
+        } else {
+            if (recordingPreviewWindow) {
+                try { recordingPreviewWindow.close(); } catch (err) {}
+                recordingPreviewWindow = null;
+            }
+            triggerFileDownload(file, fname);
+        }
         const indicator = document.getElementById('recIndicator');
         if (indicator) indicator.style.display = 'none';
     };
@@ -768,15 +845,32 @@ function makeFilename(prefix, ext) {
     return `${prefix}-${safe}.${ext}`;
 }
 
-function downloadPNG() {
+async function downloadPNG() {
     const canvasEl = document.getElementById('mycanvas');
-    const dataURL = canvasEl.toDataURL('image/png');
-    const a = document.createElement('a');
-    a.href = dataURL;
-    a.download = makeFilename('rangoli', 'png');
-    document.body.appendChild(a);
-    a.click();
-    setTimeout(() => document.body.removeChild(a), 100);
+    const fname = makeFilename('rangoli', 'png');
+    const file = dataURLToFile(canvasEl.toDataURL('image/png'), fname, 'image/png');
+    const previewWindow = isLikelyInAppBrowser() ? openPreparingWindow('Preparing image...') : null;
+    if (canShareFiles([file])) {
+        try {
+            await navigator.share({ files: [file], title: fname });
+            if (previewWindow) {
+                try { previewWindow.close(); } catch (e) {}
+            }
+            return;
+        } catch (e) {
+            if (e && e.name === 'AbortError') {
+                if (previewWindow) {
+                    try { previewWindow.close(); } catch (err) {}
+                }
+                return;
+            }
+        }
+    }
+    if (previewWindow && renderAssetWindow(previewWindow, file, 'image')) return;
+    if (previewWindow) {
+        try { previewWindow.close(); } catch (e) {}
+    }
+    triggerFileDownload(file, fname);
 }
 
 function postOnX() {
