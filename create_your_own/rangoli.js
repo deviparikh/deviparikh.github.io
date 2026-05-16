@@ -22,9 +22,6 @@ let isRecording = false;
 let mediaRecorder = null;
 let recordedChunks = [];
 let recordStartedAt = 0;
-const DEFAULT_FOLD = 24;
-const DEFAULT_COMPLEXITY = 8;
-const DEFAULT_PALETTE_IDX = 3;
 
 // ---------- Palettes ----------
 // Reusing colors from Devi's other CYO tools for visual continuity.
@@ -222,29 +219,17 @@ function rebuildFromControls() {
     recipe = generateRecipe(seedStr, fold, complexity, paletteIdx);
     if (ENABLE_RING_CLICK) applyRingOverrides(recipe, seedStr);
 
-    // sync url — but only persist what the user actually typed, not the
-    // placeholder fallback. Default page state should have a clean URL.
+    // Sync the live state into the URL, including the default state, so
+    // a fresh visit immediately produces a shareable permalink.
     const url = new URL(window.location.href);
     if (userText) {
         url.searchParams.set('t', userText);
     } else {
         url.searchParams.delete('t');
     }
-    if (fold !== DEFAULT_FOLD) {
-        url.searchParams.set('f', fold);
-    } else {
-        url.searchParams.delete('f');
-    }
-    if (complexity !== DEFAULT_COMPLEXITY) {
-        url.searchParams.set('c', complexity);
-    } else {
-        url.searchParams.delete('c');
-    }
-    if (paletteIdx !== DEFAULT_PALETTE_IDX) {
-        url.searchParams.set('p', paletteIdx);
-    } else {
-        url.searchParams.delete('p');
-    }
+    url.searchParams.set('f', fold);
+    url.searchParams.set('c', complexity);
+    url.searchParams.set('p', paletteIdx);
     if (variationIdx > 0) {
         url.searchParams.set('v', variationIdx);
     } else {
