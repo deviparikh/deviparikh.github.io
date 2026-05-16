@@ -25,7 +25,7 @@
                 <h1 class="cyo-title">Rangoli</h1>
                 <p class="cyo-text">Type a word — a name, a feeling, today's date — and watch it bloom.</p>
 
-                <input id="rangoliText" class="cyo-input" type="text" placeholder="For whoever needs this" maxlength="40" autocomplete="off"/>
+                <input id="rangoliText" class="cyo-input" type="text" placeholder="For you" maxlength="40" autocomplete="off"/>
 
                 <div class="cyo-stack-sm">
                     <span class="cyo-eyebrow cyo-section-title">Palette</span>
@@ -35,17 +35,17 @@
                 <div class="cyo-stack-sm cyo-slider-group">
                     <div class="cyo-control-label">
                         <span class="cyo-control-title">Fold</span>
-                        <span class="cyo-control-value" id="foldVal">12</span>
+                        <span class="cyo-control-value" id="foldVal">24</span>
                     </div>
-                    <input id="foldSlider" type="range" min="4" max="24" step="2" value="12" class="slider">
+                    <input id="foldSlider" type="range" min="4" max="24" step="2" value="24" class="slider">
                 </div>
 
                 <div class="cyo-stack-sm cyo-slider-group">
                     <div class="cyo-control-label">
                         <span class="cyo-control-title">Rings</span>
-                        <span class="cyo-control-value" id="complexityVal">6</span>
+                        <span class="cyo-control-value" id="complexityVal">8</span>
                     </div>
-                    <input id="complexitySlider" type="range" min="3" max="8" step="1" value="6" class="slider">
+                    <input id="complexitySlider" type="range" min="3" max="8" step="1" value="8" class="slider">
                 </div>
 
                 <div class="cyo-action-stack cyo-action-stack--offset">
@@ -122,7 +122,7 @@
             radio.name = 'palette';
             radio.value = idx;
             radio.id = 'p' + idx;
-            if (idx === 0) radio.checked = true;
+            if (idx === 3) radio.checked = true;
             const label = document.createElement('label');
             label.className = 'cyo-swatch';
             label.htmlFor = radio.id;
