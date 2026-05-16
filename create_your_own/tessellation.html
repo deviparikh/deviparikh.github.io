@@ -6,8 +6,9 @@
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
 <title>Devi Parikh - Algorithmic Art</title>
-<link href="cyo_style.css" rel="stylesheet" type="text/css">
+<link href="cyo_site.css" rel="stylesheet" type="text/css">
 <link rel="icon" type="image/x-icon" href="../static/img/art/tessellation.png">
+<script src="updateTwitter.js"></script>
 <script type="text/javascript">
 var line_darkness = 0.8
 
@@ -56,6 +57,7 @@ function init() {
     canvas_fg.width = canvasSize;
     canvas_fg.height = canvasSize;
     ctx_fg = canvas_fg.getContext("2d");
+    canvas_fg.style.touchAction = 'none';
 
     canvas_bg = document.createElement('canvas');
     canvas_bg.width = canvasSize;
@@ -66,30 +68,53 @@ function init() {
     w = canvas_fg.width;
     h = canvas_fg.height;
 
-    canvas_fg.addEventListener("mousemove", function(e) {
-        findxy('move', e)
-    }, false);
-    canvas_fg.addEventListener("touchmove", function(e) {
-        findxy('move', e)
-    }, false);
-    canvas_fg.addEventListener("mousedown", function(e) {
-        findxy('down', e)
-    }, false);
-    canvas_fg.addEventListener("touchstart", function(e) {
-        findxy('down', e)
-    }, false);
-    canvas_fg.addEventListener("mouseup", function(e) {
-        findxy('up', e)
-    }, false);
-    canvas_fg.addEventListener("touchend", function(e) {
-        findxy('up', e)
-    }, false);
-    canvas_fg.addEventListener("mouseout", function(e) {
-        findxy('out', e)
-    }, false);
-    canvas_fg.addEventListener("touchcancel", function(e) {
-        findxy('out', e)
-    }, false);
+    if (window.PointerEvent) {
+        canvas_fg.addEventListener("pointermove", function(e) {
+            findxy('move', e)
+        }, false);
+        canvas_fg.addEventListener("pointerdown", function(e) {
+            if (canvas_fg.setPointerCapture) {
+                canvas_fg.setPointerCapture(e.pointerId);
+            }
+            findxy('down', e)
+        }, false);
+        canvas_fg.addEventListener("pointerup", function(e) {
+            findxy('up', e)
+        }, false);
+        canvas_fg.addEventListener("pointercancel", function(e) {
+            findxy('out', e)
+        }, false);
+        canvas_fg.addEventListener("pointerleave", function(e) {
+            if (e.pointerType !== 'touch') {
+                findxy('out', e)
+            }
+        }, false);
+    } else {
+        canvas_fg.addEventListener("mousemove", function(e) {
+            findxy('move', e)
+        }, false);
+        canvas_fg.addEventListener("touchmove", function(e) {
+            findxy('move', e)
+        }, false);
+        canvas_fg.addEventListener("mousedown", function(e) {
+            findxy('down', e)
+        }, false);
+        canvas_fg.addEventListener("touchstart", function(e) {
+            findxy('down', e)
+        }, false);
+        canvas_fg.addEventListener("mouseup", function(e) {
+            findxy('up', e)
+        }, false);
+        canvas_fg.addEventListener("touchend", function(e) {
+            findxy('up', e)
+        }, false);
+        canvas_fg.addEventListener("mouseout", function(e) {
+            findxy('out', e)
+        }, false);
+        canvas_fg.addEventListener("touchcancel", function(e) {
+            findxy('out', e)
+        }, false);
+    }
 
     document.body.addEventListener("touchstart", function(e) {
         if (e.target == canvas_fg) {
@@ -349,115 +374,21 @@ function draw_starting_strokes() {
 }
 
 function draw_palette() {
-    draw_color(document.getElementById('color_1'), color1)
-    draw_color(document.getElementById('color_2'), color2)
-    draw_color(document.getElementById('color_3'), color3)
-    draw_color(document.getElementById('color_4'), color4)
-    draw_color(document.getElementById('color_5'), color5)
-    draw_color(document.getElementById('color_6'), color6)
-    draw_color(document.getElementById('color_7'), color7)
-    draw_color(document.getElementById('color_8'), color8)
-    draw_color(document.getElementById('color_9'), color9)
-    draw_color(document.getElementById('color_10'), color10)
-    draw_thickness(document.getElementById('thick_1'), thick1)
-    draw_thickness(document.getElementById('thick_2'), thick2)
-    draw_thickness(document.getElementById('thick_3'), thick3)
-    draw_thickness(document.getElementById('thick_4'), thick4)
-    draw_undo(document.getElementById('undo'))
+    document.getElementById('color_1').checked = stroke_color == color1;
+    document.getElementById('color_2').checked = stroke_color == color2;
+    document.getElementById('color_3').checked = stroke_color == color3;
+    document.getElementById('color_4').checked = stroke_color == color4;
+    document.getElementById('color_5').checked = stroke_color == color5;
+    document.getElementById('color_6').checked = stroke_color == color6;
+    document.getElementById('color_7').checked = stroke_color == color7;
+    document.getElementById('color_8').checked = stroke_color == color8;
+    document.getElementById('color_9').checked = stroke_color == color9;
+    document.getElementById('color_10').checked = stroke_color == color10;
+    document.getElementById('thick_1').checked = stroke_thickness == thick1;
+    document.getElementById('thick_2').checked = stroke_thickness == thick2;
+    document.getElementById('thick_3').checked = stroke_thickness == thick3;
+    document.getElementById('thick_4').checked = stroke_thickness == thick4;
 }
-
-function draw_undo(canvas, color) {
-    if (canvas.getContext) {
-        var ctx = canvas.getContext('2d');
-        ctx.fillStyle = '#b0b0b0';
-        ctx.strokeStyle = '#000000';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        ctx.strokeRect(0, 0, canvas.width, canvas.height);
-        var X = canvas.width / 2;
-        var Y = canvas.height / 2;
-        var R = canvas.height / 2 - 10;
-        ctx.beginPath();
-        ctx.arc(X, Y, R, -1.0 * Math.PI, 0.5 * Math.PI, false);
-        ctx.lineWidth = 2;
-        ctx.strokeStyle = "black";
-        ctx.stroke();
-        ctx_fg.closePath();
-        ctx.beginPath();
-        ctx.moveTo(X - R - 4, Y - 4);
-        ctx.lineTo(X - R, Y);
-        ctx.lineTo(X - R + 5, Y - 3);
-        ctx.lineWidth = 3;
-        ctx.strokeStyle = "black";
-        ctx.stroke();
-        ctx_fg.closePath();
-    }
-}
-
-function draw_color(canvas, color) {
-    if (canvas.getContext) {
-        var ctx = canvas.getContext('2d');
-        ctx.fillStyle = '#e0e0e0';
-        // ctx.fillStyle = '#ffffff';
-
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        var X = canvas.width / 2;
-        var Y = canvas.height / 2;
-        var R = canvas.width / 2 - 3;
-        ctx.beginPath();
-        ctx.arc(X, Y, R - 2, 0, 2 * Math.PI, false);
-        ctx.fillStyle = color;
-        ctx.fill();
-        ctx_fg.closePath();
-
-        if (stroke_color == color) {
-            ctx.beginPath();
-            ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
-            ctx.lineWidth = 2;
-            ctx.strokeStyle = "black";
-            ctx.stroke();
-            ctx_fg.closePath();
-            ctx.beginPath();
-            ctx.arc(X, Y, R - 1, 0, 2 * Math.PI, false);
-            ctx.lineWidth = 1;
-            ctx.strokeStyle = "white";
-            ctx.stroke();
-            ctx_fg.closePath();
-        }
-    }
-}
-
-function draw_thickness(canvas, thickness) {
-    if (canvas.getContext) {
-        var ctx = canvas.getContext('2d');
-        ctx.fillStyle = '#e0e0e0';
-        // ctx.fillStyle = 'ffffff';
-        ctx.fillRect(0, 0, canvas.width, canvas.height);
-        var X = canvas.width / 2;
-        var Y = canvas.height / 2;
-        var R = thickness;
-        ctx.beginPath();
-        ctx.arc(X, Y, R, 0, 2 * Math.PI, false);
-        ctx.fillStyle = "black";
-        ctx.fill();
-        ctx_fg.closePath();
-
-        if (stroke_thickness == thickness) {
-            ctx.beginPath();
-            ctx.arc(X, Y, R + 2, 0, 2 * Math.PI, false);
-            ctx.lineWidth = 2;
-            ctx.strokeStyle = "black";
-            ctx.stroke();
-            ctx_fg.closePath();
-            ctx.beginPath();
-            ctx.arc(X, Y, R + 1, 0, 2 * Math.PI, false);
-            ctx.lineWidth = 1;
-            ctx.strokeStyle = "white";
-            ctx.stroke();
-            ctx_fg.closePath();
-        }
-    }
-}
-
 
 function color(obj) {
     switch (obj.id) {
@@ -773,15 +704,14 @@ function smooth_points() {
 
 function findxy(res, e) {
     var offsets = canvas_fg.getBoundingClientRect();
-
-    if (isMobile && ((res == 'move') || (res == 'down') || (res == 'out'))) {
-        console.log(isMobile)
-        var mouseX = e.touches[0].clientX - offsets.left;
-        var mouseY = e.touches[0].clientY - offsets.top;
-    } else {
-        var mouseX = e.clientX - offsets.left;
-        var mouseY = e.clientY - offsets.top;
+    var source = e;
+    if (e.touches && e.touches.length > 0) {
+        source = e.touches[0];
+    } else if (e.changedTouches && e.changedTouches.length > 0) {
+        source = e.changedTouches[0];
     }
+    var mouseX = source.clientX - offsets.left;
+    var mouseY = source.clientY - offsets.top;
     if (res == 'down') {
         prevX = mouseX;
         prevY = mouseY;
@@ -858,67 +788,73 @@ function findxy(res, e) {
 }
 </script>
 
-<body onload="init()">
-    <!-- style="float: left;" -->
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col-md-4">
-                    <br>
-                    Try other styles by <a href="../art.html#cyo"> Devi Parikh</a>
-                    <br><br>
-                    <a href="../art.html#cyo">
-                        <img src="../static/img/art/cyo.png" alt="Create Your Own" style="width:300px;border:0;">
-                    </a>
-                    <br><br>
-                    (Not to be used for commercial purposes<br> without prior consent.)
-                    <h1>Tessellation</h1>
-                    Try drawing a few small arcs or curves or lines :)
-                    <br>
-                    <br>
-                    Then you can create something more intentional.
-                    <br>
-                    <br>
-                    Built on a sketching interface by <a href="http://larryzitnick.org/">Larry Zitnick</a>
-                    <br>
-                    <br>
-                    <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="true">Tweet</a> your art 
-                    <br>
-                    (Remember to download it first so you can attach it).
-                    <br>
-                    <br>
+<body class="cyo-page-body cyo-tessellation-page" onload="init()">
+    <div class="cyo-page cyo-page--wide">
+        <header class="cyo-topbar">
+            <a href="/art#cyo">Other styles by Devi Parikh</a>
+        </header>
+        <div class="cyo-layout">
+            <aside class="cyo-stack">
+                <div class="cyo-eyebrow">Algorithmic Art</div>
+                <h1 class="cyo-title">Tessellation</h1>
+                <p class="cyo-text cyo-intro">Draw a few marks and let them tile into a repeated pattern.</p>
+                <div class="cyo-control-stack cyo-control-stack--compact">
+                    <div class="cyo-tool-section">
+                        <div class="cyo-eyebrow cyo-section-title">Colors</div>
+                        <div class="cyo-swatch-grid cyo-swatch-grid--five">
+                            <input id="color_1" type="radio" name="strokeColorUi" onchange="color(this)">
+                            <label class="cyo-swatch" for="color_1"><span class="cyo-swatch-circle" style="background:#d7320f;"></span></label>
+                            <input id="color_2" type="radio" name="strokeColorUi" onchange="color(this)">
+                            <label class="cyo-swatch" for="color_2"><span class="cyo-swatch-circle" style="background:#e97219;"></span></label>
+                            <input id="color_3" type="radio" name="strokeColorUi" onchange="color(this)">
+                            <label class="cyo-swatch" for="color_3"><span class="cyo-swatch-circle" style="background:#dbc43b;"></span></label>
+                            <input id="color_4" type="radio" name="strokeColorUi" onchange="color(this)">
+                            <label class="cyo-swatch" for="color_4"><span class="cyo-swatch-circle" style="background:#49a64c;"></span></label>
+                            <input id="color_5" type="radio" name="strokeColorUi" onchange="color(this)">
+                            <label class="cyo-swatch" for="color_5"><span class="cyo-swatch-circle" style="background:#0B8989;"></span></label>
+                            <input id="color_6" type="radio" name="strokeColorUi" onchange="color(this)">
+                            <label class="cyo-swatch" for="color_6"><span class="cyo-swatch-circle" style="background:#8F7092;"></span></label>
+                            <input id="color_7" type="radio" name="strokeColorUi" onchange="color(this)">
+                            <label class="cyo-swatch" for="color_7"><span class="cyo-swatch-circle" style="background:#3F6083;"></span></label>
+                            <input id="color_8" type="radio" name="strokeColorUi" onchange="color(this)">
+                            <label class="cyo-swatch" for="color_8"><span class="cyo-swatch-circle" style="background:#a55523;"></span></label>
+                            <input id="color_9" type="radio" name="strokeColorUi" onchange="color(this)" checked>
+                            <label class="cyo-swatch" for="color_9"><span class="cyo-swatch-circle" style="background:#343434;"></span></label>
+                            <input id="color_10" type="radio" name="strokeColorUi" onchange="color(this)">
+                            <label class="cyo-swatch" for="color_10"><span class="cyo-swatch-circle" style="background:#ffffff;"></span></label>
+                        </div>
+                    </div>
+                    <div class="cyo-tool-section">
+                        <div class="cyo-eyebrow cyo-section-title">Thickness</div>
+                        <div class="cyo-swatch-grid cyo-swatch-grid--sizes">
+                            <input id="thick_1" type="radio" name="strokeThicknessUi" onchange="thickness(this)">
+                            <label class="cyo-swatch" for="thick_1"><span class="cyo-thickness-dot cyo-thickness-dot--lg"></span></label>
+                            <input id="thick_2" type="radio" name="strokeThicknessUi" onchange="thickness(this)">
+                            <label class="cyo-swatch" for="thick_2"><span class="cyo-thickness-dot cyo-thickness-dot--md"></span></label>
+                            <input id="thick_3" type="radio" name="strokeThicknessUi" onchange="thickness(this)" checked>
+                            <label class="cyo-swatch" for="thick_3"><span class="cyo-thickness-dot cyo-thickness-dot--sm"></span></label>
+                            <input id="thick_4" type="radio" name="strokeThicknessUi" onchange="thickness(this)">
+                            <label class="cyo-swatch" for="thick_4"><span class="cyo-thickness-dot cyo-thickness-dot--xs"></span></label>
+                        </div>
+                    </div>
+                    <div class="cyo-tool-section">
+                        <div class="cyo-eyebrow cyo-section-title">Undo</div>
+                        <button class="cyo-tool-button" type="button" onclick="undo()" aria-label="Undo">&#8630;</button>
+                    </div>
+                </div>
+                <div class="cyo-actions-grid">
                     <a id="download" download="myart.png" target="_blank">
-                        <button type="button" onClick="download()">Download</button>
+                        <button type="button" onClick="download()">Save PNG</button>
                     </a>
-                    <br>
-                    <br>
-                    <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-                    
-                        
-                        <canvas id="color_1" width="30px" height="30px" style="margin-top: 2px;" onclick="color(this)"></canvas>
-                        <canvas id="color_2" width="30px" height="30px" style="margin-top: 2px;"onclick="color(this)"></canvas>
-                        <canvas id="color_3" width="30px" height="30px" style="margin-top: 2px;"onclick="color(this)"></canvas>
-                        <canvas id="color_4" width="30px" height="30px" style="margin-top: 2px;"onclick="color(this)"></canvas>
-                        <canvas id="color_5" width="30px" height="30px" style="margin-top: 2px;"onclick="color(this)"></canvas>
-                        <canvas id="color_6" width="30px" height="30px" style="margin-top: 2px;"onclick="color(this)"></canvas>
-                        <canvas id="color_7" width="30px" height="30px" style="margin-top: 2px;"onclick="color(this)"></canvas>
-                        <canvas id="color_8" width="30px" height="30px" style="margin-top: 2px;"onclick="color(this)"></canvas>
-                        <canvas id="color_9" width="30px" height="30px" style="margin-top: 2px;"onclick="color(this)"></canvas>
-                        <canvas id="color_10" width="30px" height="30px" style="margin-top: 2px;"onclick="color(this)"></canvas>
-                        <br>
-                        <canvas id="thick_1" width="30px" height="30px" style="margin-top: 2px;"onclick="thickness(this)"></canvas>
-                        <canvas id="thick_2" width="30px" height="30px" style="margin-top: 2px;"onclick="thickness(this)"></canvas>
-                        <canvas id="thick_3" width="30px" height="30px" style="margin-top: 2px;"onclick="thickness(this)"></canvas>
-                        <canvas id="thick_4" width="30px" height="30px" style="margin-top: 2px;"onclick="thickness(this)"></canvas>
-                        <br>
-                        <canvas id="undo" width="40px" height="40px" style="margin-top: 2px;"onclick="undo()"></canvas>
-                        <!-- <div style="position:absolute;top:5px;left:15px;font-family:verdana;font-size:10pt">Color</div> -->
-                        <!-- <div style="position:absolute;top:5px;left:270px;font-family:verdana;font-size:10pt">Thickness</div> -->
-            </div>
-            <div class="col-md-8">
-                <canvas id="drawing_canvas" ></canvas>
-                <!-- Also change canvas size on variable canvasSize at start of file -->
-                <!-- <canvas id="undo" width="30px" height="30px" onclick="undo()"></canvas> -->
-                <!-- <img id="canvasimg" style="position:absolute;top:10%;left:52%;" style="display:none;"> -->
+                    <button type="button" onClick="postOnX()">Post on X</button>
+                </div>
+                <div class="cyo-note-block">
+                    <p class="cyo-source-note">Built on a sketching interface by <a href="http://larryzitnick.org/">Larry Zitnick</a>.</p>
+                    <p class="cyo-legal cyo-note">Not to be used for commercial purposes without prior consent.</p>
+                </div>
+            </aside>
+            <div class="cyo-canvas-shell">
+                <canvas id="drawing_canvas"></canvas>
             </div>
         </div>
     </div>
@@ -928,11 +864,6 @@ function findxy(res, e) {
         var image = document.getElementById("drawing_canvas").toDataURL("image/png");
         download.setAttribute("href", image);
     };
-    </script>
-    <script>
-    function updateTwitter() {
-        document.getElementsByClassName("twitter-share-button")[0].outerHTML = "<iframe id=\"twitter-widget-0\" scrolling=\"no\" allowtransparency=\"true\" class=\"twitter-share-button twitter-share-button-rendered twitter-tweet-button\" style=\"position: static; visibility: visible; width: 61px; height: 20px;\" title=\"Twitter Tweet Button\" src=\"https://platform.twitter.com/widgets/tweet_button.d6364fae9340b0be5f13818370141fd0.en.html#dnt=false&amp;id=twitter-widget-0&amp;lang=en&amp;original_referer=" + encodeURI(window.location.href) + "&amp;size=m&amp;text=Check this out. I made this using @deviparikh's algorithmic art tool. It's a lot of fun, you should try it out! #generative #generativeart #creativecoding #codeart #algorithmicart pic.twitter.com/hV2ps5StmB &amp;time=1569167647479&amp;type=share&amp;url=" + encodeURI(window.location.href) + "\" frameborder=\"0\"></iframe>";
-    }
     </script>
 </body>
 

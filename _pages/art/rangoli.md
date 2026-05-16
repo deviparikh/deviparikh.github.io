@@ -9,6 +9,8 @@ permalink: /rangoli
 
 # Rangoli
 
+<h2><a href='./create_your_own/rangoli.html'>Create Your Own!</a></h2>
+
 <div class = 'art'>
   {% for person in site.data.art.rangoli %}
   <div class = 'artpiece'>

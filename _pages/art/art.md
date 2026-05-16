@@ -58,7 +58,7 @@ permalink: /art
   {% endfor %}
 </div>
 
-<h1>Create Your Own</h1>
+<h1 id="cyo">Create Your Own</h1>
 
 (Not to be used for commercial purposes without prior consent.)
 

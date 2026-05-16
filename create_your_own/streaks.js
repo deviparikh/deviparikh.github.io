@@ -383,12 +383,11 @@ function instantiateInput(firstCall) {
     if (firstCall == 1) {
         input = createFileInput(handleFile);
         input.id('inputUpload');
-        var spanEl = document.getElementById("upload");
-        var bodyRect = document.body.getBoundingClientRect(),
-            elemRect = spanEl.getBoundingClientRect(),
-            xShift = elemRect.left - bodyRect.left;
-        yShift = elemRect.top - bodyRect.top;
-        input.position(xShift + 70, yShift + 5);
+        input.position(-9999, -9999);
+        input.style('opacity', '0');
+        input.style('width', '1px');
+        input.style('height', '1px');
+        input.style('pointer-events', 'none');
         firstCall = 0;
         visitedUpload = 1;
     }

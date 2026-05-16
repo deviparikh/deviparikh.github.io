@@ -3,13 +3,18 @@
    <meta charset=UTF-8>
    <meta name=viewport content="width=device-width,shrink-to-fit=0,user-scalable=no,minimum-scale=1,maximum-scale=1">
    <title>Devi Parikh - Algorithmic Art</title>
-   <link href="cyo_style.css" rel="stylesheet" type="text/css">
+   <link href="cyo_site.css" rel="stylesheet" type="text/css">
    <link rel="icon" type="image/x-icon" href="../static/img/art/leaves.png">
 
-   <body>
+   <body class="cyo-page-body cyo-leaves-page">
       <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/0.9.0/p5.js"></script>
       <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.js"></script>
-      <div id="div1" class="col-sm-1" style="float: left;">
+      <div class="cyo-page">
+      <header class="cyo-topbar">
+         <a href="/art#cyo">Other styles by Devi Parikh</a>
+      </header>
+      <div class="cyo-layout">
+      <aside id="div1" class="cyo-stack">
          <script src="updateTwitter.js"></script>
          <script>
             function doPerPaletteRadioButton() {
@@ -31,88 +36,115 @@
                 updateTwitter();
               }
          </script>
-         <br>
-         Try other styles by <a href="../art.html#cyo"> Devi Parikh</a> 
-         <br><br>
-         <a href="../art.html#cyo">
-         <img src="../static/img/art/cyo.png" alt="Create Your Own" style="width:300px;border:0;">
-         </a>
-         <br><br>
-         (Not to be used for commercial purposes<br> without prior consent.)
-         <h1>Leaves</h1>
-         <input id = "0" type="radio" name="palette" value="0">
-         <label for="0"><img src="./palettes/s_palette_0.png" height="25" width="25"/></label>&nbsp;
-         <input id = "1" type="radio" name="palette" value="1">
-         <label for="1"><img src="./palettes/s_palette_1.png" height="25" width="25"/></label>&nbsp;
-         <input id = "2" type="radio" name="palette" value="2">
-         <label for="2"><img src="./palettes/s_palette_2.png" height="25" width="25"/></label>&nbsp;
-         <input id = "3" type="radio" name="palette" value="3">
-         <label for="3"><img src="./palettes/s_palette_3.png" height="25" width="25"/></label>&nbsp;
-         <input id = "4" type="radio" name="palette" value="4">
-         <label for="4"><img src="./palettes/cp_palette_4.png" height="25" width="25"/></label>
-         <br>
-         <input id = "5" type="radio" name="palette" value="5">
-         <label for="5"><img src="./palettes/palette_5.png" height="25" width="25"/></label>&nbsp;
-         <input id = "6" type="radio" name="palette" value="6">
-         <label for="6"><img src="./palettes/palette_6.png" height="25" width="25"/></label>&nbsp;
-         <input id = "7" type="radio" name="palette" value="7">
-         <label for="7"><img src="./palettes/palette_7.png" height="25" width="25"/></label>&nbsp;
-         <input id = "8" type="radio" name="palette" value="8" checked="checked">
-         <label for="8"><img src="./palettes/palette_8.png" height="25" width="25"/></label>&nbsp;
-         <input id = "9" type="radio" name="palette" value="9">
-         <label for="9"><img src="./palettes/palette_9.png" height="25" width="25"/></label>
-         <br>
-         <input id = "10" type="radio" name="palette" value="10">
-         <label for="10"><img src="./palettes/palette_10.png" height="25" width="25"/></label>&nbsp;
-         <input id = "11" type="radio" name="palette" value="11">
-         <label for="11"><img src="./palettes/palette_11.png" height="25" width="25"/></label>&nbsp;
-         <input id = "12" type="radio" name="palette" value="12">
-         <label for="12"><img src="./palettes/palette_12.png" height="25" width="25"/></label>
-         <br><br>
-         Columns
-         <input id="numColumns" type="range" min="1" max="50" step="1" value="10" class="slider">
-         <a id="showNC"></a>
-         <br><br>
-         Rows
-         <input id="numRows" type="range" min="1" max="50" step="1" value="10" class="slider">
-         <a id="showNR"></a>
-         <br><br>
-         Irregular grid
-         <input id="gridNoise" type="range" min="0" max="1" step="0.05" value="0.1" class="slider">
-         <a id="showGN"></a>
-         <br><br>
-         Height
-         <input id="verticalSize" type="range" min="0.01" max="1" step="0.01" value="0.25" class="slider">
-         <a id="showVS"></a>
-         <br><br>
-         Curve 1
-         <input id="offsetLeft" type="range" min="-1" max="1" step="0.05" value="-0.1" class="slider">   
-         <a id="showOL"></a>
-         <br><br>
-         Curve 2
-         <input id="offsetRight" type="range" min="-1" max="1" step="0.05" value="0.2" class="slider">
-         <a id="showOR"></a>
-         <br><br>
-         Drop
-         <input id="drop" type="range" min="0" max="0.95" step="0.05" value="0.2" class="slider">    
-         <a id="showD"></a>
-         <br><br>
-         Edge color
-         <input id = "e0" type="radio" name="edgeColor" value="0">
-         <label for="e0"><img src="./palettes/ecolor_0.png" height="25" width="10"/></label>&nbsp;
-         <input id = "e1" type="radio" name="edgeColor" value="1">
-         <label for="e1"><img src="./palettes/ecolor_1.png" height="25" width="10"/></label>&nbsp;
-         <input id = "e2" type="radio" name="edgeColor" value="2">
-         <label for="e2"><img src="./palettes/ecolor_2.png" height="25" width="10"/></label>&nbsp;
-         <input id = "e3" type="radio" name="edgeColor" value="3" checked="checked">
-         <label for="e3"><img src="./palettes/ecolor_3.png" height="25" width="10"/></label>&nbsp;
-         <input id = "e4" type="radio" name="edgeColor" value="4">
-         <label for="e4"><img src="./palettes/ecolor_4.png" height="25" width="10"/></label>
-         <br><br>
-         Edge thickness
-         <input id="strokeWidth" type="range" min="0" max="6" step="0.2" value="0" class="slider">
-         <a id="showSW"></a>
-         <br><br>
+         <div class="cyo-eyebrow">Algorithmic Art</div>
+         <h1 class="cyo-title">Leaves</h1>
+         <p class="cyo-text">Tune the grid, curve, and palette to grow a leaf pattern.</p>
+         <div class="cyo-stack-sm">
+            <div class="cyo-eyebrow cyo-section-title">Palette</div>
+            <div class="cyo-swatch-grid cyo-swatch-grid--palette">
+               <input id="0" type="radio" name="palette" value="0">
+               <label class="cyo-swatch" for="0"><span class="cyo-swatch-circle" style="background: conic-gradient(rgb(30, 39, 46) 0 20%, rgb(47, 53, 66) 20% 40%, rgb(87, 96, 111) 40% 60%, rgb(164, 176, 190) 60% 80%, rgb(206, 214, 224) 80% 100%);"></span></label>
+               <input id="1" type="radio" name="palette" value="1">
+               <label class="cyo-swatch" for="1"><span class="cyo-swatch-circle" style="background: rgb(48, 53, 66);"></span></label>
+               <input id="2" type="radio" name="palette" value="2">
+               <label class="cyo-swatch" for="2"><span class="cyo-swatch-circle" style="background: conic-gradient(rgb(216, 78, 95) 0 25%, rgb(2, 100, 228) 25% 50%, rgb(47, 77, 71) 50% 75%, rgb(248, 165, 74) 75% 100%);"></span></label>
+               <input id="3" type="radio" name="palette" value="3">
+               <label class="cyo-swatch" for="3"><span class="cyo-swatch-circle" style="background: conic-gradient(rgb(182, 82, 48) 0 50%, rgb(11, 32, 59) 50% 100%);"></span></label>
+               <input id="4" type="radio" name="palette" value="4">
+               <label class="cyo-swatch" for="4"><span class="cyo-swatch-circle" style="background: conic-gradient(rgb(124, 203, 181) 0 20%, rgb(241, 188, 82) 20% 40%, rgb(108, 182, 200) 40% 60%, rgb(186, 183, 175) 60% 80%, rgb(254, 116, 83) 80% 100%);"></span></label>
+               <input id="5" type="radio" name="palette" value="5">
+               <label class="cyo-swatch" for="5"><span class="cyo-swatch-circle" style="background: conic-gradient(rgb(156, 78, 115) 0 20%, rgb(14, 46, 124) 20% 40%, rgb(205, 123, 87) 40% 60%, rgb(89, 172, 146) 60% 80%, rgb(218, 51, 42) 80% 100%);"></span></label>
+               <input id="6" type="radio" name="palette" value="6">
+               <label class="cyo-swatch" for="6"><span class="cyo-swatch-circle" style="background: conic-gradient(rgb(241, 157, 64) 0 20%, rgb(212, 54, 57) 20% 40%, rgb(34, 88, 151) 40% 60%, rgb(97, 194, 182) 60% 80%, rgb(253, 255, 252) 80% 100%);"></span></label>
+               <input id="7" type="radio" name="palette" value="7">
+               <label class="cyo-swatch" for="7"><span class="cyo-swatch-circle" style="background: conic-gradient(#da0424 0 20%, #04da9b 20% 40%, #f9eaa1 40% 60%, #080c9a 60% 80%, #040404 80% 100%);"></span></label>
+               <input id="8" type="radio" name="palette" value="8" checked="checked">
+               <label class="cyo-swatch" for="8"><span class="cyo-swatch-circle" style="background: conic-gradient(#e52547 0 20%, #08413f 20% 40%, #5083bc 40% 60%, #f2e8d2 60% 80%, #41aba7 80% 100%);"></span></label>
+               <input id="9" type="radio" name="palette" value="9">
+               <label class="cyo-swatch" for="9"><span class="cyo-swatch-circle" style="background: conic-gradient(#fc8c54 0 20%, #fa6324 20% 40%, #050505 40% 60%, #eee9e9 60% 80%, #ea30ac 80% 100%);"></span></label>
+               <input id="10" type="radio" name="palette" value="10">
+               <label class="cyo-swatch" for="10"><span class="cyo-swatch-circle" style="background: conic-gradient(#fb0574 0 20%, #f7e40d 20% 40%, #330cd4 40% 60%, #fbfbfb 60% 80%, #9e90dc 80% 100%);"></span></label>
+               <input id="11" type="radio" name="palette" value="11">
+               <label class="cyo-swatch" for="11"><span class="cyo-swatch-circle" style="background: conic-gradient(#f08906 0 20%, #05ac9c 20% 40%, #055ca3 40% 60%, #f7f5c2 60% 80%, #ab1344 80% 100%);"></span></label>
+               <input id="12" type="radio" name="palette" value="12">
+               <label class="cyo-swatch" for="12"><span class="cyo-swatch-circle" style="background: conic-gradient(#048bd3 0 20%, #05649c 20% 40%, #100e14 40% 60%, #f7f19f 60% 80%, #70cb3b 80% 100%);"></span></label>
+            </div>
+         </div>
+         <div class="cyo-control-stack">
+            <div class="cyo-slider-group">
+               <div class="cyo-control-label">
+                  <span class="cyo-control-title">Columns</span>
+                  <span id="showNC" class="cyo-control-value"></span>
+               </div>
+               <input id="numColumns" type="range" min="1" max="50" step="1" value="10" class="slider">
+            </div>
+            <div class="cyo-slider-group">
+               <div class="cyo-control-label">
+                  <span class="cyo-control-title">Rows</span>
+                  <span id="showNR" class="cyo-control-value"></span>
+               </div>
+               <input id="numRows" type="range" min="1" max="50" step="1" value="10" class="slider">
+            </div>
+            <div class="cyo-slider-group">
+               <div class="cyo-control-label">
+                  <span class="cyo-control-title">Irregular grid</span>
+                  <span id="showGN" class="cyo-control-value"></span>
+               </div>
+               <input id="gridNoise" type="range" min="0" max="1" step="0.05" value="0.1" class="slider">
+            </div>
+            <div class="cyo-slider-group">
+               <div class="cyo-control-label">
+                  <span class="cyo-control-title">Height</span>
+                  <span id="showVS" class="cyo-control-value"></span>
+               </div>
+               <input id="verticalSize" type="range" min="0.01" max="1" step="0.01" value="0.25" class="slider">
+            </div>
+            <div class="cyo-slider-group">
+               <div class="cyo-control-label">
+                  <span class="cyo-control-title">Curve 1</span>
+                  <span id="showOL" class="cyo-control-value"></span>
+               </div>
+               <input id="offsetLeft" type="range" min="-1" max="1" step="0.05" value="-0.1" class="slider">
+            </div>
+            <div class="cyo-slider-group">
+               <div class="cyo-control-label">
+                  <span class="cyo-control-title">Curve 2</span>
+                  <span id="showOR" class="cyo-control-value"></span>
+               </div>
+               <input id="offsetRight" type="range" min="-1" max="1" step="0.05" value="0.2" class="slider">
+            </div>
+            <div class="cyo-slider-group">
+               <div class="cyo-control-label">
+                  <span class="cyo-control-title">Drop</span>
+                  <span id="showD" class="cyo-control-value"></span>
+               </div>
+               <input id="drop" type="range" min="0" max="0.95" step="0.05" value="0.2" class="slider">
+            </div>
+            <div class="cyo-slider-group">
+               <div class="cyo-control-label">
+                  <span class="cyo-control-title">Edge color</span>
+               </div>
+               <div class="cyo-swatch-grid cyo-swatch-grid--edge">
+                  <input id="e0" type="radio" name="edgeColor" value="0">
+                  <label class="cyo-swatch cyo-swatch--edge" for="e0"><span class="cyo-swatch-square" style="background: rgb(255, 255, 255);"></span></label>
+                  <input id="e1" type="radio" name="edgeColor" value="1">
+                  <label class="cyo-swatch cyo-swatch--edge" for="e1"><span class="cyo-swatch-square" style="background: rgb(246, 244, 240);"></span></label>
+                  <input id="e2" type="radio" name="edgeColor" value="2">
+                  <label class="cyo-swatch cyo-swatch--edge" for="e2"><span class="cyo-swatch-square" style="background: rgb(244, 239, 220);"></span></label>
+                  <input id="e3" type="radio" name="edgeColor" value="3" checked="checked">
+                  <label class="cyo-swatch cyo-swatch--edge" for="e3"><span class="cyo-swatch-square" style="background: rgb(30, 27, 39);"></span></label>
+                  <input id="e4" type="radio" name="edgeColor" value="4">
+                  <label class="cyo-swatch cyo-swatch--edge" for="e4"><span class="cyo-swatch-square" style="background: rgb(0, 0, 0);"></span></label>
+               </div>
+            </div>
+            <div class="cyo-slider-group">
+               <div class="cyo-control-label">
+                  <span class="cyo-control-title">Edge thickness</span>
+                  <span id="showSW" class="cyo-control-value"></span>
+               </div>
+               <input id="strokeWidth" type="range" min="0" max="6" step="0.2" value="0" class="slider">
+            </div>
+         </div>
          <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
          <script>
             var url_string = window.location.href;
@@ -358,6 +390,8 @@
             });
              
          </script>
+         <div class="cyo-action-stack">
+         <div class="cyo-actions cyo-actions-grid">
          <button type="button" onClick="generate()">Generate</button>
          <script type="text/javascript">
             function generate() {
@@ -371,6 +405,7 @@
             };
          </script>
          <button type="button" onClick="reset()">Reset</button>
+         </div>
          <script type="text/javascript">
             function reset() {
               var url_string = window.location.href;
@@ -409,9 +444,13 @@
               updateTwitter();
             };
          </script>
+         <div class="cyo-actions cyo-actions-grid">
          <a id="download" download="myart.png" target="_blank">
-         <button type="button" onClick="download()">Download</button>
+         <button type="button" onClick="download()">Save PNG</button>
          </a>
+         <button type="button" onClick="postOnX()">Post on X</button>
+         </div>
+         </div>
          <script type="text/javascript">
             function download() {
               var download = document.getElementById("download");
@@ -419,22 +458,19 @@
               download.setAttribute("href", image);
             };
          </script>
-         <!--
-            Share your art! 
-            <a href="#" onclick="javascript:window.location.href='mailto:deviparikh@gmail.com?subject=My art&body=I created this! ' + encodeURIComponent(window.location.href)"> Devi</a>,
-            <a href="#" onclick="javascript:window.location.href='mailto:?subject=My art&body=I created this! %0D%0A%0D%0A' + encodeURIComponent(window.location.href) + '%0D%0A%0D%0A I used an algorithmic art tool by Devi Parikh. It is a lot of fun, you should try it out! %0D%0A%0D%0Ahttps://www.cc.gatech.edu/~parikh/art.html#cyo ' "> a friend</a>, or
-            <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="true">Tweet</a>
-            <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
-            -->
-         <br><br>
-         <a href="../leaves.html"> Inspiration</a>.  <a href="https://twitter.com/share?ref_src=twsrc%5Etfw" class="twitter-share-button" data-show-count="true">Tweet</a> your art.
-         <script async src="https://platform.twitter.com/widgets.js" charset="utf-8"></script>
+         <div class="cyo-note-block">
+            <p class="cyo-legal cyo-note">Not to be used for commercial purposes without prior consent.</p>
+         </div>
          <script>
             updateTwitter();
          </script>
-      </div>
-      <div id="sketch-holder" class="col-sm-1" style="float: left;">
+      </aside>
+      <div class="cyo-canvas-shell">
+      <div id="sketch-holder">
          <script src="leaves.js"></script>
+      </div>
+      </div>
+      </div>
       </div>
       <script>
          (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){

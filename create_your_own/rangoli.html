@@ -1,0 +1,246 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=0, user-scalable=no, minimum-scale=1, maximum-scale=1">
+    <title>Devi Parikh — Rangoli</title>
+    <link rel="icon" type="image/x-icon" href="../static/img/art/rangoli.png">
+    <link href="cyo_site.css" rel="stylesheet" type="text/css">
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/p5.js/1.9.0/p5.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/seedrandom/3.0.5/seedrandom.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+</head>
+<body class="cyo-page-body cyo-rangoli-page">
+    <div class="cyo-page">
+
+        <header class="cyo-topbar">
+            <a href="/art#cyo">Other styles by Devi Parikh</a>
+        </header>
+
+        <div class="cyo-layout">
+
+            <aside class="cyo-stack">
+                <div class="cyo-eyebrow">Algorithmic Art</div>
+                <h1 class="cyo-title">Rangoli</h1>
+                <p class="cyo-text">Type a word — a name, a feeling, today's date — and watch it bloom.</p>
+
+                <input id="rangoliText" class="cyo-input" type="text" placeholder="For whoever needs this" maxlength="40" autocomplete="off"/>
+
+                <div class="cyo-stack-sm">
+                    <span class="cyo-eyebrow cyo-section-title">Palette</span>
+                    <div class="cyo-swatch-grid cyo-swatch-grid--rangoli" id="paletteRow"></div>
+                </div>
+
+                <div class="cyo-stack-sm cyo-slider-group">
+                    <div class="cyo-control-label">
+                        <span class="cyo-control-title">Fold</span>
+                        <span class="cyo-control-value" id="foldVal">12</span>
+                    </div>
+                    <input id="foldSlider" type="range" min="4" max="24" step="2" value="12" class="slider">
+                </div>
+
+                <div class="cyo-stack-sm cyo-slider-group">
+                    <div class="cyo-control-label">
+                        <span class="cyo-control-title">Rings</span>
+                        <span class="cyo-control-value" id="complexityVal">6</span>
+                    </div>
+                    <input id="complexitySlider" type="range" min="3" max="8" step="1" value="6" class="slider">
+                </div>
+
+                <div class="cyo-action-stack cyo-action-stack--offset">
+                    <div class="cyo-actions">
+                        <button class="cyo-btn" onclick="nextVariation()">Generate</button>
+                        <button class="cyo-btn" onclick="restartBloom()">Animate</button>
+                        <button id="resetOverridesBtn" class="cyo-btn" onclick="resetOverrides()" style="display:none;">Restore rings</button>
+                    </div>
+                    <div class="cyo-actions-grid cyo-actions-grid--triple">
+                        <button class="cyo-btn cyo-rangoli-savepng" onclick="downloadPNG()">Save PNG</button>
+                        <button class="cyo-btn cyo-btn-accent cyo-rangoli-savevideo" onclick="startRecording()">Save video</button>
+                        <button class="cyo-btn cyo-rangoli-postx" onclick="postOnX()">Post on X</button>
+                        <span id="recIndicator" class="cyo-status">● recording</span>
+                    </div>
+                </div>
+
+                <p class="cyo-note cyo-note--spaced">
+                    Tip: Click a ring for a random new motif. Press and hold to choose one.
+                </p>
+
+                <p class="cyo-note">
+                    Your rangoli is a deterministic function of what you type — the URL is your seed.
+                </p>
+                <p class="cyo-note">
+                    Not to be used for commercial purposes without prior consent.
+                </p>
+            </aside>
+
+            <div class="cyo-canvas-shell">
+                <div id="sketch-holder"></div>
+            </div>
+
+        </div>
+    </div>
+
+    <!-- Floating motif picker — appears next to the cursor when a ring is pressed -->
+    <div id="motifPicker">
+        <div class="motifOption" data-action="motif" data-motif="petal">petal</div>
+        <div class="motifOption" data-action="motif" data-motif="scallop">scallop</div>
+        <div class="motifOption" data-action="motif" data-motif="spike">spike</div>
+        <div class="motifOption" data-action="motif" data-motif="dotring">dots</div>
+        <div class="motifOption" data-action="motif" data-motif="bigcircle">circle</div>
+        <div class="motifOption" data-action="motif" data-motif="wavy">wavy</div>
+        <div class="motifOption" data-action="motif" data-motif="diamond">diamond</div>
+        <div class="motifOption" data-action="motif" data-motif="leaf">leaf</div>
+        <div class="motifOption" data-action="motif" data-motif="comb">comb</div>
+        <div class="motifOption" data-action="motif" data-motif="chevron">chevron</div>
+        <div class="motifOption" data-action="motif" data-motif="bead">beads</div>
+        <div class="motifOption" data-action="motif" data-motif="star">star</div>
+        <div class="motifOption" data-action="motif" data-motif="doubledot">2&middot;dot</div>
+        <div class="motifOption" data-action="motif" data-motif="flame">flame</div>
+        <div class="motifOption" data-action="random">random</div>
+        <div class="motifOption" data-action="original">original</div>
+    </div>
+
+    <script src="rangoli.js"></script>
+
+    <script>
+        // ---------- Palette swatches ----------
+        // Mirrors the palettes array in rangoli.js for the chip strip
+        const paletteSwatchColors = [
+            ['#E83E8C', '#F4D03F', '#27AE60', '#2E86C1'],
+            ['#D7320F', '#E97219', '#DBC43B', '#343434'],
+            ['#0E2E7C', '#0B8989', '#8F7092', '#49A64C'],
+            ['#7CCBB5', '#F1BC52', '#6CB6C8', '#FE7453'],
+            ['#1A1A1A', '#3C3C3C', '#6E6E6E', '#A0A0A0'],
+            ['#FB0574', '#F7E40D', '#330CD4', '#05AC9C'],
+            ['#B65230', '#0B203B', '#D4A574', '#5A7F4A']
+        ];
+        const row = document.getElementById('paletteRow');
+        paletteSwatchColors.forEach((colors, idx) => {
+            const radio = document.createElement('input');
+            radio.type = 'radio';
+            radio.name = 'palette';
+            radio.value = idx;
+            radio.id = 'p' + idx;
+            if (idx === 0) radio.checked = true;
+            const label = document.createElement('label');
+            label.className = 'cyo-swatch';
+            label.htmlFor = radio.id;
+            const swatch = document.createElement('span');
+            swatch.className = 'cyo-swatch-circle';
+            swatch.style.background = `conic-gradient(${colors[0]} 0 25%, ${colors[1]} 0 50%, ${colors[2]} 0 75%, ${colors[3]} 0 100%)`;
+            label.appendChild(swatch);
+            radio.addEventListener('change', () => {
+                rebuildFromControls();
+                snapToFinal();
+            });
+            row.appendChild(radio);
+            row.appendChild(label);
+        });
+
+        // ---------- Hydrate from URL ----------
+        (function() {
+            const url = new URL(window.location.href);
+            const t = url.searchParams.get('t');
+            const f = url.searchParams.get('f');
+            const c = url.searchParams.get('c');
+            const p = url.searchParams.get('p');
+            const v = url.searchParams.get('v');
+            const o = url.searchParams.get('o');
+            if (t !== null) document.getElementById('rangoliText').value = t;
+            if (f !== null) document.getElementById('foldSlider').value = f;
+            if (c !== null) document.getElementById('complexitySlider').value = c;
+            if (p !== null) {
+                const radio = document.getElementById('p' + p);
+                if (radio) {
+                    document.querySelectorAll('input[name="palette"]').forEach(r => r.checked = false);
+                    radio.checked = true;
+                }
+            }
+            if (v !== null) variationIdx = Math.max(0, Number(v) | 0);
+            if (o !== null) ringOverrides = parseOverrides(o);
+            document.getElementById('foldVal').innerText = document.getElementById('foldSlider').value;
+            document.getElementById('complexityVal').innerText = document.getElementById('complexitySlider').value;
+        })();
+
+        // ---------- Motif picker: hover preview + commit on release ----------
+        function handlePickerPointerMove(clientX, clientY) {
+            if (!pickerActive) return;
+            const el = document.elementFromPoint(clientX, clientY);
+            const opt = el && el.closest ? el.closest('.motifOption') : null;
+            document.querySelectorAll('.motifOption.hovered').forEach(x => x.classList.remove('hovered'));
+            if (opt) {
+                opt.classList.add('hovered');
+                const action = opt.dataset.action;
+                if (action === 'motif') {
+                    previewMotifLive(opt.dataset.motif);
+                } else if (action === 'random') {
+                    previewMotifLive(sessionRandomMotif);
+                } else if (action === 'original') {
+                    const ring = recipe && recipe.rings[pickingRingIdx];
+                    previewMotifLive(ring ? ring.originalType : null);
+                }
+            } else {
+                previewMotifLive(null);
+            }
+        }
+        function handlePickerPointerEnd(clientX, clientY) {
+            if (!pickerActive) return;
+            const el = document.elementFromPoint(clientX, clientY);
+            const opt = el && el.closest ? el.closest('.motifOption') : null;
+            if (opt) {
+                const action = opt.dataset.action;
+                if (action === 'motif') {
+                    closePicker(opt.dataset.motif, 'motif');
+                } else {
+                    closePicker(null, action);
+                }
+            } else {
+                closePicker(null, null);
+            }
+        }
+        document.addEventListener('mousemove', (e) => handlePickerPointerMove(e.clientX, e.clientY));
+        document.addEventListener('mouseup',   (e) => handlePickerPointerEnd(e.clientX, e.clientY));
+        document.addEventListener('touchmove', (e) => {
+            if (!pickerActive) return;
+            const t = e.touches[0]; if (!t) return;
+            e.preventDefault();
+            handlePickerPointerMove(t.clientX, t.clientY);
+        }, { passive: false });
+        document.addEventListener('touchend', (e) => {
+            if (!pickerActive) return;
+            const t = e.changedTouches[0];
+            if (!t) { closePicker(null, null); return; }
+            handlePickerPointerEnd(t.clientX, t.clientY);
+        });
+        document.addEventListener('touchcancel', () => {
+            if (pickerActive) closePicker(null, null);
+        });
+
+        // ---------- Live updates ----------
+        document.getElementById('rangoliText').addEventListener('input', () => {
+            rebuildFromControls();
+            snapToFinal();
+        });
+        document.getElementById('foldSlider').addEventListener('input', (e) => {
+            document.getElementById('foldVal').innerText = e.target.value;
+            rebuildFromControls();
+            snapToFinal();
+        });
+        document.getElementById('complexitySlider').addEventListener('input', (e) => {
+            document.getElementById('complexityVal').innerText = e.target.value;
+            rebuildFromControls();
+            snapToFinal();
+        });
+    </script>
+
+    <script>
+        (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+        (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+        m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+        ga('create', 'UA-119138789-1', 'auto');
+        ga('send', 'pageview');
+    </script>
+</body>
+</html>
