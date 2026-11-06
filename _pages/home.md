@@ -20,10 +20,8 @@ favicon: static/img/deviparikh.png
     <br>
     <a href="mailto:deviparikh.dp@gmail.com"> Email </a>,
     <a href = "{{ site.baseurl }}./bio.html"> Bio </a>,
-    <a href = "{{ site.baseurl }}./Parikh_CV.pdf"> CV </a>
-    <br> 
-    <a href = "{{ site.baseurl }}./previous_life.html"> Previous life </a>,
-    <a href="http://aipaygrad.es">AI Paygrades</a>
+    <a href = "{{ site.baseurl }}./Parikh_CV.pdf"> CV </a>,
+    <a href = "{{ site.baseurl }}./previous_life.html"> Previous life </a>
     
   </div>
   <!-- <div class="col-sm-4"> -->
@@ -58,7 +56,7 @@ favicon: static/img/deviparikh.png
 - 2022: [AudioGen][audiogen-website]. First of its kind text-to-audio generation.
 - 2022: Make-A-Scene. [Greater creative control for AI image generation][make-a-scene-blogpost].
 - 2020: Introducing [Humans of AI: Stories, Not Stats][humanstoriesai]! A series where I interview AI researchers to get to know them better as people.
-- 2020: Introducing [AI Paygrades][aipaygrades]! Statistics of industry job offers in AI. Goal is to reduce information asymmetry so candidates can make informed decisions. Submit your information and spread the word!
+- 2020: Introducing AI Paygrades! Statistics of industry job offers in AI. Goal is to reduce information asymmetry so candidates can make informed decisions. Submit your information and spread the word!
 - 2019: I was added to GASP Gallery's list of artists! It lets you create your own generative art in styles of several artists.
 - 2019: I received the Lockheed Martin Inspirational Young Faculty Award at Georgia Tech.
 - 2019: I got tenure at Georgia Tech. I will be an Associate Professor starting August.
